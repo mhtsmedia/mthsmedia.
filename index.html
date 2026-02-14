@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MTHS Media</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">MTHS Media</div>
+  <nav>
+    <a href="#">Hjem</a>
+    <a href="#">Portfolio</a>
+    <a href="#">Kontakt</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>
+    Markedsføringsstudio for
+    <span class="rotating-text">droneinnhold.</span>
+  </h1>
+  <a href="#" class="btn">Start et samarbeid</a>
+</section>
+
+<section class="services">
+  <div class="card">
+    <h2>Foto</h2>
+    <p>Profesjonelle bilder for merkevarer og sosiale medier.</p>
+  </div>
+
+  <div class="card">
+    <h2>Drone</h2>
+    <p>Luftfoto og video som gir et unikt perspektiv.</p>
+  </div>
+
+  <div class="card">
+    <h2>Content Creation</h2>
+    <p>Innhold optimalisert for Instagram, TikTok og Snapchat.</p>
+  </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const words = [
+    "droneinnhold.",
+    "visuelt innhold.",
+    "content creation.",
+    "sosiale medier."
+  ];
+
+  let i = 0;
+  const element = document.querySelector(".rotating-text");
+
+  function showWord() {
+    element.style.opacity = 0;
+    setTimeout(() => {
+      element.textContent = words[i];
+      element.style.opacity = 1;
+    }, 400);
+
+    setTimeout(() => {
+      i = (i + 1) % words.length;
+      showWord();
+    }, 2000);
+  }
+
+  showWord();
+});
+</script>
+
+</body>
+</html>
