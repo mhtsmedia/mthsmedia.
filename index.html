@@ -127,8 +127,119 @@ nav a:hover {
   background: #1c1c1c;
 }
 
-.card h2 { margin-top: 0; font-size: 24px; color: #fff; }
-.card p { margin-top: 15px; font-size: 16px; line-height: 1.5; color: #ccc; }
+.card h2 { margin-top: 0; font-size: 24px; }
+.card p { margin-top: 15px; font-size: 16px; color: #ccc; }
+
+/* ================= METHOD / PROCESS ================= */
+.method {
+  padding: 120px 8%;
+}
+
+.method__grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 70px;
+  align-items: start;
+}
+
+.method__media {
+  height: 620px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #111;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+}
+
+.method__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.method__kicker {
+  font-size: 12px;
+  letter-spacing: .14em;
+  color: #888;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.method__title {
+  font-size: 50px;
+  line-height: 1.05;
+  margin: 0 0 20px 0;
+}
+
+.method__lead {
+  color: #ccc;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.method__steps {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.step {
+  display: flex;
+  gap: 18px;
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+  transition: all 0.25s ease;
+}
+
+.step:hover {
+  transform: scale(1.03);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.6);
+  border-color: rgba(255,255,255,0.18);
+}
+
+.step__no {
+  color: rgba(255,255,255,0.35);
+  font-weight: bold;
+  width: 40px;
+}
+
+.step__title {
+  margin: 0 0 5px 0;
+  font-size: 18px;
+}
+
+.step__text {
+  margin: 0;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.method__cta {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 18px;
+  background: white;
+  color: black;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 980px) {
+  .method__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .method__media {
+    height: 360px;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+  }
+}
 </style>
 </head>
 
@@ -136,12 +247,11 @@ nav a:hover {
 
 <header>
   <div class="logo">MTHS Media</div>
-<nav>
-  <a href="index.html">Hjem</a>
-  <a href="services.html">Tjenester</a>
-  <a href="contact.html">Kontakt</a>
-</nav>
-
+  <nav>
+    <a href="index.html">Hjem</a>
+    <a href="services.html">Tjenester</a>
+    <a href="contact.html">Kontakt</a>
+  </nav>
 </header>
 
 <section class="hero">
@@ -154,78 +264,59 @@ nav a:hover {
 </section>
 
 <section class="services">
-  <div class="card" onclick="gotoService('foto')"> 
-    <h2>Foto</h2>
-    <p>Profesjonelle bilder for merkevarer og sosiale medier.</p>
-  </div>
-  <div class="card" onclick="gotoService('drone')"> 
-    <h2>Drone</h2>
-    <p>Luftfoto og video som gir et unikt perspektiv.</p>
-  </div>
-  <div class="card" onclick="gotoService('content')"> 
-    <h2>Content Creation</h2>
-    <p>Innhold optimalisert for Instagram, TikTok og Snapchat.</p>
-  </div>
+  <div class="card"><h2>Foto</h2><p>Profesjonelle bilder for merkevarer.</p></div>
+  <div class="card"><h2>Drone</h2><p>Luftfoto og video fra nye perspektiver.</p></div>
+  <div class="card"><h2>Content</h2><p>Innhold for sosiale medier.</p></div>
 </section>
 
 <section class="method">
   <div class="method__grid">
-    <!-- VENSTRE: BILDE -->
+
     <div class="method__media">
       <img src="eks3.jpg" alt="Produksjon">
     </div>
 
-    <!-- HØYRE: TEKST + STEG -->
     <div class="method__content">
       <div class="method__kicker">VÅR METODE</div>
       <h2 class="method__title">
-        Der strategi møter kreativitet – og ideer blir til resultater.
+        Der strategi møter kreativitet.
       </h2>
       <p class="method__lead">
-        Gjennom en tydelig og effektiv prosess hjelper vi deg å skape innhold som engasjerer og konverterer.
-        Hvert prosjekt starter med innsikt – og ender med resultater som varer.
+        Vi følger en strukturert prosess for å sikre kvalitet i alle ledd.
       </p>
 
       <div class="method__steps">
-        <article class="step">
+        <div class="step">
           <div class="step__no">01</div>
-          <div class="step__body">
-            <h3 class="step__title">Oppdagelse</h3>
-            <p class="step__text">
-              Vi forstår mål, publikum og retning. Innsikt og plan legger grunnlaget for alt vi gjør.
-            </p>
+          <div>
+            <div class="step__title">Oppdagelse</div>
+            <div class="step__text">Vi forstår mål og retning.</div>
           </div>
-        </article>
+        </div>
 
-        <article class="step">
+        <div class="step">
           <div class="step__no">02</div>
-          <div class="step__body">
-            <h3 class="step__title">Konsept</h3>
-            <p class="step__text">
-              Vi utvikler idé, storyboard og uttrykk som passer merkevaren og kanalene dere skal bruke.
-            </p>
+          <div>
+            <div class="step__title">Konsept</div>
+            <div class="step__text">Vi utvikler idé og uttrykk.</div>
           </div>
-        </article>
+        </div>
 
-        <article class="step">
+        <div class="step">
           <div class="step__no">03</div>
-          <div class="step__body">
-            <h3 class="step__title">Produksjon</h3>
-            <p class="step__text">
-              Film, foto og drone produseres effektivt – med høy kvalitet og fokus på detaljer.
-            </p>
+          <div>
+            <div class="step__title">Produksjon</div>
+            <div class="step__text">Vi produserer innhold.</div>
           </div>
-        </article>
+        </div>
 
-        <article class="step">
+        <div class="step">
           <div class="step__no">04</div>
-          <div class="step__body">
-            <h3 class="step__title">Leveranse</h3>
-            <p class="step__text">
-              Ferdigstilt innhold leveres i riktige formater, optimalisert for plattformene deres.
-            </p>
+          <div>
+            <div class="step__title">Leveranse</div>
+            <div class="step__text">Optimalisert ferdig produkt.</div>
           </div>
-        </article>
+        </div>
       </div>
 
       <a class="method__cta" href="contact.html">Start et prosjekt</a>
@@ -233,72 +324,25 @@ nav a:hover {
   </div>
 </section>
 
-
-
-
-
-
-
-  
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+  const words = ["droneinnhold.", "visuelt innhold.", "branding."];
+  let i = 0;
+  const el = document.querySelector(".rotating-text");
 
-  /* ===== TEKST (skifter hvert sekund) ===== */
-  const words = [
-    "droneinnhold.",
-    "visuelt innhold.",
-    "content creation.",
-    "sosiale medier.",
-    "branding."
-  ];
-
-  let t = 0;
-  const textEl = document.querySelector(".rotating-text");
-
-  function changeText() {
-    textEl.style.opacity = 0;
+  function rotate() {
+    el.style.opacity = 0;
     setTimeout(() => {
-      textEl.textContent = words[t];
-      textEl.style.opacity = 1;
-      t = (t + 1) % words.length;
+      el.textContent = words[i];
+      el.style.opacity = 1;
+      i = (i + 1) % words.length;
     }, 300);
   }
 
-  textEl.textContent = words[0];
-  textEl.style.opacity = 1;
-  setInterval(changeText, 1000);
-
-  /* ===== VIDEO (spiller ferdig før neste) ===== */
-  const videos = [
-    "hero1.mp4",
-    "hero2.mp4",
-    "hero3.mp4",
-    "hero4.mp4",
-    "hero5.mp4"
-  ];
-
-  let v = 0;
-  const heroVideo = document.querySelector(".hero-video");
-
-  function playNextVideo() {
-    heroVideo.src = videos[v];
-    heroVideo.load();
-    heroVideo.play();
-
-    heroVideo.onended = () => {
-      v = (v + 1) % videos.length;
-      playNextVideo();
-    }
-  }
-
-  playNextVideo();
-
+  el.textContent = words[0];
+  el.style.opacity = 1;
+  setInterval(rotate, 1200);
 });
-
-/* ===== FUNKSJON FOR Å GÅ TIL SERVICES MED HASH ===== */
-function gotoService(section) {
-  window.location.href = `services.html#${section}`;
-}
 </script>
 
 </body>
