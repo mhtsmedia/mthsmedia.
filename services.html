@@ -3,84 +3,153 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tjenester</title>
+<title>MTHS Media - Tjenester</title>
 <style>
-body { margin:0; font-family: Arial, sans-serif; background:#f5f5f5; color:#000; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f0f0f;
+  color: white;
+  overflow-x: hidden;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 8%;
+  border-bottom: 1px solid #1f1f1f;
+  background: #0f0f0f;
+}
+.logo { font-size: 20px; font-weight: 600; }
+nav a { color: #aaa; text-decoration: none; margin-left: 30px; transition: 0.3s; }
+nav a:hover { color: white; }
 
 .section {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  padding: 80px 8%;
+  padding: 100px 8%;
   gap: 40px;
 }
 
-.section:nth-child(even) { flex-direction: row-reverse; }
+.section:nth-child(even) {
+  flex-direction: row-reverse;
+}
 
 .section img {
-  max-width: 40%;
+  max-width: 500px;
+  width: 100%;
   border-radius: 12px;
 }
 
-.section-text {
-  max-width: 50%;
+.section-content {
+  flex: 1;
+  min-width: 300px;
 }
 
-.section-text h2 { margin-top:0; font-size: 32px; }
-.section-text p { font-size: 18px; line-height: 1.6; }
+.section-content h3 {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #aaa;
+  margin: 0 0 10px 0;
+}
 
-.start-project-btn {
-  display: block;
-  margin: 50px auto;
-  padding: 20px 40px;
-  background: #fff;
-  color: #000;
+.section-content h2 {
+  font-size: 36px;
+  margin: 0 0 20px 0;
+}
+
+.section-content p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: white;
+  color: black;
   text-decoration: none;
   font-weight: bold;
-  border-radius: 8px;
-  text-align: center;
-  width: fit-content;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.btn:hover { background: #ccc; }
+
+.info-icons {
+  display: flex;
+  gap: 50px;
+  margin-top: 40px;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.info-item p {
+  margin: 0;
+  font-size: 14px;
+  color: #ccc;
 }
 </style>
 </head>
 <body>
 
+<header>
+  <div class="logo">MTHS Media</div>
+  <nav>
+    <a href="index.html">Hjem</a>
+    <a href="#">Portfolio</a>
+    <a href="#">Kontakt</a>
+  </nav>
+</header>
+
+<!-- FOTO -->
 <section class="section" id="foto">
   <img src="foto.jpg" alt="Foto">
-  <div class="section-text">
-    <h2>Foto</h2>
-    <p>Profesjonelle bilder for merkevarer og sosiale medier.</p>
+  <div class="section-content">
+    <h3>Film & Foto</h3>
+    <h2>Fra idé til ferdig film og bilde</h2>
+    <p>Vi produserer reklamefilmer, bedriftsvideoer, foto og digitalt innhold som engasjerer – fra konsept til ferdig levering, for både sosiale medier, kino og TV.</p>
+    <a href="contact.html#foto" class="btn">Start et prosjekt</a>
+
+    <div class="info-icons">
+      <div class="info-item">
+        🎥 <p>Kreativ Utførelse<br>Bedriftspresentasjoner, employer branding-videoer og profesjonell fotografering.</p>
+      </div>
+      <div class="info-item">
+        ✔️ <p>Målbare Resultater<br>Innholdsproduksjon (video og foto) for sosiale medier (Reels, TikToks, etc.).</p>
+      </div>
+    </div>
   </div>
 </section>
 
+<!-- DRONE -->
 <section class="section" id="drone">
   <img src="drone.jpg" alt="Drone">
-  <div class="section-text">
-    <h2>Drone</h2>
-    <p>Luftfoto og video som gir et unikt perspektiv.</p>
+  <div class="section-content">
+    <h3>Drone</h3>
+    <h2>Luftfoto og video fra nye perspektiver</h2>
+    <p>Vi tar høy kvalitet luftfoto og video som gir et unikt og engasjerende perspektiv på ditt prosjekt. Perfekt for reklame, eiendom eller dokumentasjon.</p>
+    <a href="contact.html#drone" class="btn">Start et prosjekt</a>
   </div>
 </section>
 
+<!-- CONTENT -->
 <section class="section" id="content">
   <img src="content.jpg" alt="Content Creation">
-  <div class="section-text">
-    <h2>Content Creation</h2>
-    <p>Innhold optimalisert for Instagram, TikTok og Snapchat.</p>
+  <div class="section-content">
+    <h3>Content Creation</h3>
+    <h2>Innhold optimalisert for sosiale medier</h2>
+    <p>Vi lager visuelt engasjerende innhold for Instagram, TikTok og Snapchat med fokus på målgruppen din og optimal rekkevidde.</p>
+    <a href="contact.html#content" class="btn">Start et prosjekt</a>
   </div>
 </section>
-
-<a class="start-project-btn" href="contact.html">Start et prosjekt</a>
-
-<script>
-// Scroll til seksjon hvis det er hash i URL
-window.addEventListener('load', () => {
-  const hash = window.location.hash;
-  if(hash) {
-    const target = document.querySelector(hash);
-    if(target) target.scrollIntoView({behavior: 'smooth'});
-  }
-});
-</script>
 
 </body>
 </html>
