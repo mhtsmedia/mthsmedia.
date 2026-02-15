@@ -12,7 +12,6 @@ body {
   font-family: Arial, sans-serif;
   background: #0f0f0f;
   color: white;
-  overflow-x: hidden;
 }
 
 /* ================= HEADER ================= */
@@ -48,44 +47,34 @@ nav a:hover {
 .hero {
   position: relative;
   padding: 160px 8%;
+  max-width: 1200px;
+  height: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  max-width: 1200px;
-  height: 80vh;
   overflow: hidden;
 }
 
-.hero-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-}
-
 .hero h1 {
-  position: relative;
   font-size: 56px;
   line-height: 1.2;
   max-width: 800px;
-  z-index: 1;
+  position: relative;
+  z-index: 2;
 }
 
 .rotating-text {
-  padding-left: 10px;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
   display: inline-block;
+  padding-left: 10px;
   min-width: 200px;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+  color: white;
+  position: relative;
+  z-index: 2;
 }
 
 .btn {
-  position: relative;
-  z-index: 1;
   display: inline-block;
   margin-top: 40px;
   padding: 15px 30px;
@@ -95,10 +84,24 @@ nav a:hover {
   font-weight: bold;
   border-radius: 6px;
   transition: 0.3s;
+  position: relative;
+  z-index: 2;
 }
 
 .btn:hover {
   background: #ccc;
+}
+
+/* ================= VIDEO BACKGROUND ================= */
+.hero video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  opacity: 0.5;
 }
 
 /* ================= SERVICES ================= */
@@ -120,7 +123,7 @@ nav a:hover {
 }
 
 .card:hover {
-  transform: translateY(-5px) scale(1.05);
+  transform: scale(1.05);
   background: #1c1c1c;
 }
 
@@ -151,7 +154,9 @@ nav a:hover {
 </header>
 
 <section class="hero">
-  <video class="hero-video" muted autoplay playsinline></video>
+  <video id="heroVideo" autoplay muted loop>
+    <source src="video1.mp4" type="video/mp4">
+  </video>
   <h1>
     Markedsføringsstudio for
     <span class="rotating-text">droneinnhold.</span>
@@ -179,7 +184,6 @@ nav a:hover {
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-  /* ===== TEKST (skifter hvert sekund) ===== */
   const words = [
     "droneinnhold.",
     "visuelt innhold.",
@@ -188,8 +192,10 @@ document.addEventListener("DOMContentLoaded", function () {
     "branding."
   ];
 
-  let t = 0;
+  let t = 1; // start på andre ord for å unngå duplikat
   const textEl = document.querySelector(".rotating-text");
+  textEl.textContent = words[0];
+  textEl.style.opacity = 1;
 
   function changeText() {
     textEl.style.opacity = 0;
@@ -200,34 +206,25 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 300);
   }
 
-  textEl.textContent = words[0];
-  textEl.style.opacity = 1;
-  setInterval(changeText, 1000);
+  setInterval(changeText, 1000); // endre hvert sekund
 
-  /* ===== VIDEO (spiller ferdig før neste) ===== */
+  // HERO VIDEO ROTASJON
   const videos = [
-    "hero1.mp4",
-    "hero2.mp4",
-    "hero3.mp4",
-    "hero4.mp4",
-    "hero5.mp4"
+    "video1.mp4",
+    "video2.mp4",
+    "video3.mp4",
+    "video4.mp4",
+    "video5.mp4"
   ];
 
+  const heroVideo = document.getElementById("heroVideo");
   let v = 0;
-  const heroVideo = document.querySelector(".hero-video");
 
-  function playNextVideo() {
+  heroVideo.addEventListener("ended", () => {
+    v = (v + 1) % videos.length;
     heroVideo.src = videos[v];
-    heroVideo.load();
     heroVideo.play();
-
-    heroVideo.onended = () => {
-      v = (v + 1) % videos.length;
-      playNextVideo();
-    }
-  }
-
-  playNextVideo();
+  });
 
 });
 </script>
