@@ -200,3 +200,82 @@ nav a:hover {
     text-align: center;
   }
 }
+
+/* =================== PROSESS-SEKSJON =================== */
+.process-section {
+  padding: 100px 8%;
+  display: flex;
+  justify-content: center;
+}
+
+.process-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+/* VENSTRE BILDE */
+.process-image {
+  flex: 1;
+  min-width: 300px;
+}
+
+.process-image img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* HØYRE STEG */
+.process-steps {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 300px;
+}
+
+/* STEG-BOKSER */
+.step-card {
+  background: #151515;
+  padding: 25px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.step-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+
+.step-card h3 {
+  margin-top: 0;
+  font-size: 20px;
+  color: #00e5ff;
+}
+
+.step-card p {
+  font-size: 16px;
+  color: #ccc;
+  margin: 10px 0 0 0;
+}
+
+/* OMVENDT LAYOUT */
+.process-section.reverse .process-container {
+  flex-direction: row-reverse;
+}
+
+/* RESPONSIV */
+@media (max-width: 900px) {
+  .process-container {
+    flex-direction: column !important;
+    gap: 40px;
+  }
+  .process-steps, .process-image {
+    min-width: 100%;
+  }
+}
+
