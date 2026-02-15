@@ -494,3 +494,14 @@ nav a:hover{ color:#fff; }
   display:block !important;
   position:static !important;
 }
+
+/* FIX: sørg for at tekst på hvit knapp alltid vises */
+a.btn,
+a.btn:visited{
+  color: #000 !important;
+}
+
+a.btn:hover{
+  color: #000 !important;
+}
+
