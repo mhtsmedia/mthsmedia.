@@ -319,38 +319,36 @@ nav a:hover {
         </div>
       </div>
 
- <section class="showcase">
-  <div class="showcase__head">
-    <div>
-      <div class="showcase__kicker">UTVALG</div>
-      <h2 class="showcase__title">Utvalgte klipp</h2>
-    </div>
+<section class="bts" id="bts">
+  <div class="bts__head">
+    <div class="bts__kicker">BAK KULISSENE</div>
+    <h2 class="bts__title">Bli med oss på shoot.</h2>
+    <p class="bts__lead">Små øyeblikk fra produksjon – fra idé til ferdig klipp.</p>
   </div>
 
-  <div class="showcase__track">
+  <div class="bts__row" id="btsRow">
+    <div class="bts__card"><video src="hero1.mp4" muted autoplay loop playsinline preload="metadata"></video></div>
+    <div class="bts__card"><video src="hero2.mp4" muted autoplay loop playsinline preload="metadata"></video></div>
+    <div class="bts__card"><video src="hero3.mp4" muted autoplay loop playsinline preload="metadata"></video></div>
+    <div class="bts__card"><video src="hero4.mp4" muted autoplay loop playsinline preload="metadata"></video></div>
+    <div class="bts__card"><video src="hero5.mp4" muted autoplay loop playsinline preload="metadata"></video></div>
+  </div>
 
-    <div class="showcase__item">
-      <video src="hero1.mp4" muted autoplay loop playsinline></video>
-    </div>
-
-    <div class="showcase__item">
-      <video src="hero2.mp4" muted autoplay loop playsinline></video>
-    </div>
-
-    <div class="showcase__item">
-      <video src="hero3.mp4" muted autoplay loop playsinline></video>
-    </div>
-
-    <div class="showcase__item">
-      <video src="hero4.mp4" muted autoplay loop playsinline></video>
-    </div>
-
-    <div class="showcase__item">
-      <video src="hero5.mp4" muted autoplay loop playsinline></video>
-    </div>
-
+  <!-- valgfritt: piler -->
+  <div class="bts__arrows">
+    <button class="bts__btn" onclick="scrollBts(-1)">‹</button>
+    <button class="bts__btn" onclick="scrollBts(1)">›</button>
   </div>
 </section>
+
+<script>
+function scrollBts(dir){
+  const row = document.getElementById("btsRow");
+  if(!row) return;
+  row.scrollBy({ left: dir * 420, behavior: "smooth" });
+}
+</script>
+
 
   
 <script>
