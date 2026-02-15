@@ -1,268 +1,236 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MTHS Media</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MTHS Media</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f0f0f;
-      color: white;
-    }
+<style>
+/* ================= GENERAL ================= */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f0f0f;
+  color: white;
+  overflow-x: hidden;
+}
 
-    /* ================= HEADER ================= */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 8%;
-      background: rgba(15, 15, 15, 0.6);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
+/* ================= HEADER ================= */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 8%;
+  border-bottom: 1px solid #1f1f1f;
+  position: sticky;
+  top: 0;
+  background: #0f0f0f;
+  z-index: 1000;
+}
 
-    .logo {
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-    }
+.logo {
+  font-size: 20px;
+  font-weight: 600;
+}
 
-    nav a {
-      color: #aaa;
-      text-decoration: none;
-      margin-left: 28px;
-      transition: 0.3s;
-      font-size: 14px;
-    }
+nav a {
+  color: #aaa;
+  text-decoration: none;
+  margin-left: 30px;
+  transition: 0.3s;
+}
 
-    nav a:hover {
-      color: white;
-    }
+nav a:hover {
+  color: white;
+}
 
-    /* ================= HERO ================= */
-    .hero {
-      position: relative;
-      height: 100vh;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      padding: 0 8%;
-    }
+/* ================= HERO ================= */
+.hero {
+  position: relative;
+  padding: 160px 8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 1200px;
+  height: 80vh;
+  overflow: hidden;
+}
 
-    .hero-video {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      min-width: 100%;
-      min-height: 100%;
-      transform: translate(-50%, -50%);
-      object-fit: cover;
-      z-index: 1;
-      opacity: 0;
-      transition: opacity 0.8s ease;
-    }
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
 
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.55);
-      z-index: 2;
-    }
+.hero h1 {
+  position: relative;
+  font-size: 56px;
+  line-height: 1.2;
+  max-width: 800px;
+  z-index: 1;
+}
 
-    .hero-content {
-      position: relative;
-      z-index: 3;
-      max-width: 900px;
-      padding-top: 70px;
-    }
+.rotating-text {
+  padding-left: 10px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  display: inline-block;
+  min-width: 200px;
+}
 
-    .hero h1 {
-      font-size: 56px;
-      line-height: 1.15;
-      margin: 0;
-    }
+.btn {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  margin-top: 40px;
+  padding: 15px 30px;
+  background: white;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: 0.3s;
+}
 
-    .rotating-text {
-      display: inline-block;
-      padding-left: 10px;
-      min-width: 240px;
-      opacity: 0;
-      transition: opacity 0.8s ease;
-    }
+.btn:hover {
+  background: #ccc;
+}
 
-    .btn {
-      display: inline-block;
-      margin-top: 35px;
-      padding: 15px 28px;
-      background: white;
-      color: black;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 10px;
-      transition: 0.25s;
-    }
+/* ================= SERVICES ================= */
+.services {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 100px 8%;
+}
 
-    .btn:hover {
-      transform: scale(1.05);
-      background: #ddd;
-    }
+.card {
+  flex: 1 1 300px;
+  background: #151515;
+  padding: 40px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
 
-    /* ================= SERVICES ================= */
-    .services {
-      display: flex;
-      justify-content: space-between;
-      gap: 30px;
-      padding: 100px 8%;
-      flex-wrap: wrap;
-      background: #0f0f0f;
-    }
+.card:hover {
+  transform: translateY(-5px) scale(1.05);
+  background: #1c1c1c;
+}
 
-    .card {
-      flex: 1 1 300px;
-      background: #151515;
-      padding: 50px 30px;
-      border-radius: 14px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-      transition: all 0.3s ease;
-      text-align: center;
-    }
+.card h2 {
+  margin-top: 0;
+  font-size: 24px;
+  color: #fff;
+}
 
-    .card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.55);
-    }
-
-    .card h2 {
-      margin-top: 0;
-      font-size: 26px;
-      color: #fff;
-    }
-
-    .card p {
-      margin-top: 15px;
-      font-size: 16px;
-      line-height: 1.6;
-      color: #ccc;
-    }
-
-    /* ================= MOBILE ================= */
-    @media (max-width: 900px) {
-      .hero h1 {
-        font-size: 38px;
-      }
-
-      nav {
-        display: none;
-      }
-
-      .services {
-        padding: 70px 8%;
-      }
-    }
-  </style>
+.card p {
+  margin-top: 15px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #ccc;
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">MTHS Media</div>
-    <nav>
-      <a href="#home">Hjem</a>
-      <a href="#services">Tjenester</a>
-      <a href="#kontakt">Kontakt</a>
-    </nav>
-  </header>
+<header>
+  <div class="logo">MTHS Media</div>
+  <nav>
+    <a href="#">Hjem</a>
+    <a href="#">Portfolio</a>
+    <a href="#">Kontakt</a>
+  </nav>
+</header>
 
-  <section class="hero" id="home">
-    <video class="hero-video" autoplay loop muted playsinline></video>
-    <div class="hero-overlay"></div>
+<section class="hero">
+  <video class="hero-video" muted autoplay playsinline></video>
+  <h1>
+    Markedsføringsstudio for
+    <span class="rotating-text">droneinnhold.</span>
+  </h1>
+  <a href="#" class="btn">Start et samarbeid</a>
+</section>
 
-    <div class="hero-content">
-      <h1>
-        Markedsføringsstudio for
-        <span class="rotating-text">droneinnhold.</span>
-      </h1>
-      <a href="#kontakt" class="btn">Start et samarbeid</a>
-    </div>
-  </section>
+<section class="services">
+  <div class="card">
+    <h2>Foto</h2>
+    <p>Profesjonelle bilder for merkevarer og sosiale medier.</p>
+  </div>
 
-  <section class="services" id="services">
-    <div class="card">
-      <h2>Foto</h2>
-      <p>Profesjonelle bilder for merkevarer, kampanjer og sosiale medier.</p>
-    </div>
+  <div class="card">
+    <h2>Drone</h2>
+    <p>Luftfoto og video som gir et unikt perspektiv.</p>
+  </div>
 
-    <div class="card">
-      <h2>Drone</h2>
-      <p>Luftfoto og video som gir et unikt og premium perspektiv.</p>
-    </div>
+  <div class="card">
+    <h2>Content Creation</h2>
+    <p>Innhold optimalisert for Instagram, TikTok og Snapchat.</p>
+  </div>
+</section>
 
-    <div class="card">
-      <h2>Content Creation</h2>
-      <p>Innhold optimalisert for Instagram, TikTok, Snapchat og nettsider.</p>
-    </div>
-  </section>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
+  /* ===== TEKST (skifter hvert sekund) ===== */
+  const words = [
+    "droneinnhold.",
+    "visuelt innhold.",
+    "content creation.",
+    "sosiale medier.",
+    "branding."
+  ];
 
-      // 5 tekster + 5 videoer (1 til 1)
-      const slides = [
-        { text: "droneinnhold.", video: "hero5.mp4" },
-        { text: "visuelt innhold.", video: "hero4.mp4" },
-        { text: "content creation.", video: "hero3.mp4" },
-        { text: "sosiale medier.", video: "hero2.mp4" },
-        { text: "branding.", video: "hero1.mp4" }
-      ];
+  let t = 0;
+  const textEl = document.querySelector(".rotating-text");
 
-      let i = 0;
-      const textEl = document.querySelector(".rotating-text");
-      const heroVideo = document.querySelector(".hero-video");
-
-      function changeSlide() {
-        // fade ut
-        textEl.style.opacity = 0;
-        heroVideo.style.opacity = 0;
-
-        setTimeout(() => {
-          // bytt tekst
-          textEl.textContent = slides[i].text;
-
-          // bytt video
-          heroVideo.src = slides[i].video;
-          heroVideo.load();
-          heroVideo.play();
-
-          // fade inn
-          textEl.style.opacity = 1;
-          heroVideo.style.opacity = 1;
-
-          // neste
-          i = (i + 1) % slides.length;
-        }, 600);
-      }
-
-      // Start første slide
-      heroVideo.src = slides[0].video;
-      heroVideo.load();
-      heroVideo.play();
-
-      textEl.textContent = slides[0].text;
+  function changeText() {
+    textEl.style.opacity = 0;
+    setTimeout(() => {
+      textEl.textContent = words[t];
       textEl.style.opacity = 1;
-      heroVideo.style.opacity = 1;
+      t = (t + 1) % words.length;
+    }, 300);
+  }
 
-      // Bytt hver 5 sekund
-      setInterval(changeSlide, 5000);
-    });
-  </script>
+  textEl.textContent = words[0];
+  textEl.style.opacity = 1;
+  setInterval(changeText, 1000);
+
+  /* ===== VIDEO (spiller ferdig før neste) ===== */
+  const videos = [
+    "hero1.mp4",
+    "hero2.mp4",
+    "hero3.mp4",
+    "hero4.mp4",
+    "hero5.mp4"
+  ];
+
+  let v = 0;
+  const heroVideo = document.querySelector(".hero-video");
+
+  function playNextVideo() {
+    heroVideo.src = videos[v];
+    heroVideo.load();
+    heroVideo.play();
+
+    heroVideo.onended = () => {
+      v = (v + 1) % videos.length;
+      playNextVideo();
+    }
+  }
+
+  playNextVideo();
+
+});
+</script>
 
 </body>
 </html>
