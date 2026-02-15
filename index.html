@@ -53,32 +53,55 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  const words = [
-    "droneinnhold.",
-    "visuelt innhold.",
-    "content creation.",
-    "sosiale medier."
+
+  // 5 tekster + 5 videoer (matcher 1 til 1)
+  const slides = [
+    { text: "droneinnhold.", video: "hero1.mp4" },
+    { text: "visuelt innhold.", video: "hero2.mp4" },
+    { text: "content creation.", video: "hero3.mp4" },
+    { text: "sosiale medier.", video: "hero4.mp4" },
+    { text: "branding.", video: "hero5.mp4" }
   ];
 
   let i = 0;
-  const element = document.querySelector(".rotating-text");
+  const textEl = document.querySelector(".rotating-text");
+  const heroVideo = document.querySelector(".hero-video");
 
-  function showWord() {
-    element.style.opacity = 0;
-    setTimeout(() => {
-      element.textContent = words[i];
-      element.style.opacity = 1;
-    }, 400);
+  function changeSlide() {
+    // fade ut
+    textEl.style.opacity = 0;
+    heroVideo.style.opacity = 0;
 
     setTimeout(() => {
-      i = (i + 1) % words.length;
-      showWord();
-    }, 2000);
+      // bytt tekst
+      textEl.textContent = slides[i].text;
+
+      // bytt video
+      heroVideo.src = slides[i].video;
+      heroVideo.load();
+      heroVideo.play();
+
+      // fade inn
+      textEl.style.opacity = 1;
+      heroVideo.style.opacity = 1;
+
+      // neste
+      i = (i + 1) % slides.length;
+    }, 500);
   }
 
-  showWord();
+  // start første slide
+  heroVideo.src = slides[0].video;
+  heroVideo.play();
+  textEl.textContent = slides[0].text;
+  textEl.style.opacity = 1;
+  heroVideo.style.opacity = 1;
+
+  // bytt hver 4 sekund (du kan endre)
+  setInterval(changeSlide, 4000);
 });
 </script>
+
 
 </body>
 </html>
