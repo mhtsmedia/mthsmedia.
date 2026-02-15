@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tjenester</title>
+<style>
+body { margin:0; font-family: Arial, sans-serif; background:#f5f5f5; color:#000; }
+
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 8%;
+  gap: 40px;
+}
+
+.section:nth-child(even) { flex-direction: row-reverse; }
+
+.section img {
+  max-width: 40%;
+  border-radius: 12px;
+}
+
+.section-text {
+  max-width: 50%;
+}
+
+.section-text h2 { margin-top:0; font-size: 32px; }
+.section-text p { font-size: 18px; line-height: 1.6; }
+
+.start-project-btn {
+  display: block;
+  margin: 50px auto;
+  padding: 20px 40px;
+  background: #fff;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  text-align: center;
+  width: fit-content;
+}
+</style>
+</head>
+<body>
+
+<section class="section" id="foto">
+  <img src="foto.jpg" alt="Foto">
+  <div class="section-text">
+    <h2>Foto</h2>
+    <p>Profesjonelle bilder for merkevarer og sosiale medier.</p>
+  </div>
+</section>
+
+<section class="section" id="drone">
+  <img src="drone.jpg" alt="Drone">
+  <div class="section-text">
+    <h2>Drone</h2>
+    <p>Luftfoto og video som gir et unikt perspektiv.</p>
+  </div>
+</section>
+
+<section class="section" id="content">
+  <img src="content.jpg" alt="Content Creation">
+  <div class="section-text">
+    <h2>Content Creation</h2>
+    <p>Innhold optimalisert for Instagram, TikTok og Snapchat.</p>
+  </div>
+</section>
+
+<a class="start-project-btn" href="contact.html">Start et prosjekt</a>
+
+<script>
+// Scroll til seksjon hvis det er hash i URL
+window.addEventListener('load', () => {
+  const hash = window.location.hash;
+  if(hash) {
+    const target = document.querySelector(hash);
+    if(target) target.scrollIntoView({behavior: 'smooth'});
+  }
+});
+</script>
+
+</body>
+</html>
