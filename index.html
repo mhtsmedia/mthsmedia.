@@ -6,7 +6,6 @@
 <title>MTHS Media</title>
 
 <style>
-/* ================= GENERAL ================= */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -14,7 +13,7 @@ body {
   color: white;
 }
 
-/* ================= HEADER ================= */
+/* HEADER */
 header {
   display: flex;
   justify-content: space-between;
@@ -27,30 +26,24 @@ header {
   z-index: 1000;
 }
 
-.logo {
-  font-size: 20px;
-  font-weight: 600;
-}
-
+.logo { font-size: 20px; font-weight: 600; }
 nav a {
   color: #aaa;
   text-decoration: none;
   margin-left: 30px;
   transition: 0.3s;
 }
+nav a:hover { color: white; }
 
-nav a:hover {
-  color: white;
-}
-
-/* ================= HERO ================= */
+/* HERO */
 .hero {
   position: relative;
   padding: 160px 8%;
-  height: 500px;
+  min-height: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
   overflow: hidden;
 }
 
@@ -75,8 +68,8 @@ nav a:hover {
 
 .btn {
   display: inline-block;
-  margin-top: 40px;
-  padding: 15px 30px;
+  margin-top: 30px;
+  padding: 15px 35px;
   background: white;
   color: black;
   text-decoration: none;
@@ -85,13 +78,12 @@ nav a:hover {
   transition: 0.3s;
   position: relative;
   z-index: 2;
+  width: auto;
+  text-align: center;
 }
+.btn:hover { background: #ccc; }
 
-.btn:hover {
-  background: #ccc;
-}
-
-/* ================= VIDEO BACKGROUND ================= */
+/* VIDEO BACKGROUND */
 .hero video {
   position: absolute;
   top: 0;
@@ -103,7 +95,7 @@ nav a:hover {
   opacity: 0.5;
 }
 
-/* ================= SERVICES ================= */
+/* SERVICES */
 .services {
   display: flex;
   justify-content: space-between;
@@ -113,45 +105,24 @@ nav a:hover {
 }
 
 .card {
-  flex: 1 1 calc(33% - 20px); /* 3 bokser per rad med gap */
-  min-width: 250px; /* passer mobil */
+  flex: 0 0 calc(33.33% - 20px);
+  min-width: 250px;
   background: #151515;
   padding: 40px;
   border-radius: 12px;
   transition: all 0.3s ease;
   box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
-
 .card:hover {
   transform: scale(1.05);
   background: #1c1c1c;
 }
+.card h2 { margin-top: 0; font-size: 24px; color: #fff; }
+.card p { margin-top: 15px; font-size: 16px; line-height: 1.5; color: #ccc; }
 
-.card h2 {
-  margin-top: 0;
-  font-size: 24px;
-  color: #fff;
-}
-
-.card p {
-  margin-top: 15px;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #ccc;
-}
-
-/* ================= RESPONSIVE ================= */
-@media (max-width: 900px) {
-  .card {
-    flex: 1 1 calc(50% - 20px);
-  }
-}
-
-@media (max-width: 600px) {
-  .card {
-    flex: 1 1 100%;
-  }
-}
+/* RESPONSIVE */
+@media (max-width: 900px) { .card { flex: 0 0 calc(50% - 20px); } }
+@media (max-width: 600px) { .card { flex: 0 0 100%; } }
 </style>
 </head>
 
@@ -167,7 +138,7 @@ nav a:hover {
 </header>
 
 <section class="hero">
-  <video id="heroVideo" autoplay muted loop>
+  <video id="heroVideo" autoplay muted playsinline>
     <source src="video1.mp4" type="video/mp4">
   </video>
   <h1>
@@ -182,12 +153,10 @@ nav a:hover {
     <h2>Foto</h2>
     <p>Profesjonelle bilder for merkevarer og sosiale medier.</p>
   </div>
-
   <div class="card">
     <h2>Drone</h2>
     <p>Luftfoto og video som gir et unikt perspektiv.</p>
   </div>
-
   <div class="card">
     <h2>Content Creation</h2>
     <p>Innhold optimalisert for Instagram, TikTok og Snapchat.</p>
@@ -197,38 +166,23 @@ nav a:hover {
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-  const words = [
-    "droneinnhold.",
-    "visuelt innhold.",
-    "content creation.",
-    "sosiale medier.",
-    "branding."
-  ];
-
-  let t = 1;
+  // ROTERENDE TEKST
+  const words = ["droneinnhold.", "visuelt innhold.", "content creation.", "sosiale medier.", "branding."];
+  let t = 0;
   const textEl = document.querySelector(".rotating-text");
   textEl.textContent = words[0];
-  textEl.style.opacity = 1;
 
-  function changeText() {
+  setInterval(() => {
     textEl.style.opacity = 0;
     setTimeout(() => {
+      t = (t + 1) % words.length;
       textEl.textContent = words[t];
       textEl.style.opacity = 1;
-      t = (t + 1) % words.length;
     }, 300);
-  }
+  }, 1000);
 
-  setInterval(changeText, 1000);
-
-  const videos = [
-    "video1.mp4",
-    "video2.mp4",
-    "video3.mp4",
-    "video4.mp4",
-    "video5.mp4"
-  ];
-
+  // VIDEO ROTASJON
+  const videos = ["video1.mp4", "video2.mp4", "video3.mp4", "video4.mp4", "video5.mp4"];
   const heroVideo = document.getElementById("heroVideo");
   let v = 0;
 
