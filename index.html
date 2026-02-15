@@ -47,7 +47,6 @@ nav a:hover {
 .hero {
   position: relative;
   padding: 160px 8%;
-  max-width: 1200px;
   height: 500px;
   display: flex;
   flex-direction: column;
@@ -107,14 +106,15 @@ nav a:hover {
 /* ================= SERVICES ================= */
 .services {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
-  gap: 40px;
+  flex-wrap: wrap;
+  gap: 30px;
   padding: 100px 8%;
 }
 
 .card {
-  flex: 1 1 300px;
+  flex: 1 1 calc(33% - 20px); /* 3 bokser per rad med gap */
+  min-width: 250px; /* passer mobil */
   background: #151515;
   padding: 40px;
   border-radius: 12px;
@@ -138,6 +138,19 @@ nav a:hover {
   font-size: 16px;
   line-height: 1.5;
   color: #ccc;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .card {
+    flex: 1 1 calc(50% - 20px);
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    flex: 1 1 100%;
+  }
 }
 </style>
 </head>
@@ -192,7 +205,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "branding."
   ];
 
-  let t = 1; // start på andre ord for å unngå duplikat
+  let t = 1;
   const textEl = document.querySelector(".rotating-text");
   textEl.textContent = words[0];
   textEl.style.opacity = 1;
@@ -206,9 +219,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 300);
   }
 
-  setInterval(changeText, 1000); // endre hvert sekund
+  setInterval(changeText, 1000);
 
-  // HERO VIDEO ROTASJON
   const videos = [
     "video1.mp4",
     "video2.mp4",
