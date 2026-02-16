@@ -215,6 +215,65 @@ function scrollBts(dir){
   if(!row) return;
   row.scrollBy({ left: dir * 420, behavior: "smooth" });
 }
+
+  
+
+document.addEventListener("DOMContentLoaded", () => {
+  /* Rotating text */
+  const words = ["droneinnhold.","visuelt innhold.","content creation.","sosiale medier.","branding."];
+  let t = 0;
+  const textEl = document.querySelector(".rotating-text");
+
+  function changeText(){
+    textEl.style.opacity = 0;
+    setTimeout(() => {
+      textEl.textContent = words[t];
+      textEl.style.opacity = 1;
+      t = (t + 1) % words.length;
+    }, 250);
+  }
+  textEl.textContent = words[0];
+  textEl.style.opacity = 1;
+  setInterval(changeText, 1100);
+
+  /* Hero playlist */
+  const videos = ["hero1.mp4","hero2.mp4","hero3.mp4","hero4.mp4","hero5.mp4"];
+  let v = 0;
+  const heroVideo = document.querySelector(".hero-video");
+
+  function safePlay(){
+    const p = heroVideo.play();
+    if (p && typeof p.catch === "function") {
+      p.catch(() => {
+        const resume = () => {
+          heroVideo.play().catch(()=>{});
+          document.removeEventListener("click", resume);
+          document.removeEventListener("touchstart", resume);
+        };
+        document.addEventListener("click", resume);
+        document.addEventListener("touchstart", resume);
+      });
+    }
+  }
+
+  function playNextVideo(){
+    heroVideo.pause();
+    heroVideo.src = videos[v];
+    heroVideo.load();
+    heroVideo.oncanplay = () => safePlay();
+    heroVideo.onended = () => {
+      v = (v + 1) % videos.length;
+      playNextVideo();
+    };
+  }
+
+  heroVideo.muted = true;
+  heroVideo.playsInline = true;
+  heroVideo.setAttribute("playsinline", "");
+  heroVideo.setAttribute("muted", "");
+  playNextVideo();
+});
+  
 </script>
 
 </body>
