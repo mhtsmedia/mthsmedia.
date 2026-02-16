@@ -625,3 +625,16 @@ a.btn:hover{
   .trust__title{ font-size: 38px; }
   .trust__media{ height: 360px; }
 }
+
+/* ===== HEADER LOGO ===== */
+.logo-wrap{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo-wrap img{
+  width:32px;
+  height:32px;
+  object-fit:contain;
+}
