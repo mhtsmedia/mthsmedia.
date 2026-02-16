@@ -630,11 +630,17 @@ a.btn:hover{
 .logo-wrap{
   display:flex;
   align-items:center;
-  gap:10px;
+  gap:14px;
 }
 
 .logo-wrap img{
-  width:32px;
-  height:32px;
+  width:46px;
+  height:46px;
   object-fit:contain;
 }
+
+.logo{
+  font-size:20px;
+  font-weight:700;
+}
+
