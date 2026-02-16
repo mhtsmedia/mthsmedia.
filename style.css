@@ -702,3 +702,79 @@ a.btn:hover{
     align-items:flex-start;
   }
 }
+
+
+/* =========================
+   SERVICES PAGE ONLY (scoped)
+   - påvirker ikke index/contact
+========================= */
+
+.services-page .logo-wrap{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.services-page .logo-wrap img{
+  width:46px;
+  height:46px;
+  object-fit:contain;
+  display:block;
+}
+
+/* layout på services-seksjoner */
+.services-page .section{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:40px;
+  padding: 100px 8%;
+}
+
+.services-page .section:nth-of-type(even){
+  flex-direction: row-reverse;
+}
+
+.services-page .section img{
+  width:100%;
+  max-width:520px;
+  border-radius:12px;
+  object-fit:cover;
+  display:block;
+}
+
+.services-page .section-content{
+  flex:1;
+  min-width:320px;
+}
+
+.services-page .section-content h3{
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#9a9a9a;
+  margin:0 0 10px 0;
+}
+
+.services-page .section-content h2{
+  font-size:42px;
+  line-height:1.1;
+  margin:0 0 18px 0;
+  font-weight:800;
+}
+
+.services-page .section-content p{
+  color:#cfcfcf;
+  line-height:1.7;
+  margin:0 0 16px 0;
+}
+
+/* mobil */
+@media (max-width: 900px){
+  .services-page .section{
+    padding:80px 8%;
+  }
+  .services-page .section-content h2{
+    font-size:34px;
+  }
+}
