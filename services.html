@@ -5,12 +5,63 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MTHS Media – Tjenester</title>
 
-<!-- FIX: Inter font (matcher resten av siden) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
+
+<style>
+.price-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.price-card {
+  flex: 1 1 180px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 14px;
+  padding: 20px 18px;
+  transition: border-color .2s, background .2s;
+}
+
+.price-card:hover {
+  border-color: rgba(255,255,255,0.20);
+  background: rgba(255,255,255,0.07);
+}
+
+.price-card__label {
+  font-size: 12px;
+  color: #9a9a9a;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin-bottom: 6px;
+}
+
+.price-card__price {
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.price-card__desc {
+  font-size: 13px;
+  color: #aaa;
+  line-height: 1.5;
+}
+
+.services-page .section {
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.services-page .section:last-of-type {
+  border-bottom: none;
+}
+</style>
 </head>
 
 <body class="services-page">
@@ -20,7 +71,6 @@
     <img src="logo.png" alt="MTHS Media logo">
     <div class="logo">MTHS Media</div>
   </div>
-
   <nav>
     <a href="index.html">Hjem</a>
     <a href="services.html">Tjenester</a>
@@ -31,44 +81,92 @@
 <!-- FOTO -->
 <section class="section" id="foto">
   <img src="IMG_5201.jpg" alt="Foto">
+
   <div class="section-content">
     <h3>Film & Foto</h3>
     <h2>Fra et konsept til ferdig produkt</h2>
+
     <p>
       Vi produserer reklamefilmer, bedriftsvideoer, foto og digitalt innhold
       som engasjerer fra idé til ferdig levering – optimalisert for både
       kampanjer, nettsider og sosiale medier.
     </p>
-    <a href="contact.html" class="btn">Start et prosjekt</a>
+
+    <div class="price-grid">
+      <div class="price-card">
+        <div class="price-card__label">Enkelt fotoshoot</div>
+        <div class="price-card__price">fra 500 kr</div>
+        <div class="price-card__desc">Portrett, produkt eller enkel location</div>
+      </div>
+      <div class="price-card">
+        <div class="price-card__label">Full dag</div>
+        <div class="price-card__price">1 500–3 000 kr</div>
+        <div class="price-card__desc">Flere motiver og locations inkludert</div>
+      </div>
+    </div>
+
+    <a href="contact.html" class="btn" style="margin-top: 28px;">Start et prosjekt</a>
   </div>
 </section>
 
 <!-- DRONE -->
 <section class="section" id="drone">
   <img src="drone.JPG" alt="Drone">
+
   <div class="section-content">
     <h3>Drone</h3>
     <h2>Foto og video fra nye perspektiver</h2>
+
     <p>
       Vi leverer dronefoto og video i høy kvalitet som gir prosjektene dine
       et unikt visuelt uttrykk. Perfekt for reklame, eiendom, nettsider
       og markedsføring.
     </p>
-    <a href="contact.html" class="btn">Start et prosjekt</a>
+
+    <div class="price-grid">
+      <div class="price-card">
+        <div class="price-card__label">Halvdag</div>
+        <div class="price-card__price">1 000–2 000 kr</div>
+        <div class="price-card__desc">2–3 timer, redigerte bilder/klipp</div>
+      </div>
+      <div class="price-card">
+        <div class="price-card__label">Hel dag</div>
+        <div class="price-card__price">2 000–3 000 kr</div>
+        <div class="price-card__desc">Full dag inkl. redigering</div>
+      </div>
+    </div>
+
+    <a href="contact.html" class="btn" style="margin-top: 28px;">Start et prosjekt</a>
   </div>
 </section>
 
 <!-- CONTENT -->
 <section class="section" id="content">
   <img src="content.jpg" alt="Content Creation">
+
   <div class="section-content">
     <h3>Content Creation</h3>
     <h2>Innhold laget for sosiale medier</h2>
+
     <p>
       Vi lager visuelt innhold til Instagram, TikTok og Snapchat med fokus på
       kvalitet, tempo og uttrykk som fanger oppmerksomhet og bygger merkevare.
     </p>
-    <a href="contact.html" class="btn">Start et prosjekt</a>
+
+    <div class="price-grid">
+      <div class="price-card">
+        <div class="price-card__label">Engangspakke</div>
+        <div class="price-card__price">1 500–3 500 kr</div>
+        <div class="price-card__desc">5–10 klipp eller bilder levert</div>
+      </div>
+      <div class="price-card">
+        <div class="price-card__label">Månedlig avtale</div>
+        <div class="price-card__price">2 000–5 000 kr/mnd</div>
+        <div class="price-card__desc">Fast innhold hver måned</div>
+      </div>
+    </div>
+
+    <a href="contact.html" class="btn" style="margin-top: 28px;">Start et prosjekt</a>
   </div>
 </section>
 
@@ -77,7 +175,6 @@
 
     <div class="footer__brand">
       <div class="footer__logo">MTHS Media</div>
-      <!-- FIX: Rettet e-postfeil (mhtsmedia → mthsmedia) -->
       <div class="footer__mail">mthsmedia@gmail.com</div>
     </div>
 
