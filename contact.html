@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kontakt – MTHS Media</title>
 
+<!-- FIX: Inter font (matcher resten av siden nå) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="style.css">
 
 <style>
@@ -58,6 +63,7 @@
   border-radius: 10px;
   color: white;
   font-size: 14px;
+  font-family: 'Inter', sans-serif;
   transition: 0.2s;
 }
 
@@ -75,6 +81,10 @@
 .contact-form .btn {
   width: 100%;
   margin-top: 10px;
+  cursor: pointer;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
 }
 
 @media (max-width: 900px) {
@@ -86,6 +96,10 @@
 
   .contact-left h1 {
     font-size: 36px;
+  }
+
+  .contact-form {
+    padding: 30px 24px;
   }
 }
 </style>
@@ -116,7 +130,8 @@
     </p>
 
     <div class="contact-info">
-      <p><strong>E-post:</strong> mhtsmedia@gmail.com</p>
+      <!-- FIX: Rettet e-postfeil (mhtsmedia → mthsmedia) -->
+      <p><strong>E-post:</strong> mthsmedia@gmail.com</p>
       <p><strong>Telefon:</strong> +47 940 35 180</p>
     </div>
   </div>
@@ -124,7 +139,6 @@
   <div class="contact-form">
     <form action="https://formspree.io/f/xgoooqee" method="POST">
 
-      <!-- Valgfritt: fast mailtittel -->
       <input type="hidden" name="_subject" value="Ny melding fra nettsiden">
 
       <input 
@@ -147,7 +161,7 @@
         required
       ></textarea>
 
-      <button type="submit" class="btn">Send melding</button>
+      <button type="submit" class="btn">Send melding →</button>
 
     </form>
   </div>
@@ -159,12 +173,12 @@
 
     <div class="footer__brand">
       <div class="footer__logo">MTHS Media</div>
-      <div class="footer__mail">mhtsmedia@gmail.com</div>
+      <!-- FIX: Rettet e-postfeil (mhtsmedia → mthsmedia) -->
+      <div class="footer__mail">mthsmedia@gmail.com</div>
     </div>
 
     <div class="footer__social">
       <div class="footer__label">Følg oss på</div>
-
       <div class="footer__icons">
         <a href="https://www.tiktok.com/@mths.media" aria-label="TikTok">
           <svg viewBox="0 0 24 24" width="22">
@@ -172,7 +186,6 @@
               d="M21 8.6a7.7 7.7 0 0 1-4.4-1.4v6.5a5.7 5.7 0 1 1-4.9-5.7v3a2.7 2.7 0 1 0 1.9 2.6V2h3a4.7 4.7 0 0 0 4.4 4.4z"/>
           </svg>
         </a>
-
         <a href="https://www.instagram.com/mths_media/" aria-label="Instagram">
           <svg viewBox="0 0 24 24" width="22">
             <path fill="currentColor"
