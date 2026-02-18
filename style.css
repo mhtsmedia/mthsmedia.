@@ -18,7 +18,8 @@
 
 body{
   margin:0;
-  font-family: Arial, sans-serif;
+  /* FIX: Byttet Arial med Inter */
+  font-family: 'Inter', sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
@@ -45,7 +46,6 @@ header{
   border-bottom: 1px solid #1f1f1f;
 }
 
-/* Logo (globalt for alle sider) */
 .logo-wrap{
   display:flex;
   align-items:center;
@@ -129,7 +129,6 @@ nav a:hover{ color:#fff; }
 }
 .btn:hover{ transform: translateY(-2px); opacity:.92; }
 
-/* sørg for at tekst på hvit knapp alltid vises */
 a.btn,
 a.btn:visited,
 a.btn:hover{
@@ -289,7 +288,7 @@ a.btn:hover{
 .method__cta:hover{ transform: translateY(-2px); opacity:.92; }
 
 /* =========================
-   BTS / VIDEO STRIPE (låst)
+   BTS / VIDEO STRIPE
 ========================= */
 .bts{
   padding: 110px 8%;
@@ -359,7 +358,6 @@ a.btn:hover{
   box-shadow: 0 26px 70px rgba(0,0,0,0.60);
 }
 
-/* hard reset for BTS video (stopper "gigantisk") */
 .bts__card video{
   width:100% !important;
   height:100% !important;
@@ -370,7 +368,6 @@ a.btn:hover{
   position:static !important;
 }
 
-/* piler */
 .bts__arrows{
   display:flex;
   justify-content:center;
@@ -396,7 +393,92 @@ a.btn:hover{
 }
 
 /* =========================
-   CTA (NR 3)
+   NY: TESTIMONIALS
+========================= */
+.testimonials{
+  padding: 110px 8%;
+}
+
+.testimonials__inner{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonials__kicker{
+  font-size: 12px;
+  letter-spacing: .14em;
+  color: var(--muted2);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.testimonials__title{
+  margin: 0 0 48px 0;
+  font-size: 52px;
+  line-height: 1.05;
+  font-weight: 800;
+  text-align: center;
+}
+
+.testimonials__grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.testimonial__card{
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+
+.testimonial__card:hover{
+  transform: translateY(-4px);
+  border-color: rgba(255,255,255,0.16);
+  box-shadow: var(--shadowSoft);
+}
+
+.testimonial__quote{
+  font-size: 56px;
+  line-height: 1;
+  color: rgba(255,255,255,0.15);
+  font-family: Georgia, serif;
+  font-weight: 700;
+}
+
+.testimonial__text{
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+  flex: 1;
+}
+
+.testimonial__author{
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.testimonial__name{
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+
+.testimonial__role{
+  font-size: 13px;
+  color: var(--muted2);
+}
+
+/* =========================
+   CTA
 ========================= */
 .cta{
   padding: 110px 8%;
@@ -480,7 +562,7 @@ a.btn:hover{
 .cta__link:hover{ transform: translateY(-2px); opacity:1; }
 
 /* =========================
-   TRUST / OM OSS (NR 4)
+   TRUST / OM OSS
 ========================= */
 .trust{
   padding: 120px 8%;
@@ -612,8 +694,7 @@ a.btn:hover{
 }
 
 /* =========================
-   SERVICES PAGE FIX (uten å ødelegge resten)
-   -> legg class="services-page" på <body> i services.html
+   SERVICES PAGE
 ========================= */
 .services-page .section{
   display:flex;
@@ -691,6 +772,11 @@ a.btn:hover{
   .trust__title{ font-size: 38px; }
   .trust__media{ height: 360px; }
 
+  .testimonials__grid{
+    grid-template-columns: 1fr;
+  }
+  .testimonials__title{ font-size: 38px; }
+
   nav a{ margin-left: 18px; }
 }
 
@@ -698,5 +784,9 @@ a.btn:hover{
   .footer__inner{
     flex-direction:column;
     align-items:flex-start;
+  }
+
+  .testimonials__grid{
+    grid-template-columns: 1fr;
   }
 }
