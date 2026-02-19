@@ -35,6 +35,33 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
+<!-- ===================================================
+     LIMES INN RETT FØR </body> PÅ ALLE SIDER
+     (index.html, services.html, contact.html)
+=================================================== -->
+<script>
+/* 1. Header blir "glassaktig" når man scroller ned */
+const header = document.querySelector('header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+/* 2. Fade-in animasjon på seksjoner når de scrolles inn */
+const revealEls = document.querySelectorAll('.reveal');
+if (revealEls.length) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target); // kjør bare én gang
+      }
+    });
+  }, { threshold: 0.12 });
+
+  revealEls.forEach(el => observer.observe(el));
+}
+</script>
+  
 <body>
 
 <header>
