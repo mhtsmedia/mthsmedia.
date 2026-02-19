@@ -3,65 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <meta name="description" content="MTHS Media er et kreativt studio som tilbyr profesjonell foto, video og droneproduksjon. Vi hjelper bedrifter, merkevarer og prosjekter med visuelt innhold til markedsføring, nettsider og sosiale medier. Moderne, visuelt sterkt og strategisk innhold produsert med fokus på kvalitet og detaljer." />
-
-  <!-- Open Graph -->
+  <meta name="description" content="MTHS Media er et kreativt studio som tilbyr profesjonell foto, video og droneproduksjon. Vi hjelper bedrifter, merkevarer og prosjekter med visuelt innhold til markedsføring, nettsider og sosiale medier." />
   <meta property="og:title" content="MTHS Media – Foto, Video & Drone" />
   <meta property="og:description" content="MTHS Media tilbyr profesjonell foto, video og droneproduksjon for bedrifter, markedsføring og sosiale medier." />
   <meta property="og:image" content="https://mthsmedia.no/og.png" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://mthsmedia.no" />
-
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="MTHS Media – Foto, Video & Drone">
   <meta name="twitter:description" content="Profesjonell foto, video og droneproduksjon for moderne merkevarer og sosiale medier.">
   <meta name="twitter:image" content="https://mthsmedia.no/og.png">
-
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
-
   <meta name="google-site-verification" content="AB9ozg8WHEbG80zJwuAefGNkfhzhXXUcdOdNXnv5Fo4" />
-
   <title>MTHS Media</title>
-
-  <!-- FIX: Byttet ut Arial med Inter (moderne, profesjonell) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<!-- ===================================================
-     LIMES INN RETT FØR </body> PÅ ALLE SIDER
-     (index.html, services.html, contact.html)
-=================================================== -->
-<script>
-/* 1. Header blir "glassaktig" når man scroller ned */
-const header = document.querySelector('header');
-window.addEventListener('scroll', () => {
-  header.classList.toggle('scrolled', window.scrollY > 40);
-}, { passive: true });
-
-/* 2. Fade-in animasjon på seksjoner når de scrolles inn */
-const revealEls = document.querySelectorAll('.reveal');
-if (revealEls.length) {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target); // kjør bare én gang
-      }
-    });
-  }, { threshold: 0.12 });
-
-  revealEls.forEach(el => observer.observe(el));
-}
-</script>
-  
 <body>
 
 <header>
@@ -69,7 +31,6 @@ if (revealEls.length) {
     <img src="logo.png" alt="MTHS Media logo">
     <div class="logo">MTHS Media</div>
   </div>
-
   <nav>
     <a href="index.html">Hjem</a>
     <a href="services.html">Tjenester</a>
@@ -79,28 +40,23 @@ if (revealEls.length) {
 
 <section class="hero">
   <video class="hero-video" muted playsinline></video>
-
   <h1>
     Markedsføringsstudio for
     <span class="rotating-text">droneinnhold.</span>
   </h1>
-
-  <!-- FIX: Sterkere CTA med konkret løfte -->
-  <a href="contact.html" class="btn">Få et gratis tilbud →</a>
+  <a href="contact.html" class="btn">Start et samarbeid →</a>
 </section>
 
 <section class="services">
-  <a class="card" href="services.html#foto">
+  <a class="card reveal reveal-delay-1" href="services.html#foto">
     <h2>Foto</h2>
     <p>Profesjonelle bilder for merkevarer og sosiale medier.</p>
   </a>
-
-  <a class="card" href="services.html#drone">
+  <a class="card reveal reveal-delay-2" href="services.html#drone">
     <h2>Drone</h2>
     <p>Luftfoto og video som gir et unikt perspektiv.</p>
   </a>
-
-  <a class="card" href="services.html#content">
+  <a class="card reveal reveal-delay-3" href="services.html#content">
     <h2>Content Creation</h2>
     <p>Innhold optimalisert for Instagram, TikTok og Snapchat.</p>
   </a>
@@ -108,38 +64,36 @@ if (revealEls.length) {
 
 <section class="method">
   <div class="method__grid">
-    <div class="method__media">
+    <div class="method__media reveal">
       <img src="eks3.jpg" alt="Produksjon">
     </div>
-
-    <div class="method__content">
+    <div class="method__content reveal reveal-delay-2">
       <div class="method__kicker">VÅR PROSESS</div>
       <h2 class="method__title">Ideer drevet av strategi</h2>
       <p class="method__lead">Vi følger en strukturert prosess for å sikre kvalitet i alle ledd.</p>
-
       <div class="method__steps">
-        <div class="step">
+        <div class="step reveal reveal-delay-1">
           <div class="step__no">01</div>
           <div>
             <div class="step__title">Oppdagelse</div>
             <div class="step__text">Vi forstår mål og retning.</div>
           </div>
         </div>
-        <div class="step">
+        <div class="step reveal reveal-delay-2">
           <div class="step__no">02</div>
           <div>
             <div class="step__title">Konsept</div>
             <div class="step__text">Vi utvikler idé og uttrykk.</div>
           </div>
         </div>
-        <div class="step">
+        <div class="step reveal reveal-delay-3">
           <div class="step__no">03</div>
           <div>
             <div class="step__title">Produksjon</div>
             <div class="step__text">Vi produserer innhold.</div>
           </div>
         </div>
-        <div class="step">
+        <div class="step reveal reveal-delay-4">
           <div class="step__no">04</div>
           <div>
             <div class="step__title">Leveranse</div>
@@ -147,37 +101,66 @@ if (revealEls.length) {
           </div>
         </div>
       </div>
-
       <a class="method__cta" href="contact.html">Start et prosjekt</a>
     </div>
   </div>
 </section>
 
 <section class="bts" id="bts">
-  <div class="bts__head">
+  <div class="bts__head reveal">
     <div class="bts__kicker">VÅRT ARBEID</div>
     <h2 class="bts__title">Våre favoritter.</h2>
     <p class="bts__lead">Små øyeblikk – fra idé til ferdig klipp.</p>
   </div>
-
-  <div class="bts__row" id="btsRow">
+  <div class="bts__row reveal" id="btsRow">
     <div class="bts__card"><video src="hero1.mp4" muted autoplay loop playsinline preload="metadata"></video></div>
     <div class="bts__card"><video src="hero2.mp4" muted autoplay loop playsinline preload="metadata"></video></div>
     <div class="bts__card"><video src="hero3.mp4" muted autoplay loop playsinline preload="metadata"></video></div>
     <div class="bts__card"><video src="hero4.mp4" muted autoplay loop playsinline preload="metadata"></video></div>
     <div class="bts__card"><video src="hero5.mp4" muted autoplay loop playsinline preload="metadata"></video></div>
   </div>
-
   <div class="bts__arrows">
     <button class="bts__btn" type="button" onclick="scrollBts(-1)">‹</button>
     <button class="bts__btn" type="button" onclick="scrollBts(1)">›</button>
   </div>
 </section>
 
+<section class="testimonials">
+  <div class="testimonials__inner">
+    <div class="testimonials__kicker reveal">HVA KUNDENE SIER</div>
+    <h2 class="testimonials__title reveal">Resultater som snakker for seg.</h2>
+    <div class="testimonials__grid">
+      <div class="testimonial__card reveal reveal-delay-1">
+        <div class="testimonial__quote">"</div>
+        <p class="testimonial__text">Erstatt med et ekte sitat fra en fornøyd kunde. Be dem beskrive hva MTHS Media gjorde for dem konkret.</p>
+        <div class="testimonial__author">
+          <div class="testimonial__name">Kundenavn</div>
+          <div class="testimonial__role">Stillingstittel, Bedriftsnavn</div>
+        </div>
+      </div>
+      <div class="testimonial__card reveal reveal-delay-2">
+        <div class="testimonial__quote">"</div>
+        <p class="testimonial__text">Legg til et sitat til her. Fokuser på konkrete resultater – f.eks. "vi fikk 3x mer engasjement på Instagram etter samarbeidet."</p>
+        <div class="testimonial__author">
+          <div class="testimonial__name">Kundenavn</div>
+          <div class="testimonial__role">Stillingstittel, Bedriftsnavn</div>
+        </div>
+      </div>
+      <div class="testimonial__card reveal reveal-delay-3">
+        <div class="testimonial__quote">"</div>
+        <p class="testimonial__text">Et tredje sitat her. De fleste fornøyde kunder sier ja til å bidra med et sitat – send dem en enkel melding.</p>
+        <div class="testimonial__author">
+          <div class="testimonial__name">Kundenavn</div>
+          <div class="testimonial__role">Stillingstittel, Bedriftsnavn</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="trust" id="om">
   <div class="trust__grid">
-    <div class="trust__content">
+    <div class="trust__content reveal">
       <div class="trust__kicker">OM OSS</div>
       <h2 class="trust__title">Et lite studio med høye standarder.</h2>
       <p class="trust__lead">
@@ -197,13 +180,13 @@ if (revealEls.length) {
         <a class="trust__link" href="services.html">Se tjenester →</a>
       </div>
     </div>
-    <div class="trust__media">
+    <div class="trust__media reveal reveal-delay-2">
       <img src="eks67.jpg" alt="MTHS Media bak kamera">
     </div>
   </div>
 </section>
 
-<section class="cta" id="cta">
+<section class="cta reveal" id="cta">
   <div class="cta__inner">
     <div class="cta__kicker">KLAR NÅR DU ER</div>
     <h2 class="cta__title">Klar for å løfte merkevaren visuelt?</h2>
@@ -211,19 +194,16 @@ if (revealEls.length) {
       Fortell oss hva du trenger – vi svarer med konkret forslag og pris innen 48 timer.
     </p>
     <div class="cta__actions">
-      <a class="cta__btn" href="contact.html">Start et samarbeid →</a>
+      <a class="cta__btn" href="contact.html">Få et gratis tilbud →</a>
       <a class="cta__link" href="services.html">Se tjenester →</a>
     </div>
   </div>
 </section>
 
-<!-- FIX: Fjernet skjult SEO-seksjon (Google kan straffe display:none-innhold) -->
-
 <footer class="footer">
   <div class="footer__inner">
     <div class="footer__brand">
       <div class="footer__logo">MTHS Media</div>
-      <!-- FIX: Rettet e-postfeil (mhtsmedia → mthsmedia) -->
       <div class="footer__mail">mthsmedia@gmail.com</div>
     </div>
   </div>
@@ -237,10 +217,10 @@ function scrollBts(dir){
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  /* Rotating text */
   const words = ["droneinnhold.","visuelt innhold.","content creation.","sosiale medier.","branding."];
   let t = 0;
   const textEl = document.querySelector(".rotating-text");
-
   function changeText(){
     textEl.style.opacity = 0;
     setTimeout(() => {
@@ -253,10 +233,10 @@ document.addEventListener("DOMContentLoaded", () => {
   textEl.style.opacity = 1;
   setInterval(changeText, 1100);
 
+  /* Hero playlist */
   const videos = ["hero1.mp4","hero2.mp4","hero3.mp4","hero4.mp4","hero5.mp4"];
   let v = 0;
   const heroVideo = document.querySelector(".hero-video");
-
   function safePlay(){
     const p = heroVideo.play();
     if (p && typeof p.catch === "function") {
@@ -271,7 +251,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   }
-
   function playNextVideo(){
     heroVideo.pause();
     heroVideo.src = videos[v];
@@ -282,13 +261,32 @@ document.addEventListener("DOMContentLoaded", () => {
       playNextVideo();
     };
   }
-
   heroVideo.muted = true;
   heroVideo.playsInline = true;
   heroVideo.setAttribute("playsinline", "");
   heroVideo.setAttribute("muted", "");
   playNextVideo();
 });
+
+/* Header glassaktig ved scroll */
+const header = document.querySelector('header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+/* Fade-in animasjon på .reveal elementer */
+const revealEls = document.querySelectorAll('.reveal');
+if (revealEls.length) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => observer.observe(el));
+}
 </script>
 
 </body>
