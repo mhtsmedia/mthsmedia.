@@ -9,32 +9,128 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
+/* =========================
+   SLIK BESTILLER DU
+========================= */
+.how {
+  padding: 100px 8% 0;
+}
+
+.how__kicker {
+  font-size: 12px;
+  letter-spacing: .14em;
+  color: #9a9a9a;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.how__title {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.05;
+  text-align: center;
+  margin: 0 0 56px 0;
+}
+
+.how__steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Connecting line between steps */
+.how__steps::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  left: calc(16.66% + 14px);
+  right: calc(16.66% + 14px);
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+  pointer-events: none;
+}
+
+.how__step {
+  text-align: center;
+  padding: 0 16px;
+}
+
+.how__step-num {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0 auto 20px auto;
+  position: relative;
+  z-index: 1;
+  transition: background .25s ease, border-color .25s ease;
+}
+
+.how__step:hover .how__step-num {
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(255,255,255,0.30);
+}
+
+.how__step-title {
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.how__step-text {
+  font-size: 14px;
+  color: #cfcfcf;
+  line-height: 1.65;
+}
+
+/* =========================
+   CONTACT FORM
+========================= */
 .contact-section {
   display: flex;
   flex-wrap: wrap;
-  padding: 120px 8%;
+  padding: 80px 8% 120px;
   gap: 80px;
-  min-height: 80vh;
+  min-height: 60vh;
 }
+
 .contact-left {
   flex: 1 1 400px;
 }
-.contact-left h1 {
-  font-size: 48px;
-  margin-bottom: 20px;
+
+.contact-left h2 {
+  font-size: 40px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  line-height: 1.1;
 }
+
 .contact-left p {
   color: #aaa;
   max-width: 500px;
   line-height: 1.6;
 }
+
 .contact-info {
-  margin-top: 40px;
+  margin-top: 36px;
   color: #ccc;
 }
+
 .contact-info p {
-  margin: 8px 0;
+  margin: 10px 0;
+  font-size: 15px;
 }
+
 .contact-form {
   flex: 1 1 400px;
   background: #151515;
@@ -42,6 +138,7 @@
   border-radius: 16px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
+
 .contact-form input,
 .contact-form textarea {
   width: 100%;
@@ -55,15 +152,18 @@
   font-family: 'Inter', sans-serif;
   transition: border-color 0.2s ease;
 }
+
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: none;
   border-color: rgba(255,255,255,0.25);
 }
+
 .contact-form textarea {
   resize: none;
   height: 140px;
 }
+
 .contact-form .btn {
   width: 100%;
   margin-top: 10px;
@@ -72,18 +172,22 @@
   font-family: 'Inter', sans-serif;
   font-size: 15px;
 }
+
 @media (max-width: 900px) {
+  .how__title { font-size: 34px; }
+  .how__steps {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .how__steps::before { display: none; }
+
   .contact-section {
     flex-direction: column;
-    padding: 80px 8%;
+    padding: 60px 8% 80px;
     gap: 40px;
   }
-  .contact-left h1 {
-    font-size: 36px;
-  }
-  .contact-form {
-    padding: 30px 24px;
-  }
+  .contact-left h2 { font-size: 30px; }
+  .contact-form { padding: 30px 24px; }
 }
 </style>
 </head>
@@ -102,10 +206,35 @@
   </nav>
 </header>
 
+<!-- SLIK BESTILLER DU -->
+<section class="how">
+  <div class="how__kicker reveal">SLIK FUNGERER DET</div>
+  <h2 class="how__title reveal">Tre enkle steg.</h2>
+
+  <div class="how__steps">
+    <div class="how__step reveal reveal-delay-1">
+      <div class="how__step-num">1</div>
+      <div class="how__step-title">Send en melding</div>
+      <p class="how__step-text">Fortell oss kort hva du trenger – type innhold, dato og eventuell lokasjon. Ingen detaljer er for små.</p>
+    </div>
+    <div class="how__step reveal reveal-delay-2">
+      <div class="how__step-num">2</div>
+      <div class="how__step-title">Vi tar kontakt</div>
+      <p class="how__step-text">Vi svarer innen 48 timer med et konkret forslag og pris. Ingen forpliktelse – bare en hyggelig prat.</p>
+    </div>
+    <div class="how__step reveal reveal-delay-3">
+      <div class="how__step-num">3</div>
+      <div class="how__step-title">Vi produserer</div>
+      <p class="how__step-text">Vi møtes, tar opptakene og leverer ferdig redigert innhold klart til bruk på dine plattformer.</p>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKTSKJEMA -->
 <section class="contact-section">
 
   <div class="contact-left reveal">
-    <h1>La oss skape noe visuelt sammen.</h1>
+    <h2>La oss skape noe visuelt sammen.</h2>
     <p>
       Har du et prosjekt, en idé eller ønsker nytt visuelt innhold?
       Send en melding så tar vi en uforpliktende prat.
@@ -159,7 +288,7 @@ window.addEventListener('scroll', () => {
   header.classList.toggle('scrolled', window.scrollY > 40);
 }, { passive: true });
 
-/* Fade-in animasjon på .reveal elementer */
+/* Fade-in animasjon */
 const revealEls = document.querySelectorAll('.reveal');
 if (revealEls.length) {
   const observer = new IntersectionObserver((entries) => {
