@@ -4,14 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kontakt – MTHS Media</title>
-
-<!-- FIX: Inter font (matcher resten av siden nå) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="style.css">
-
 <style>
 .contact-section {
   display: flex;
@@ -20,31 +16,25 @@
   gap: 80px;
   min-height: 80vh;
 }
-
 .contact-left {
   flex: 1 1 400px;
 }
-
 .contact-left h1 {
   font-size: 48px;
   margin-bottom: 20px;
 }
-
 .contact-left p {
   color: #aaa;
   max-width: 500px;
   line-height: 1.6;
 }
-
 .contact-info {
   margin-top: 40px;
   color: #ccc;
 }
-
 .contact-info p {
   margin: 8px 0;
 }
-
 .contact-form {
   flex: 1 1 400px;
   background: #151515;
@@ -52,7 +42,6 @@
   border-radius: 16px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
-
 .contact-form input,
 .contact-form textarea {
   width: 100%;
@@ -64,20 +53,17 @@
   color: white;
   font-size: 14px;
   font-family: 'Inter', sans-serif;
-  transition: 0.2s;
+  transition: border-color 0.2s ease;
 }
-
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: none;
   border-color: rgba(255,255,255,0.25);
 }
-
 .contact-form textarea {
   resize: none;
   height: 140px;
 }
-
 .contact-form .btn {
   width: 100%;
   margin-top: 10px;
@@ -86,18 +72,15 @@
   font-family: 'Inter', sans-serif;
   font-size: 15px;
 }
-
 @media (max-width: 900px) {
   .contact-section {
     flex-direction: column;
     padding: 80px 8%;
     gap: 40px;
   }
-
   .contact-left h1 {
     font-size: 36px;
   }
-
   .contact-form {
     padding: 30px 24px;
   }
@@ -112,7 +95,6 @@
     <img src="logo.png" alt="MTHS Media logo">
     <div class="logo">MTHS Media</div>
   </div>
-
   <nav>
     <a href="index.html">Hjem</a>
     <a href="services.html">Tjenester</a>
@@ -122,47 +104,25 @@
 
 <section class="contact-section">
 
-  <div class="contact-left">
+  <div class="contact-left reveal">
     <h1>La oss skape noe visuelt sammen.</h1>
     <p>
       Har du et prosjekt, en idé eller ønsker nytt visuelt innhold?
       Send en melding så tar vi en uforpliktende prat.
     </p>
-
     <div class="contact-info">
-      <!-- FIX: Rettet e-postfeil (mhtsmedia → mthsmedia) -->
       <p><strong>E-post:</strong> mthsmedia@gmail.com</p>
       <p><strong>Telefon:</strong> +47 940 35 180</p>
     </div>
   </div>
 
-  <div class="contact-form">
+  <div class="contact-form reveal reveal-delay-2">
     <form action="https://formspree.io/f/xgoooqee" method="POST">
-
       <input type="hidden" name="_subject" value="Ny melding fra nettsiden">
-
-      <input 
-        type="text"
-        name="name"
-        placeholder="Navn"
-        required
-      >
-
-      <input 
-        type="email"
-        name="email"
-        placeholder="E-post"
-        required
-      >
-
-      <textarea 
-        name="message"
-        placeholder="Fortell litt om prosjektet ditt..."
-        required
-      ></textarea>
-
+      <input type="text" name="name" placeholder="Navn" required>
+      <input type="email" name="email" placeholder="E-post" required>
+      <textarea name="message" placeholder="Fortell litt om prosjektet ditt..." required></textarea>
       <button type="submit" class="btn">Send melding →</button>
-
     </form>
   </div>
 
@@ -170,33 +130,49 @@
 
 <footer class="footer">
   <div class="footer__inner">
-
     <div class="footer__brand">
       <div class="footer__logo">MTHS Media</div>
-      <!-- FIX: Rettet e-postfeil (mhtsmedia → mthsmedia) -->
       <div class="footer__mail">mthsmedia@gmail.com</div>
     </div>
-
     <div class="footer__social">
       <div class="footer__label">Følg oss på</div>
       <div class="footer__icons">
         <a href="https://www.tiktok.com/@mths.media" aria-label="TikTok">
           <svg viewBox="0 0 24 24" width="22">
-            <path fill="currentColor"
-              d="M21 8.6a7.7 7.7 0 0 1-4.4-1.4v6.5a5.7 5.7 0 1 1-4.9-5.7v3a2.7 2.7 0 1 0 1.9 2.6V2h3a4.7 4.7 0 0 0 4.4 4.4z"/>
+            <path fill="currentColor" d="M21 8.6a7.7 7.7 0 0 1-4.4-1.4v6.5a5.7 5.7 0 1 1-4.9-5.7v3a2.7 2.7 0 1 0 1.9 2.6V2h3a4.7 4.7 0 0 0 4.4 4.4z"/>
           </svg>
         </a>
         <a href="https://www.instagram.com/mths_media/" aria-label="Instagram">
           <svg viewBox="0 0 24 24" width="22">
-            <path fill="currentColor"
-              d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm5 5.2A4.8 4.8 0 1 1 7.2 12 4.8 4.8 0 0 1 12 7.2zm6.2-.3a1.1 1.1 0 1 1-1.1-1.1 1.1 1.1 0 0 1 1.1 1.1zM12 9.2A2.8 2.8 0 1 0 14.8 12 2.8 2.8 0 0 0 12 9.2z"/>
+            <path fill="currentColor" d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm5 5.2A4.8 4.8 0 1 1 7.2 12 4.8 4.8 0 0 1 12 7.2zm6.2-.3a1.1 1.1 0 1 1-1.1-1.1 1.1 1.1 0 0 1 1.1 1.1zM12 9.2A2.8 2.8 0 1 0 14.8 12 2.8 2.8 0 0 0 12 9.2z"/>
           </svg>
         </a>
       </div>
     </div>
-
   </div>
 </footer>
+
+<script>
+/* Header glassaktig ved scroll */
+const header = document.querySelector('header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+/* Fade-in animasjon på .reveal elementer */
+const revealEls = document.querySelectorAll('.reveal');
+if (revealEls.length) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => observer.observe(el));
+}
+</script>
 
 </body>
 </html>
