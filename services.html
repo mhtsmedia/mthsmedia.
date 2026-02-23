@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MTHS Media – Tjenester</title>
@@ -12,12 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-.price-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 24px;
-}
+.price-grid { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 24px; }
 .price-card {
   flex: 1 1 180px;
   background: rgba(255,255,255,0.04);
@@ -26,34 +18,12 @@
   padding: 20px 18px;
   transition: border-color .2s, background .2s;
 }
-.price-card:hover {
-  border-color: rgba(255,255,255,0.20);
-  background: rgba(255,255,255,0.07);
-}
-.price-card__label {
-  font-size: 12px;
-  color: #9a9a9a;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  margin-bottom: 6px;
-}
-.price-card__price {
-  font-size: 22px;
-  font-weight: 800;
-  color: #fff;
-  margin-bottom: 4px;
-}
-.price-card__desc {
-  font-size: 13px;
-  color: #aaa;
-  line-height: 1.5;
-}
-.services-page .section {
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-.services-page .section:last-of-type {
-  border-bottom: none;
-}
+.price-card:hover { border-color: rgba(255,255,255,0.20); background: rgba(255,255,255,0.07); }
+.price-card__label { font-size: 12px; color: #9a9a9a; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 6px; }
+.price-card__price { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 4px; }
+.price-card__desc { font-size: 13px; color: #aaa; line-height: 1.5; }
+.services-page .section { border-bottom: 1px solid rgba(255,255,255,0.06); }
+.services-page .section:last-of-type { border-bottom: none; }
 </style>
 </head>
 
@@ -69,7 +39,18 @@
     <a href="services.html">Tjenester</a>
     <a href="contact.html">Kontakt</a>
   </nav>
+  <button class="hamburger" aria-label="Meny" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </header>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html" onclick="toggleMenu()">Hjem</a>
+  <a href="services.html" onclick="toggleMenu()">Tjenester</a>
+  <a href="contact.html" onclick="toggleMenu()">Kontakt</a>
+</div>
 
 <!-- FOTO -->
 <section class="section" id="foto">
@@ -77,11 +58,7 @@
   <div class="section-content reveal reveal-delay-2">
     <h3>Film & Foto</h3>
     <h2>Fra et konsept til ferdig produkt</h2>
-    <p>
-      Vi produserer reklamefilmer, bedriftsvideoer, foto og digitalt innhold
-      som engasjerer fra idé til ferdig levering – optimalisert for både
-      kampanjer, nettsider og sosiale medier.
-    </p>
+    <p>Vi produserer reklamefilmer, bedriftsvideoer, foto og digitalt innhold som engasjerer fra idé til ferdig levering – optimalisert for både kampanjer, nettsider og sosiale medier.</p>
     <div class="price-grid">
       <div class="price-card">
         <div class="price-card__label">Enkelt fotoshoot</div>
@@ -104,11 +81,7 @@
   <div class="section-content reveal">
     <h3>Drone</h3>
     <h2>Foto og video fra nye perspektiver</h2>
-    <p>
-      Vi leverer dronefoto og video i høy kvalitet som gir prosjektene dine
-      et unikt visuelt uttrykk. Perfekt for reklame, eiendom, nettsider
-      og markedsføring.
-    </p>
+    <p>Vi leverer dronefoto og video i høy kvalitet som gir prosjektene dine et unikt visuelt uttrykk. Perfekt for reklame, eiendom, nettsider og markedsføring.</p>
     <div class="price-grid">
       <div class="price-card">
         <div class="price-card__label">Halvdag</div>
@@ -131,10 +104,7 @@
   <div class="section-content reveal reveal-delay-2">
     <h3>Content Creation</h3>
     <h2>Innhold laget for sosiale medier</h2>
-    <p>
-      Vi lager visuelt innhold til Instagram, TikTok og Snapchat med fokus på
-      kvalitet, tempo og uttrykk som fanger oppmerksomhet og bygger merkevare.
-    </p>
+    <p>Vi lager visuelt innhold til Instagram, TikTok og Snapchat med fokus på kvalitet, tempo og uttrykk som fanger oppmerksomhet og bygger merkevare.</p>
     <div class="price-grid">
       <div class="price-card">
         <div class="price-card__label">Engangspakke</div>
@@ -155,20 +125,16 @@
   <div class="footer__inner">
     <div class="footer__brand">
       <div class="footer__logo">MTHS Media</div>
-      <div class="footer__mail">kontakt.mthsmedia@gmail.com</div>
+      <div class="footer__mail">mthsmedia@gmail.com</div>
     </div>
     <div class="footer__social">
       <div class="footer__label">Følg oss på</div>
       <div class="footer__icons">
         <a href="https://www.tiktok.com/@mths.media" aria-label="TikTok">
-          <svg viewBox="0 0 24 24" width="22">
-            <path fill="currentColor" d="M21 8.6a7.7 7.7 0 0 1-4.4-1.4v6.5a5.7 5.7 0 1 1-4.9-5.7v3a2.7 2.7 0 1 0 1.9 2.6V2h3a4.7 4.7 0 0 0 4.4 4.4z"/>
-          </svg>
+          <svg viewBox="0 0 24 24" width="22"><path fill="currentColor" d="M21 8.6a7.7 7.7 0 0 1-4.4-1.4v6.5a5.7 5.7 0 1 1-4.9-5.7v3a2.7 2.7 0 1 0 1.9 2.6V2h3a4.7 4.7 0 0 0 4.4 4.4z"/></svg>
         </a>
         <a href="https://www.instagram.com/mths_media/" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" width="22">
-            <path fill="currentColor" d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm5 5.2A4.8 4.8 0 1 1 7.2 12 4.8 4.8 0 0 1 12 7.2zm6.2-.3a1.1 1.1 0 1 1-1.1-1.1 1.1 1.1 0 0 1 1.1 1.1zM12 9.2A2.8 2.8 0 1 0 14.8 12 2.8 2.8 0 0 0 12 9.2z"/>
-          </svg>
+          <svg viewBox="0 0 24 24" width="22"><path fill="currentColor" d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm5 5.2A4.8 4.8 0 1 1 7.2 12 4.8 4.8 0 0 1 12 7.2zm6.2-.3a1.1 1.1 0 1 1-1.1-1.1 1.1 1.1 0 0 1 1.1 1.1zM12 9.2A2.8 2.8 0 1 0 14.8 12 2.8 2.8 0 0 0 12 9.2z"/></svg>
         </a>
       </div>
     </div>
@@ -176,26 +142,24 @@
 </footer>
 
 <script>
-/* Header glassaktig ved scroll */
-const header = document.querySelector('header');
-window.addEventListener('scroll', () => {
-  header.classList.toggle('scrolled', window.scrollY > 40);
-}, { passive: true });
+function toggleMenu() {
+  const btn = document.querySelector('.hamburger');
+  const nav = document.getElementById('mobileNav');
+  btn.classList.toggle('open');
+  nav.classList.toggle('open');
+  document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+}
 
-/* Fade-in animasjon på .reveal elementer */
+const header = document.querySelector('header');
+window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+
 const revealEls = document.querySelectorAll('.reveal');
 if (revealEls.length) {
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
+    entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
   }, { threshold: 0.12 });
   revealEls.forEach(el => observer.observe(el));
 }
 </script>
-
 </body>
 </html>
