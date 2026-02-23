@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kontakt – MTHS Media</title>
@@ -12,185 +9,49 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-/* =========================
-   SLIK BESTILLER DU
-========================= */
-.how {
-  padding: 100px 8% 0;
-}
-
-.how__kicker {
-  font-size: 12px;
-  letter-spacing: .14em;
-  color: #9a9a9a;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-  text-align: center;
-}
-
-.how__title {
-  font-size: 48px;
-  font-weight: 800;
-  line-height: 1.05;
-  text-align: center;
-  margin: 0 0 56px 0;
-}
-
-.how__steps {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  max-width: 900px;
-  margin: 0 auto;
-  position: relative;
-}
-
-/* Connecting line between steps */
-.how__steps::before {
-  content: '';
-  position: absolute;
-  top: 28px;
-  left: calc(16.66% + 14px);
-  right: calc(16.66% + 14px);
-  height: 1px;
-  background: linear-gradient(90deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
-  pointer-events: none;
-}
-
-.how__step {
-  text-align: center;
-  padding: 0 16px;
-}
-
+.how { padding: 100px 8% 0; }
+.how__kicker { font-size: 12px; letter-spacing: .14em; color: #9a9a9a; text-transform: uppercase; margin-bottom: 12px; text-align: center; }
+.how__title { font-size: 48px; font-weight: 800; line-height: 1.05; text-align: center; margin: 0 0 56px 0; }
+.how__steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 900px; margin: 0 auto; position: relative; }
+.how__steps::before { content: ''; position: absolute; top: 28px; left: calc(16.66% + 14px); right: calc(16.66% + 14px); height: 1px; background: linear-gradient(90deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05)); pointer-events: none; }
+.how__step { text-align: center; padding: 0 16px; }
 .how__step-num {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.15);
-  background: rgba(255,255,255,0.04);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  font-weight: 800;
-  margin: 0 auto 20px auto;
-  position: relative;
-  z-index: 1;
+  width: 56px; height: 56px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.04);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 800; margin: 0 auto 20px auto;
+  position: relative; z-index: 1;
   transition: background .25s ease, border-color .25s ease;
 }
+.how__step:hover .how__step-num { background: rgba(255,255,255,0.10); border-color: rgba(255,255,255,0.30); }
+.how__step-title { font-size: 16px; font-weight: 800; margin-bottom: 8px; }
+.how__step-text { font-size: 14px; color: #cfcfcf; line-height: 1.65; }
 
-.how__step:hover .how__step-num {
-  background: rgba(255,255,255,0.10);
-  border-color: rgba(255,255,255,0.30);
-}
-
-.how__step-title {
-  font-size: 16px;
-  font-weight: 800;
-  margin-bottom: 8px;
-}
-
-.how__step-text {
-  font-size: 14px;
-  color: #cfcfcf;
-  line-height: 1.65;
-}
-
-/* =========================
-   CONTACT FORM
-========================= */
-.contact-section {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 80px 8% 120px;
-  gap: 80px;
-  min-height: 60vh;
-}
-
-.contact-left {
-  flex: 1 1 400px;
-}
-
-.contact-left h2 {
-  font-size: 40px;
-  font-weight: 800;
-  margin-bottom: 16px;
-  line-height: 1.1;
-}
-
-.contact-left p {
-  color: #aaa;
-  max-width: 500px;
-  line-height: 1.6;
-}
-
-.contact-info {
-  margin-top: 36px;
-  color: #ccc;
-}
-
-.contact-info p {
-  margin: 10px 0;
-  font-size: 15px;
-}
-
-.contact-form {
-  flex: 1 1 400px;
-  background: #151515;
-  padding: 50px;
-  border-radius: 16px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 14px;
-  margin-bottom: 18px;
-  background: #0f0f0f;
-  border: 1px solid #222;
-  border-radius: 10px;
-  color: white;
-  font-size: 14px;
-  font-family: 'Inter', sans-serif;
+.contact-section { display: flex; flex-wrap: wrap; padding: 80px 8% 120px; gap: 80px; min-height: 60vh; }
+.contact-left { flex: 1 1 400px; }
+.contact-left h2 { font-size: 40px; font-weight: 800; margin-bottom: 16px; line-height: 1.1; }
+.contact-left p { color: #aaa; max-width: 500px; line-height: 1.6; }
+.contact-info { margin-top: 36px; color: #ccc; }
+.contact-info p { margin: 10px 0; font-size: 15px; }
+.contact-form { flex: 1 1 400px; background: #151515; padding: 50px; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+.contact-form input, .contact-form textarea {
+  width: 100%; padding: 14px; margin-bottom: 18px;
+  background: #0f0f0f; border: 1px solid #222; border-radius: 10px;
+  color: white; font-size: 14px; font-family: 'Inter', sans-serif;
   transition: border-color 0.2s ease;
 }
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: none;
-  border-color: rgba(255,255,255,0.25);
-}
-
-.contact-form textarea {
-  resize: none;
-  height: 140px;
-}
-
-.contact-form .btn {
-  width: 100%;
-  margin-top: 10px;
-  cursor: pointer;
-  border: none;
-  font-family: 'Inter', sans-serif;
-  font-size: 15px;
-}
+.contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: rgba(255,255,255,0.25); }
+.contact-form textarea { resize: none; height: 140px; }
+.contact-form .btn { width: 100%; margin-top: 10px; cursor: pointer; border: none; font-family: 'Inter', sans-serif; font-size: 15px; }
 
 @media (max-width: 900px) {
   .how__title { font-size: 34px; }
-  .how__steps {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
+  .how__steps { grid-template-columns: 1fr; gap: 32px; }
   .how__steps::before { display: none; }
-
-  .contact-section {
-    flex-direction: column;
-    padding: 60px 8% 80px;
-    gap: 40px;
-  }
-  .contact-left h2 { font-size: 30px; }
+  .contact-section { flex-direction: column; padding: 60px 6% 80px; gap: 40px; }
+  .contact-left h2 { font-size: 28px; }
   .contact-form { padding: 30px 24px; }
+  .how { padding: 60px 6% 0; }
 }
 </style>
 </head>
@@ -207,47 +68,50 @@
     <a href="services.html">Tjenester</a>
     <a href="contact.html">Kontakt</a>
   </nav>
+  <button class="hamburger" aria-label="Meny" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </header>
 
-<!-- SLIK BESTILLER DU -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html" onclick="toggleMenu()">Hjem</a>
+  <a href="services.html" onclick="toggleMenu()">Tjenester</a>
+  <a href="contact.html" onclick="toggleMenu()">Kontakt</a>
+</div>
+
 <section class="how">
   <div class="how__kicker reveal">SLIK FUNGERER DET</div>
   <h2 class="how__title reveal">Tre enkle steg.</h2>
-
   <div class="how__steps">
     <div class="how__step reveal reveal-delay-1">
       <div class="how__step-num">1</div>
       <div class="how__step-title">Send en melding</div>
-      <p class="how__step-text">Fortell oss kort hva du trenger – type innhold, dato og eventuell lokasjon. Ingen detaljer er for små.</p>
+      <p class="how__step-text">Fortell oss kort hva du trenger – type innhold, dato og eventuell lokasjon.</p>
     </div>
     <div class="how__step reveal reveal-delay-2">
       <div class="how__step-num">2</div>
       <div class="how__step-title">Vi tar kontakt</div>
-      <p class="how__step-text">Vi svarer innen 48 timer med et konkret forslag og pris. Ingen forpliktelse – bare en hyggelig prat.</p>
+      <p class="how__step-text">Vi svarer innen 48 timer med et konkret forslag og pris. Ingen forpliktelse.</p>
     </div>
     <div class="how__step reveal reveal-delay-3">
       <div class="how__step-num">3</div>
       <div class="how__step-title">Vi produserer</div>
-      <p class="how__step-text">Vi møtes, tar opptakene og leverer ferdig redigert innhold klart til bruk på dine plattformer.</p>
+      <p class="how__step-text">Vi møtes, tar opptakene og leverer ferdig redigert innhold klart til bruk.</p>
     </div>
   </div>
 </section>
 
-<!-- KONTAKTSKJEMA -->
 <section class="contact-section">
-
   <div class="contact-left reveal">
     <h2>La oss skape noe visuelt sammen.</h2>
-    <p>
-      Har du et prosjekt, en idé eller ønsker nytt visuelt innhold?
-      Send en melding så tar vi en uforpliktende prat.
-    </p>
+    <p>Har du et prosjekt, en idé eller ønsker nytt visuelt innhold? Send en melding så tar vi en uforpliktende prat.</p>
     <div class="contact-info">
-      <p><strong>E-post:</strong> kontakt.mthsmedia@gmail.com</p>
+      <p><strong>E-post:</strong> mthsmedia@gmail.com</p>
       <p><strong>Telefon:</strong> +47 940 35 180</p>
     </div>
   </div>
-
   <div class="contact-form reveal reveal-delay-2">
     <form action="https://formspree.io/f/xgoooqee" method="POST">
       <input type="hidden" name="_subject" value="Ny melding fra nettsiden">
@@ -257,27 +121,22 @@
       <button type="submit" class="btn">Send melding →</button>
     </form>
   </div>
-
 </section>
 
 <footer class="footer">
   <div class="footer__inner">
     <div class="footer__brand">
       <div class="footer__logo">MTHS Media</div>
-      <div class="footer__mail">kontakt.mthsmedia@gmail.com</div>
+      <div class="footer__mail">mthsmedia@gmail.com</div>
     </div>
     <div class="footer__social">
       <div class="footer__label">Følg oss på</div>
       <div class="footer__icons">
         <a href="https://www.tiktok.com/@mths.media" aria-label="TikTok">
-          <svg viewBox="0 0 24 24" width="22">
-            <path fill="currentColor" d="M21 8.6a7.7 7.7 0 0 1-4.4-1.4v6.5a5.7 5.7 0 1 1-4.9-5.7v3a2.7 2.7 0 1 0 1.9 2.6V2h3a4.7 4.7 0 0 0 4.4 4.4z"/>
-          </svg>
+          <svg viewBox="0 0 24 24" width="22"><path fill="currentColor" d="M21 8.6a7.7 7.7 0 0 1-4.4-1.4v6.5a5.7 5.7 0 1 1-4.9-5.7v3a2.7 2.7 0 1 0 1.9 2.6V2h3a4.7 4.7 0 0 0 4.4 4.4z"/></svg>
         </a>
         <a href="https://www.instagram.com/mths_media/" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" width="22">
-            <path fill="currentColor" d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm5 5.2A4.8 4.8 0 1 1 7.2 12 4.8 4.8 0 0 1 12 7.2zm6.2-.3a1.1 1.1 0 1 1-1.1-1.1 1.1 1.1 0 0 1 1.1 1.1zM12 9.2A2.8 2.8 0 1 0 14.8 12 2.8 2.8 0 0 0 12 9.2z"/>
-          </svg>
+          <svg viewBox="0 0 24 24" width="22"><path fill="currentColor" d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm5 5.2A4.8 4.8 0 1 1 7.2 12 4.8 4.8 0 0 1 12 7.2zm6.2-.3a1.1 1.1 0 1 1-1.1-1.1 1.1 1.1 0 0 1 1.1 1.1zM12 9.2A2.8 2.8 0 1 0 14.8 12 2.8 2.8 0 0 0 12 9.2z"/></svg>
         </a>
       </div>
     </div>
@@ -285,26 +144,24 @@
 </footer>
 
 <script>
-/* Header glassaktig ved scroll */
-const header = document.querySelector('header');
-window.addEventListener('scroll', () => {
-  header.classList.toggle('scrolled', window.scrollY > 40);
-}, { passive: true });
+function toggleMenu() {
+  const btn = document.querySelector('.hamburger');
+  const nav = document.getElementById('mobileNav');
+  btn.classList.toggle('open');
+  nav.classList.toggle('open');
+  document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+}
 
-/* Fade-in animasjon */
+const header = document.querySelector('header');
+window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+
 const revealEls = document.querySelectorAll('.reveal');
 if (revealEls.length) {
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
+    entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
   }, { threshold: 0.12 });
   revealEls.forEach(el => observer.observe(el));
 }
 </script>
-
 </body>
 </html>
