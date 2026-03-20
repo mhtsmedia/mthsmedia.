@@ -150,11 +150,11 @@
     <p class="bts__lead">Små øyeblikk – fra idé til ferdig klipp.</p>
   </div>
   <div class="bts__row reveal" id="btsRow">
-    <div class="bts__card"><video src="hero1.mp4" muted autoplay loop playsinline preload="metadata"></video></div>
+    <div class="bts__card"><video src="hero5.mp4" muted autoplay loop playsinline preload="metadata"></video></div>
     <div class="bts__card"><video src="hero2.mp4" muted autoplay loop playsinline preload="metadata"></video></div>
     <div class="bts__card"><video src="hero3.mp4" muted autoplay loop playsinline preload="metadata"></video></div>
     <div class="bts__card"><video src="hero4.mp4" muted autoplay loop playsinline preload="metadata"></video></div>
-    <div class="bts__card"><video src="hero5.mp4" muted autoplay loop playsinline preload="metadata"></video></div>
+    <div class="bts__card"><video src="hero1.mp4" muted autoplay loop playsinline preload="metadata"></video></div>
   </div>
   <div class="bts__arrows">
     <button class="bts__btn" type="button" onclick="scrollBts(-1)">‹</button>
@@ -319,7 +319,7 @@ document.addEventListener("DOMContentLoaded", () => {
   textEl.style.opacity = 1;
   setInterval(changeText, 1100);
 
-  const videos = ["hero1.mp4","hero2.mp4","hero3.mp4","hero4.mp4","hero5.mp4"];
+  const videos = ["hero5.mp4","hero2.mp4","hero3.mp4","hero4.mp4","hero1.mp4"];
   let v = 0;
   const heroVideo = document.querySelector(".hero-video");
   function safePlay(){
