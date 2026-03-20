@@ -415,6 +415,7 @@ a.btn, a.btn:visited, a.btn:hover{ color:#000 !important; }
   transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
 }
 .testimonial__card:hover{ transform: translateY(-6px); border-color: rgba(255,255,255,0.16); box-shadow: var(--shadowSoft); }
+.testimonial__stars{ font-size: 18px; letter-spacing: 2px; color: #f5c518; margin-bottom: -4px; }
 .testimonial__quote{ font-size: 56px; line-height: 1; color: rgba(255,255,255,0.15); font-family: Georgia, serif; font-weight: 700; }
 .testimonial__text{ margin: 0; color: var(--muted); font-size: 15px; line-height: 1.7; flex: 1; }
 .testimonial__author{ margin-top: 8px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); }
