@@ -1,30 +1,107 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MTHS Media – Tjenester</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<style>
-.price-grid { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 24px; }
-.price-card {
-  flex: 1 1 180px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.10);
-  border-radius: 14px;
-  padding: 20px 18px;
-  transition: border-color .2s, background .2s;
-}
-.price-card:hover { border-color: rgba(255,255,255,0.20); background: rgba(255,255,255,0.07); }
-.price-card__label { font-size: 12px; color: #9a9a9a; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 6px; }
-.price-card__price { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 4px; }
-.price-card__desc { font-size: 13px; color: #aaa; line-height: 1.5; }
-.services-page .section { border-bottom: 1px solid rgba(255,255,255,0.06); }
-.services-page .section:last-of-type { border-bottom: none; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MTHS Media – Tjenester</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .services-section {
+      display: flex;
+      align-items: center;
+      gap: 70px;
+      padding: 110px 8%;
+      max-width: 1200px;
+      margin: 0 auto;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .services-section:last-of-type { border-bottom: none; }
+    .services-section:nth-child(even) { flex-direction: row-reverse; }
+
+    .services-section__img {
+      flex: 0 0 480px;
+      width: 480px;
+      height: 360px;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.60);
+      background: #111;
+      transition: transform .4s ease, box-shadow .4s ease;
+    }
+    .services-section__img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 35px 80px rgba(0,0,0,0.70);
+    }
+    .services-section__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .services-section__content {
+      flex: 1;
+      min-width: 0;
+    }
+    .services-section__kicker {
+      font-size: 12px;
+      letter-spacing: .14em;
+      color: #9a9a9a;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .services-section__title {
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1.1;
+      margin: 0 0 18px 0;
+    }
+    .services-section__text {
+      color: #cfcfcf;
+      line-height: 1.75;
+      margin: 0 0 28px 0;
+      font-size: 16px;
+      max-width: 48ch;
+    }
+    .services-section__btn {
+      display: inline-block;
+      padding: 14px 24px;
+      background: #fff;
+      color: #000 !important;
+      font-weight: 800;
+      border-radius: 10px;
+      transition: transform .25s ease, opacity .25s ease, box-shadow .25s ease;
+    }
+    .services-section__btn:hover {
+      transform: translateY(-3px);
+      opacity: .92;
+      box-shadow: 0 10px 28px rgba(255,255,255,0.15);
+    }
+
+    @media (max-width: 980px) {
+      .services-section {
+        flex-direction: column !important;
+        gap: 36px;
+        padding: 70px 8%;
+      }
+      .services-section__img {
+        flex: none;
+        width: 100%;
+        height: 300px;
+      }
+      .services-section__title { font-size: 34px; }
+    }
+
+    @media (max-width: 700px) {
+      .services-section { padding: 60px 6%; gap: 28px; }
+      .services-section__img { height: 240px; }
+      .services-section__title { font-size: 28px; }
+      .services-section__text { font-size: 15px; }
+    }
+  </style>
 </head>
 
 <body class="services-page">
@@ -53,41 +130,41 @@
 </div>
 
 <!-- FOTO -->
-<section class="section" id="foto">
-  <img src="IMG_5201.jpg" alt="Foto" class="reveal">
-  <div class="section-content reveal reveal-delay-2">
-    <h3>Film & Foto</h3>
-    <h2>Fra et konsept til ferdig produkt</h2>
-    <p>Vi produserer reklamefilmer, bedriftsvideoer, foto og digitalt innhold som engasjerer fra idé til ferdig levering – optimalisert for både kampanjer, nettsider og sosiale medier.</p>
-      </div>
-    </div>
-    <a href="contact.html" class="btn" style="margin-top: 28px;">Start et prosjekt</a>
+<section class="services-section" id="foto">
+  <div class="services-section__img reveal">
+    <img src="eks1.jpg" alt="Film og foto">
+  </div>
+  <div class="services-section__content reveal reveal-delay-2">
+    <div class="services-section__kicker">Film & Foto</div>
+    <h2 class="services-section__title">Fra konsept til ferdig produkt</h2>
+    <p class="services-section__text">Vi produserer reklamefilmer, bedriftsvideoer, foto og digitalt innhold som engasjerer – fra idé til ferdig levering, optimalisert for kampanjer, nettsider og sosiale medier.</p>
+    <a href="contact.html" class="services-section__btn">Start et prosjekt</a>
   </div>
 </section>
 
 <!-- DRONE -->
-<section class="section" id="drone">
-  <img src="drone.JPG" alt="Drone" class="reveal reveal-delay-2">
-  <div class="section-content reveal">
-    <h3>Drone</h3>
-    <h2>Foto og video fra nye perspektiver</h2>
-    <p>Vi leverer dronefoto og video i høy kvalitet som gir prosjektene dine et unikt visuelt uttrykk. Perfekt for reklame, eiendom, nettsider og markedsføring.</p>
-      </div>
-    </div>
-    <a href="contact.html" class="btn" style="margin-top: 28px;">Start et prosjekt</a>
+<section class="services-section" id="drone">
+  <div class="services-section__img reveal">
+    <img src="eks2.jpg" alt="Drone">
+  </div>
+  <div class="services-section__content reveal reveal-delay-2">
+    <div class="services-section__kicker">Drone</div>
+    <h2 class="services-section__title">Foto og video fra nye perspektiver</h2>
+    <p class="services-section__text">Vi leverer dronefoto og video i høy kvalitet som gir prosjektene dine et unikt visuelt uttrykk. Perfekt for reklame, eiendom, nettsider og markedsføring.</p>
+    <a href="contact.html" class="services-section__btn">Start et prosjekt</a>
   </div>
 </section>
 
 <!-- CONTENT -->
-<section class="section" id="content">
-  <img src="content.jpg" alt="Content Creation" class="reveal">
-  <div class="section-content reveal reveal-delay-2">
-    <h3>Content Creation</h3>
-    <h2>Innhold laget for sosiale medier</h2>
-    <p>Vi lager visuelt innhold til Instagram, TikTok og Snapchat med fokus på kvalitet, tempo og uttrykk som fanger oppmerksomhet og bygger merkevare.</p>
-      </div>
-    </div>
-    <a href="contact.html" class="btn" style="margin-top: 28px;">Start et prosjekt</a>
+<section class="services-section" id="content">
+  <div class="services-section__img reveal">
+    <img src="eks3.jpg" alt="Content Creation">
+  </div>
+  <div class="services-section__content reveal reveal-delay-2">
+    <div class="services-section__kicker">Content Creation</div>
+    <h2 class="services-section__title">Innhold laget for sosiale medier</h2>
+    <p class="services-section__text">Vi lager visuelt innhold til Instagram, TikTok og Snapchat med fokus på kvalitet, tempo og uttrykk som fanger oppmerksomhet og bygger merkevare.</p>
+    <a href="contact.html" class="services-section__btn">Start et prosjekt</a>
   </div>
 </section>
 
@@ -126,7 +203,9 @@ window.addEventListener('scroll', () => { header.classList.toggle('scrolled', wi
 const revealEls = document.querySelectorAll('.reveal');
 if (revealEls.length) {
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+    });
   }, { threshold: 0.12 });
   revealEls.forEach(el => observer.observe(el));
 }
