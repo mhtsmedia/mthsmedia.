@@ -589,3 +589,5 @@ a.btn, a.btn:visited, a.btn:hover{ color:#000 !important; }
   .trust__title { font-size: 30px; }
   .testimonials__title { font-size: 30px; }
 }
+
+background: radial-gradient(ellipse at center, #1a1a1a 0%, #000000 70%);
