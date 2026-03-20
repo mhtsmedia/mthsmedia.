@@ -398,7 +398,7 @@ a.btn, a.btn:visited, a.btn:hover{ color:#000 !important; }
 /* =========================
    TESTIMONIALS
 ========================= */
-.testimonials{ padding: 110px 8%; }
+.testimonials{ padding: 110px 8%; background: radial-gradient(ellipse at 50% 40%, #1c1c1c 0%, #000000 75%); }
 .testimonials__inner{ max-width: 1200px; margin: 0 auto; }
 .testimonials__kicker{ font-size: 12px; letter-spacing: .14em; color: var(--muted2); text-transform: uppercase; margin-bottom: 12px; text-align: center; }
 .testimonials__title{ margin: 0 0 48px 0; font-size: 52px; line-height: 1.05; font-weight: 800; text-align: center; }
@@ -589,5 +589,3 @@ a.btn, a.btn:visited, a.btn:hover{ color:#000 !important; }
   .trust__title { font-size: 30px; }
   .testimonials__title { font-size: 30px; }
 }
-
-background: radial-gradient(ellipse at center, #1a1a1a 0%, #000000 70%);
