@@ -359,6 +359,7 @@ a.btn, a.btn:visited, a.btn:hover{ color:#000 !important; }
 .bts__row{
   margin-top: 34px;
   display:flex;
+  justify-content: center;
   gap: 22px;
   overflow-x:auto;
   padding: 6px 2px 18px 2px;
@@ -370,10 +371,10 @@ a.btn, a.btn:visited, a.btn:hover{ color:#000 !important; }
 .bts__row::-webkit-scrollbar-thumb{ background: rgba(255,255,255,0.10); border-radius: 999px; }
 
 .bts__card{
-  flex: 0 0 340px;
-  width: 340px;
-  max-width: 340px;
-  height: 320px;
+  flex: 0 0 200px;
+  width: 200px;
+  height: 356px;
+  position: relative;
   border-radius: var(--radius);
   overflow:hidden;
   border: 1px solid var(--border);
@@ -529,7 +530,7 @@ a.btn, a.btn:visited, a.btn:hover{ color:#000 !important; }
   .method__media{ height: 360px; }
 
   .bts__title{ font-size: 40px; }
-  .bts__card{ flex-basis: 72vw; width: 72vw; max-width: 72vw; height: 300px; }
+  .bts__card{ flex: 0 0 160px; width: 160px; height: 284px; }
 
   .cta__inner{ padding: 46px 22px; }
   .cta__title{ font-size: 38px; max-width: 100%; }
@@ -583,12 +584,9 @@ a.btn, a.btn:visited, a.btn:hover{ color:#000 !important; }
 
   .footer__inner { flex-direction:column; align-items:flex-start; }
 
-  .bts__card { flex-basis: 80vw; width: 80vw; max-width: 80vw; height: 260px; }
+  .bts__card { flex: 0 0 150px; width: 150px; height: 267px; }
 
   .method__title { font-size: 34px; }
   .trust__title { font-size: 30px; }
   .testimonials__title { font-size: 30px; }
-   
-.bts__row { justify-content: center; }
-.bts__card { flex: 0 0 180px; width: 180px; height: 320px; }
-
+}
