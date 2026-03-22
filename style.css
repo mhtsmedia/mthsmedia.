@@ -371,9 +371,9 @@ a.btn, a.btn:visited, a.btn:hover{ color:#000 !important; }
 .bts__row::-webkit-scrollbar-thumb{ background: rgba(255,255,255,0.10); border-radius: 999px; }
 
 .bts__card{
-  flex: 0 0 200px;
-  width: 200px;
-  height: 356px;
+  flex: 0 0 280px;
+  width: 280px;
+  height: 498px;
   position: relative;
   border-radius: var(--radius);
   overflow:hidden;
@@ -530,7 +530,7 @@ a.btn, a.btn:visited, a.btn:hover{ color:#000 !important; }
   .method__media{ height: 360px; }
 
   .bts__title{ font-size: 40px; }
-  .bts__card{ flex: 0 0 160px; width: 160px; height: 284px; }
+  .bts__card{ flex: 0 0 240px; width: 240px; height: 427px; }
 
   .cta__inner{ padding: 46px 22px; }
   .cta__title{ font-size: 38px; max-width: 100%; }
@@ -584,7 +584,7 @@ a.btn, a.btn:visited, a.btn:hover{ color:#000 !important; }
 
   .footer__inner { flex-direction:column; align-items:flex-start; }
 
-  .bts__card { flex: 0 0 150px; width: 150px; height: 267px; }
+  .bts__card { flex: 0 0 160px; width: 160px; height: 284px; }
 
   .method__title { font-size: 34px; }
   .trust__title { font-size: 30px; }
