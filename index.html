@@ -150,14 +150,68 @@
     <p class="bts__lead">Små øyeblikk – fra idé til ferdig klipp.</p>
   </div>
   <div class="bts__row reveal" id="btsRow">
-    <div class="bts__card"><video src="Ink-Drop-V3.mp4" muted autoplay loop playsinline preload="metadata"></video></div>
-    <div class="bts__card"><video src="hero2.mp4" muted autoplay loop playsinline preload="metadata"></video></div>
+    <div class="bts__card">
+      <video src="Ink-Drop-V3.mp4" muted autoplay loop playsinline preload="metadata"></video>
+      <button class="bts__sound" onclick="toggleSound(this)" aria-label="Lyd av/på">🔇</button>
+    </div>
+    <div class="bts__card">
+      <video src="Low Quality.mov" muted autoplay loop playsinline preload="metadata"></video>
+      <button class="bts__sound" onclick="toggleSound(this)" aria-label="Lyd av/på">🔇</button>
+    </div>
   </div>
   <div class="bts__arrows">
     <button class="bts__btn" type="button" onclick="scrollBts(-1)">‹</button>
     <button class="bts__btn" type="button" onclick="scrollBts(1)">›</button>
   </div>
 </section>
+
+<style>
+.bts__card { position: relative; }
+.bts__sound {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s ease, transform .2s ease;
+  z-index: 10;
+}
+.bts__sound:hover { background: rgba(0,0,0,0.85); transform: scale(1.1); }
+</style>
+
+<script>
+function toggleSound(btn) {
+  const video = btn.previousElementSibling;
+
+  // Stopp alle andre videoer og reset knapper
+  document.querySelectorAll('.bts__card video').forEach(v => {
+    if (v !== video) {
+      v.muted = true;
+      v.nextElementSibling.textContent = '🔇';
+    }
+  });
+
+  if (video.muted) {
+    // Slå på lyd: restart og spill med lyd
+    video.muted = false;
+    video.currentTime = 0;
+    video.play();
+    btn.textContent = '🔊';
+  } else {
+    // Slå av lyd
+    video.muted = true;
+    btn.textContent = '🔇';
+  }
+}
+</script>
 
 <section class="trust" id="om">
   <div class="trust__grid">
