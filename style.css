@@ -588,14 +588,7 @@ a.btn, a.btn:visited, a.btn:hover{ color:#000 !important; }
   .method__title { font-size: 34px; }
   .trust__title { font-size: 30px; }
   .testimonials__title { font-size: 30px; }
-}
-.bts__row {
-  flex-direction: column;
-  align-items: center;
-}
-
-.bts__card {
-  width: 100%;
-  max-width: 500px;
-}
+   
+.bts__row { justify-content: center; }
+.bts__card { flex: 0 0 180px; width: 180px; height: 320px; }
 
