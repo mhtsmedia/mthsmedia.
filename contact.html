@@ -1,77 +1,188 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kontakt – MTHS Media</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<style>
-.how { padding: 100px 8% 0; }
-.how__kicker { font-size: 12px; letter-spacing: .14em; color: #9a9a9a; text-transform: uppercase; margin-bottom: 12px; text-align: center; }
-.how__title { font-size: 48px; font-weight: 800; line-height: 1.05; text-align: center; margin: 0 0 56px 0; }
-.how__steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 900px; margin: 0 auto; position: relative; }
-.how__steps::before { content: ''; position: absolute; top: 28px; left: calc(16.66% + 14px); right: calc(16.66% + 14px); height: 1px; background: linear-gradient(90deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05)); pointer-events: none; }
-.how__step { text-align: center; padding: 0 16px; }
-.how__step-num {
-  width: 56px; height: 56px; border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.04);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 18px; font-weight: 800; margin: 0 auto 20px auto;
-  position: relative; z-index: 1;
-  transition: background .25s ease, border-color .25s ease;
-}
-.how__step:hover .how__step-num { background: rgba(255,255,255,0.10); border-color: rgba(255,255,255,0.30); }
-.how__step-title { font-size: 16px; font-weight: 800; margin-bottom: 8px; }
-.how__step-text { font-size: 14px; color: #cfcfcf; line-height: 1.65; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakt – MTHS Media</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
 
-.contact-section { display: flex; flex-wrap: wrap; padding: 80px 8% 120px; gap: 80px; min-height: 60vh; }
-.contact-left { flex: 1 1 400px; }
-.contact-left h2 { font-size: 40px; font-weight: 800; margin-bottom: 16px; line-height: 1.1; }
-.contact-left p { color: #aaa; max-width: 500px; line-height: 1.6; }
-.contact-info { margin-top: 36px; color: #ccc; }
-.contact-info p { margin: 10px 0; font-size: 15px; }
-.contact-form { flex: 1 1 400px; background: #151515; padding: 50px; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
-.contact-form input, .contact-form textarea {
-  width: 100%; padding: 14px; margin-bottom: 18px;
-  background: #0f0f0f; border: 1px solid #222; border-radius: 10px;
-  color: white; font-size: 14px; font-family: 'Inter', sans-serif;
-  transition: border-color 0.2s ease;
-}
-.contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: rgba(255,255,255,0.25); }
-.contact-form textarea { resize: none; height: 140px; }
-.contact-form .btn { width: 100%; margin-top: 10px; cursor: pointer; border: none; font-family: 'Inter', sans-serif; font-size: 15px; }
+  /* ── CUSTOM CURSOR ────────────────────────────────────── */
+  * { cursor: none !important; }
+  #cur-dot {
+    position: fixed; pointer-events: none; z-index: 9999;
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #2563eb; transform: translate(-50%,-50%);
+    transition: width 0.2s ease, height 0.2s ease;
+  }
+  #cur-ring {
+    position: fixed; pointer-events: none; z-index: 9998;
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 1.5px solid rgba(37,99,235,0.5);
+    transform: translate(-50%,-50%);
+    transition: left 0.12s ease, top 0.12s ease, width 0.25s ease, height 0.25s ease, border-color 0.2s ease;
+  }
+  body.cursor-hover #cur-dot { width: 12px; height: 12px; background: #3b82f6; }
+  body.cursor-hover #cur-ring { width: 52px; height: 52px; border-color: rgba(37,99,235,0.8); }
 
-@media (max-width: 900px) {
-  .how__title { font-size: 34px; }
-  .how__steps { grid-template-columns: 1fr; gap: 32px; }
-  .how__steps::before { display: none; }
-  .contact-section { flex-direction: column; padding: 60px 6% 80px; gap: 40px; }
-  .contact-left h2 { font-size: 28px; }
-  .contact-form { padding: 30px 24px; }
-  .how { padding: 60px 6% 0; }
-}
-</style>
+  /* ── PARTICLES ────────────────────────────────────────── */
+  #particle-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+
+  /* ── ORBS ─────────────────────────────────────────────── */
+  #orb-layer { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: visible; will-change: transform; }
+  .orb { position: absolute; border-radius: 50%; filter: blur(60px); pointer-events: none; animation: orbFloat 14s ease-in-out infinite alternate; }
+  .orb-1 { width: 700px; height: 700px; background: #93c5fd; opacity: 0.50; top: -100px; right: -150px; animation-duration: 16s; }
+  .orb-2 { width: 500px; height: 500px; background: #3b82f6; opacity: 0.20; top: 40vh; left: -120px; animation-duration: 20s; animation-delay: -7s; }
+  .orb-3 { width: 400px; height: 400px; background: #bfdbfe; opacity: 0.55; top: 80vh; right: 8%; animation-duration: 11s; animation-delay: -3s; }
+  @keyframes orbFloat {
+    0%   { transform: translate(0,0) scale(1); }
+    50%  { transform: translate(30px,-40px) scale(1.05); }
+    100% { transform: translate(-20px,20px) scale(0.96); }
+  }
+
+  /* ── SPRING REVEAL ────────────────────────────────────── */
+  .reveal { opacity: 0; transform: translateY(40px) scale(0.97); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+  .reveal.visible { opacity: 1; transform: translateY(0) scale(1); }
+
+  /* ── HOW SECTION ──────────────────────────────────────── */
+  .how { padding: 160px 8% 80px; position: relative; z-index: 1; }
+  .how__kicker { font-size: 12px; letter-spacing: .14em; color: #94a3b8; text-transform: uppercase; margin-bottom: 12px; text-align: center; }
+  .how__title { font-size: 48px; font-weight: 800; line-height: 1.05; text-align: center; margin: 0 0 56px 0; color: #0d1a2e; }
+
+  .how__steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; max-width: 900px; margin: 0 auto; position: relative; }
+  .how__steps::before {
+    content: ''; position: absolute; top: 28px;
+    left: calc(16.66% + 14px); right: calc(16.66% + 14px);
+    height: 1px; background: linear-gradient(90deg, rgba(37,99,235,0.2), rgba(37,99,235,0.05));
+    pointer-events: none;
+  }
+
+  .how__step {
+    text-align: center; padding: 0 16px;
+    transition: transform 0.35s cubic-bezier(0.22,1,0.36,1);
+  }
+  .how__step:hover { transform: translateY(-6px); }
+
+  .how__step-num {
+    width: 56px; height: 56px; border-radius: 50%;
+    border: 1px solid rgba(37,99,235,0.2); background: rgba(37,99,235,0.06);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 800; margin: 0 auto 20px auto;
+    position: relative; z-index: 1; color: #2563eb;
+    transition: background .25s ease, border-color .25s ease, box-shadow .25s ease;
+  }
+  .how__step:hover .how__step-num { background: rgba(37,99,235,0.12); border-color: rgba(37,99,235,0.4); box-shadow: 0 8px 24px rgba(37,99,235,0.2); }
+  .how__step-title { font-size: 16px; font-weight: 800; margin-bottom: 8px; color: #0d1a2e; }
+  .how__step-text { font-size: 14px; color: #475569; line-height: 1.65; }
+
+  /* ── CONTACT SECTION ──────────────────────────────────── */
+  .contact-section {
+    display: flex; flex-wrap: wrap; padding: 60px 8% 120px;
+    gap: 70px; position: relative; z-index: 1;
+  }
+
+  .contact-left { flex: 1 1 400px; }
+  .contact-left h2 { font-size: 40px; font-weight: 800; margin-bottom: 16px; line-height: 1.1; color: #0d1a2e; }
+  .contact-left p { color: #475569; max-width: 500px; line-height: 1.7; font-size: 16px; }
+
+  .contact-info { margin-top: 36px; }
+  .contact-info-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 18px; border-radius: 12px;
+    border: 1px solid rgba(37,99,235,0.12);
+    background: #fff; margin-bottom: 12px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  .contact-info-item:hover { border-color: rgba(37,99,235,0.3); box-shadow: 0 8px 24px rgba(37,99,235,0.1); transform: translateX(4px); }
+  .contact-info-icon { font-size: 18px; width: 36px; height: 36px; border-radius: 8px; background: rgba(37,99,235,0.08); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .contact-info-text { font-size: 14px; color: #475569; }
+  .contact-info-text strong { display: block; color: #0d1a2e; font-weight: 700; margin-bottom: 2px; }
+
+  /* ── FORM ─────────────────────────────────────────────── */
+  .contact-form {
+    flex: 1 1 400px;
+    background: #fff;
+    padding: 48px;
+    border-radius: 20px;
+    border: 1px solid rgba(37,99,235,0.12);
+    box-shadow: 0 20px 60px rgba(37,99,235,0.08);
+    transition: box-shadow 0.4s ease;
+  }
+  .contact-form:hover { box-shadow: 0 30px 80px rgba(37,99,235,0.12); }
+
+  .form-label { display: block; font-size: 13px; font-weight: 700; color: #0d1a2e; margin-bottom: 6px; letter-spacing: 0.02em; }
+  .form-group { margin-bottom: 20px; }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%; padding: 14px 16px;
+    background: #f8faff;
+    border: 1px solid rgba(37,99,235,0.15);
+    border-radius: 10px;
+    color: #0d1a2e; font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    outline: none;
+    border-color: rgba(37,99,235,0.45);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.08);
+  }
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder { color: #94a3b8; }
+  .contact-form textarea { resize: none; height: 140px; }
+
+  .contact-form .btn {
+    width: 100%; margin-top: 8px;
+    cursor: none; border: none;
+    font-family: 'Inter', sans-serif; font-size: 15px;
+    padding: 15px; border-radius: 10px;
+    background: #2563eb; color: #fff !important;
+    font-weight: 800;
+    transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
+  }
+  .contact-form .btn:hover { transform: translateY(-2px); background: #3b82f6; box-shadow: 0 10px 28px rgba(37,99,235,0.3); }
+
+  @media (max-width: 900px) {
+    .how { padding: 130px 6% 60px; }
+    .how__title { font-size: 34px; }
+    .how__steps { grid-template-columns: 1fr; gap: 24px; }
+    .how__steps::before { display: none; }
+    .contact-section { flex-direction: column; padding: 40px 6% 80px; gap: 40px; }
+    .contact-left h2 { font-size: 28px; }
+    .contact-form { padding: 30px 24px; }
+  }
+  </style>
 </head>
 
 <body>
+
+<div id="cur-dot"></div>
+<div id="cur-ring"></div>
+<canvas id="particle-canvas"></canvas>
+<div id="orb-layer">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
 
 <header>
   <a href="index.html" class="logo-wrap" style="text-decoration:none;color:inherit;">
     <img src="logo.png" alt="MTHS Media logo">
     <div class="logo">MTHS Media</div>
- </a>
+  </a>
   <nav>
     <a href="index.html">Hjem</a>
     <a href="services.html">Tjenester</a>
     <a href="contact.html">Kontakt</a>
   </nav>
   <button class="hamburger" aria-label="Meny" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
+    <span></span><span></span><span></span>
   </button>
 </header>
 
@@ -107,18 +218,47 @@
   <div class="contact-left reveal">
     <h2>La oss skape noe visuelt sammen.</h2>
     <p>Har du et prosjekt, en idé eller ønsker nytt visuelt innhold? Send en melding så tar vi en uforpliktende prat.</p>
-    <div class="contact-info">
-      <p><strong>E-post:</strong> mthsmedia@gmail.com</p>
-      <p><strong>Telefon:</strong> +47 940 35 180</p>
+    <div class="contact-info" style="margin-top:32px;">
+      <div class="contact-info-item">
+        <div class="contact-info-icon">✉️</div>
+        <div class="contact-info-text">
+          <strong>E-post</strong>
+          kontakt.mthsmedia@gmail.com
+        </div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-icon">📞</div>
+        <div class="contact-info-text">
+          <strong>Telefon</strong>
+          +47 940 35 180
+        </div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-icon">⏱️</div>
+        <div class="contact-info-text">
+          <strong>Responstid</strong>
+          Vi svarer innen 48 timer
+        </div>
+      </div>
     </div>
   </div>
+
   <div class="contact-form reveal reveal-delay-2">
     <form action="https://formspree.io/f/xgoooqee" method="POST">
       <input type="hidden" name="_subject" value="Ny melding fra nettsiden">
-      <input type="text" name="name" placeholder="Navn" required>
-      <input type="email" name="email" placeholder="E-post" required>
-      <textarea name="message" placeholder="Fortell litt om prosjektet ditt..." required></textarea>
-      <button type="submit" class="btn">Send melding →</button>
+      <div class="form-group">
+        <label class="form-label">Navn</label>
+        <input type="text" name="name" placeholder="Ola Nordmann" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">E-post</label>
+        <input type="email" name="email" placeholder="ola@bedrift.no" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Melding</label>
+        <textarea name="message" placeholder="Fortell litt om prosjektet ditt..." required></textarea>
+      </div>
+      <button type="submit" class="btn magnetic">Send melding →</button>
     </form>
   </div>
 </section>
@@ -144,23 +284,74 @@
 </footer>
 
 <script>
-function toggleMenu() {
-  const btn = document.querySelector('.hamburger');
-  const nav = document.getElementById('mobileNav');
-  btn.classList.toggle('open');
-  nav.classList.toggle('open');
-  document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+const dot  = document.getElementById('cur-dot');
+const ring = document.getElementById('cur-ring');
+document.addEventListener('mousemove', e => {
+  dot.style.left = ring.style.left = e.clientX + 'px';
+  dot.style.top  = ring.style.top  = e.clientY + 'px';
+});
+document.querySelectorAll('a, button, .magnetic, input, textarea').forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+});
+
+const canvas = document.getElementById('particle-canvas');
+const ctx    = canvas.getContext('2d');
+let particles = [];
+function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+resizeCanvas(); window.addEventListener('resize', resizeCanvas);
+for (let i = 0; i < 55; i++) particles.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height, r: Math.random()*2+0.5, dx: (Math.random()-.5)*.4, dy: (Math.random()-.5)*.4, o: Math.random()*.3+0.07 });
+function drawParticles() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particles.forEach(p => {
+    ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle=`rgba(37,99,235,${p.o})`; ctx.fill();
+    p.x+=p.dx; p.y+=p.dy;
+    if(p.x<0||p.x>canvas.width) p.dx*=-1;
+    if(p.y<0||p.y>canvas.height) p.dy*=-1;
+    particles.forEach(p2=>{
+      const d=Math.hypot(p.x-p2.x,p.y-p2.y);
+      if(d<120){ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(p2.x,p2.y);ctx.strokeStyle=`rgba(37,99,235,${0.05*(1-d/120)})`;ctx.lineWidth=0.5;ctx.stroke();}
+    });
+  });
+  requestAnimationFrame(drawParticles);
 }
+drawParticles();
+
+const orb1 = document.querySelector('.orb-1');
+const orb2 = document.querySelector('.orb-2');
+const orb3 = document.querySelector('.orb-3');
+
+document.querySelectorAll('.magnetic').forEach(btn => {
+  btn.addEventListener('mousemove', e => {
+    const r=btn.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2;
+    btn.style.transform=`translate(${(e.clientX-cx)*.35}px,${(e.clientY-cy)*.35}px) scale(1.04)`;
+    btn.style.boxShadow='0 12px 36px rgba(37,99,235,0.32)';
+  });
+  btn.addEventListener('mouseleave',()=>{btn.style.transform='';btn.style.boxShadow='';});
+});
 
 const header = document.querySelector('header');
-window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 40);
+  const y = window.scrollY;
+  if(orb1) orb1.style.transform=`translateY(${y*-0.15}px)`;
+  if(orb2) orb2.style.transform=`translateY(${y*-0.25}px)`;
+  if(orb3) orb3.style.transform=`translateY(${y*-0.10}px)`;
+}, { passive: true });
 
 const revealEls = document.querySelectorAll('.reveal');
 if (revealEls.length) {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);} });
   }, { threshold: 0.12 });
-  revealEls.forEach(el => observer.observe(el));
+  revealEls.forEach(el => obs.observe(el));
+}
+
+function toggleMenu() {
+  const btn=document.querySelector('.hamburger'),nav=document.getElementById('mobileNav');
+  btn.classList.toggle('open'); nav.classList.toggle('open');
+  document.body.style.overflow=nav.classList.contains('open')?'hidden':'';
 }
 </script>
 </body>
