@@ -50,14 +50,22 @@
   }
 
   /* ── FLOATING ORBS ────────────────────────────────────── */
+  #orb-layer {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: visible;
+    will-change: transform;
+  }
   .orb {
-    position: fixed; border-radius: 50%;
-    filter: blur(60px); pointer-events: none; z-index: 0;
+    position: absolute; border-radius: 50%;
+    filter: blur(60px); pointer-events: none;
     animation: orbFloat 14s ease-in-out infinite alternate;
   }
-  .orb-1 { width: 700px; height: 700px; background: #93c5fd; opacity: 0.55; top: -200px; right: -150px; animation-duration: 16s; }
-  .orb-2 { width: 500px; height: 500px; background: #3b82f6; opacity: 0.25; bottom: 15%; left: -120px; animation-duration: 20s; animation-delay: -7s; }
-  .orb-3 { width: 400px; height: 400px; background: #bfdbfe; opacity: 0.60; bottom: 8%; right: 8%; animation-duration: 11s; animation-delay: -3s; }
+  .orb-1 { width: 700px; height: 700px; background: #93c5fd; opacity: 0.55; top: -100px; right: -150px; animation-duration: 16s; }
+  .orb-2 { width: 500px; height: 500px; background: #3b82f6; opacity: 0.25; top: 40vh; left: -120px; animation-duration: 20s; animation-delay: -7s; }
+  .orb-3 { width: 400px; height: 400px; background: #bfdbfe; opacity: 0.60; top: 80vh; right: 8%; animation-duration: 11s; animation-delay: -3s; }
   @keyframes orbFloat {
     0%   { transform: translate(0,0) scale(1); }
     50%  { transform: translate(30px,-40px) scale(1.05); }
@@ -244,10 +252,12 @@
 <!-- Particles -->
 <canvas id="particle-canvas"></canvas>
 
-<!-- Orbs -->
-<div class="orb orb-1"></div>
-<div class="orb orb-2"></div>
-<div class="orb orb-3"></div>
+<!-- Orbs in parallax layer -->
+<div id="orb-layer">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
 
 <header>
   <a href="index.html" class="logo-wrap" style="text-decoration:none;color:inherit;">
@@ -738,8 +748,20 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* ═══════════════════════════════════════
-   NAV SCROLL
+   ORB PARALLAX (scroll slower than content)
 ═══════════════════════════════════════ */
+const orbLayer = document.getElementById('orb-layer');
+const orb1 = document.querySelector('.orb-1');
+const orb2 = document.querySelector('.orb-2');
+const orb3 = document.querySelector('.orb-3');
+
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  // Each orb moves at different speed — creates real layered depth
+  orb1.style.transform = `translateY(${y * -0.15}px)`;  // slowest — feels furthest back
+  orb2.style.transform = `translateY(${y * -0.25}px)`;  // mid
+  orb3.style.transform = `translateY(${y * -0.10}px)`;  // barely moves
+}, { passive: true });
 const header = document.querySelector('header');
 window.addEventListener('scroll', () => {
   header.classList.toggle('scrolled', window.scrollY > 40);
