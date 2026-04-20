@@ -268,6 +268,10 @@
     <a href="index.html">Hjem</a>
     <a href="services.html">Tjenester</a>
     <a href="contact.html">Kontakt</a>
+    <div class="theme-toggle-wrap">
+      <span class="theme-icon" id="themeIcon">🌙</span>
+      <button class="theme-toggle" id="themeToggle" aria-label="Bytt tema"></button>
+    </div>
   </nav>
   <button class="hamburger" aria-label="Meny" onclick="toggleMenu()">
     <span></span><span></span><span></span>
@@ -512,6 +516,25 @@
 </footer>
 
 <script>
+/* ═══════════════════════════════════════
+   THEME TOGGLE
+═══════════════════════════════════════ */
+(function(){
+  const saved = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', saved);
+})();
+document.getElementById('themeToggle').addEventListener('click', () => {
+  const curr = document.documentElement.getAttribute('data-theme');
+  const next = curr === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  document.getElementById('themeIcon').textContent = next === 'dark' ? '☀️' : '🌙';
+});
+(function(){
+  const t = localStorage.getItem('theme') || 'light';
+  document.getElementById('themeIcon').textContent = t === 'dark' ? '☀️' : '🌙';
+})();
+
 /* ═══════════════════════════════════════
    CUSTOM CURSOR
 ═══════════════════════════════════════ */
