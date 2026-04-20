@@ -157,6 +157,31 @@
     .contact-left h2 { font-size: 28px; }
     .contact-form { padding: 30px 24px; }
   }
+  [data-theme="dark"] .contact-form {
+    background: #111827;
+    border-color: rgba(37,99,235,0.2);
+  }
+  [data-theme="dark"] .contact-form input,
+  [data-theme="dark"] .contact-form textarea {
+    background: #0d1524;
+    border-color: rgba(37,99,235,0.2);
+    color: #e8f0ff;
+  }
+  [data-theme="dark"] .contact-form input::placeholder,
+  [data-theme="dark"] .contact-form textarea::placeholder { color: #4d6a94; }
+  [data-theme="dark"] .contact-info-item {
+    background: #111827;
+    border-color: rgba(37,99,235,0.2);
+  }
+  [data-theme="dark"] .contact-info-text { color: #8ba3c7; }
+  [data-theme="dark"] .contact-info-text strong { color: #e8f0ff; }
+  [data-theme="dark"] .how__step-num { background: rgba(37,99,235,0.1); border-color: rgba(37,99,235,0.25); }
+  [data-theme="dark"] .how__title,
+  [data-theme="dark"] .contact-left h2,
+  [data-theme="dark"] .how__step-title { color: #e8f0ff; }
+  [data-theme="dark"] .contact-left p,
+  [data-theme="dark"] .how__step-text { color: #8ba3c7; }
+  [data-theme="dark"] .form-label { color: #e8f0ff; }
   </style>
 </head>
 
@@ -180,6 +205,10 @@
     <a href="index.html">Hjem</a>
     <a href="services.html">Tjenester</a>
     <a href="contact.html">Kontakt</a>
+    <div class="theme-toggle-wrap">
+      <span class="theme-icon" id="themeIcon">🌙</span>
+      <button class="theme-toggle" id="themeToggle" aria-label="Bytt tema"></button>
+    </div>
   </nav>
   <button class="hamburger" aria-label="Meny" onclick="toggleMenu()">
     <span></span><span></span><span></span>
@@ -284,6 +313,19 @@
 </footer>
 
 <script>
+(function(){
+  const t = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', t);
+  document.getElementById('themeIcon').textContent = t === 'dark' ? '☀️' : '🌙';
+})();
+document.getElementById('themeToggle').addEventListener('click', () => {
+  const curr = document.documentElement.getAttribute('data-theme');
+  const next = curr === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  document.getElementById('themeIcon').textContent = next === 'dark' ? '☀️' : '🌙';
+});
+
 const dot  = document.getElementById('cur-dot');
 const ring = document.getElementById('cur-ring');
 document.addEventListener('mousemove', e => {
