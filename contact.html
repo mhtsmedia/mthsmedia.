@@ -159,29 +159,43 @@
   }
   [data-theme="dark"] .contact-form {
     background: #111827;
-    border-color: rgba(37,99,235,0.2);
+    border-color: var(--border);
   }
   [data-theme="dark"] .contact-form input,
   [data-theme="dark"] .contact-form textarea {
     background: #0d1524;
-    border-color: rgba(37,99,235,0.2);
-    color: #e8f0ff;
+    border-color: var(--border);
+    color: var(--text);
+  }
+  [data-theme="dark"] .contact-form input:focus,
+  [data-theme="dark"] .contact-form textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
   }
   [data-theme="dark"] .contact-form input::placeholder,
-  [data-theme="dark"] .contact-form textarea::placeholder { color: #4d6a94; }
+  [data-theme="dark"] .contact-form textarea::placeholder { color: var(--muted2); }
   [data-theme="dark"] .contact-info-item {
     background: #111827;
-    border-color: rgba(37,99,235,0.2);
+    border-color: var(--border);
   }
-  [data-theme="dark"] .contact-info-text { color: #8ba3c7; }
-  [data-theme="dark"] .contact-info-text strong { color: #e8f0ff; }
-  [data-theme="dark"] .how__step-num { background: rgba(37,99,235,0.1); border-color: rgba(37,99,235,0.25); }
+  [data-theme="dark"] .contact-info-item:hover { border-color: var(--accent); }
+  [data-theme="dark"] .contact-info-text { color: var(--muted); }
+  [data-theme="dark"] .contact-info-text strong { color: var(--text); }
+  [data-theme="dark"] .contact-info-icon { background: rgba(59,130,246,0.12); }
+  [data-theme="dark"] .how__step-num { background: rgba(59,130,246,0.1); border-color: rgba(59,130,246,0.25); color: var(--accent-light); }
+  [data-theme="dark"] .how__step-num:hover,
+  [data-theme="dark"] .how__step:hover .how__step-num { background: rgba(59,130,246,0.2); border-color: var(--accent); }
   [data-theme="dark"] .how__title,
   [data-theme="dark"] .contact-left h2,
-  [data-theme="dark"] .how__step-title { color: #e8f0ff; }
+  [data-theme="dark"] .how__step-title { color: var(--text); }
   [data-theme="dark"] .contact-left p,
-  [data-theme="dark"] .how__step-text { color: #8ba3c7; }
-  [data-theme="dark"] .form-label { color: #e8f0ff; }
+  [data-theme="dark"] .how__step-text { color: var(--muted); }
+  [data-theme="dark"] .form-label { color: var(--text); }
+  [data-theme="dark"] .how__kicker { color: var(--muted2); }
+  [data-theme="dark"] .how__steps::before { background: linear-gradient(90deg, var(--border), transparent); }
+
+  /* Nav starts visible (no video hero here) */
+  header { background: var(--header-bg); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-color: var(--border); }
   </style>
 </head>
 
