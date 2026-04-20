@@ -114,6 +114,20 @@
     .services-section__title { font-size: 26px; }
     .services-section__text { font-size: 15px; }
   }
+  [data-theme="dark"] .page-hero h1,
+  [data-theme="dark"] .services-section__title { color: #e8f0ff; }
+  [data-theme="dark"] .page-hero p,
+  [data-theme="dark"] .services-section__text { color: #8ba3c7; }
+  [data-theme="dark"] .services-section__img {
+    background: #111827;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+  }
+  [data-theme="dark"] .services-section { border-color: rgba(37,99,235,0.1); }
+  [data-theme="dark"] .tag {
+    background: rgba(37,99,235,0.1);
+    border-color: rgba(37,99,235,0.25);
+    color: #60a5fa;
+  }
   </style>
 </head>
 
@@ -137,6 +151,10 @@
     <a href="index.html">Hjem</a>
     <a href="services.html">Tjenester</a>
     <a href="contact.html">Kontakt</a>
+    <div class="theme-toggle-wrap">
+      <span class="theme-icon" id="themeIcon">🌙</span>
+      <button class="theme-toggle" id="themeToggle" aria-label="Bytt tema"></button>
+    </div>
   </nav>
   <button class="hamburger" aria-label="Meny" onclick="toggleMenu()">
     <span></span><span></span><span></span>
@@ -233,6 +251,19 @@
 </footer>
 
 <script>
+(function(){
+  const t = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', t);
+  document.getElementById('themeIcon').textContent = t === 'dark' ? '☀️' : '🌙';
+})();
+document.getElementById('themeToggle').addEventListener('click', () => {
+  const curr = document.documentElement.getAttribute('data-theme');
+  const next = curr === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  document.getElementById('themeIcon').textContent = next === 'dark' ? '☀️' : '🌙';
+});
+
 const dot  = document.getElementById('cur-dot');
 const ring = document.getElementById('cur-ring');
 document.addEventListener('mousemove', e => {
