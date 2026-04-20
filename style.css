@@ -124,30 +124,88 @@ a, a:visited{ text-decoration:none; color: inherit; }
    HEADER
 ========================= */
 header{
-  display:flex; justify-content:space-between; align-items:center;
-  padding: 22px 8%;
-  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 8%;
+  background: rgba(219,234,254,0.75); /* lys blå start */
   position: sticky; top: 0; z-index: 1000;
-  border-bottom: 1px solid transparent;
-  transition: background 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease, padding 0.4s ease;
-  backdrop-filter: blur(0px);
-  -webkit-backdrop-filter: blur(0px);
+  border-bottom: 1px solid rgba(37,99,235,0.10);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition:
+    background 0.5s ease,
+    box-shadow 0.5s ease,
+    border-color 0.5s ease,
+    padding 0.4s ease;
 }
+
+/* Scrolled: hvit/mørk bakgrunn, kompakt */
 header.scrolled {
   background: var(--header-scrolled);
   box-shadow: 0 2px 40px rgba(37,99,235,0.10);
   border-color: var(--border);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  padding: 14px 8%;
+  padding: 10px 8%;
 }
-.logo-wrap{ display:flex; align-items:center; gap:14px; z-index: 1001; }
-.logo-wrap img{ width:46px; height:46px; object-fit:contain; display:block; }
-.logo{ font-size:20px; font-weight:700; color: var(--text); transition: color 0.4s ease; }
 
-nav { display: flex; align-items: center; }
-nav a{ color: var(--muted); margin-left: 25px; font-size: 15px; transition: color .25s ease; }
-nav a:hover{ color: var(--accent); }
+/* Logo alltid synlig */
+.logo-wrap{ display:flex; align-items:center; gap:14px; z-index: 1001; flex-shrink: 0; }
+.logo-wrap img{ width:40px; height:40px; object-fit:contain; display:block; }
+.logo{ font-size:19px; font-weight:700; color: var(--text); transition: color 0.4s ease; }
+
+/* Nav lenker — starter venstre, glir til midten ved scroll */
+nav {
+  display: flex;
+  align-items: center;
+  /* position absolut slik at vi kan sentrere */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  gap: 0;
+  background: transparent;
+  border-radius: 100px;
+  padding: 0;
+  transition:
+    background 0.5s ease,
+    box-shadow 0.5s ease,
+    padding 0.4s ease,
+    gap 0.4s ease;
+}
+
+/* Scrolled nav: pill-form med bakgrunn */
+header.scrolled nav {
+  background: var(--bg2);
+  box-shadow: 0 2px 16px rgba(37,99,235,0.10);
+  border: 1px solid var(--border);
+  padding: 6px 10px;
+  gap: 2px;
+}
+
+nav a {
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 100px;
+  transition: color .2s ease, background .2s ease;
+  white-space: nowrap;
+}
+nav a:hover { color: var(--accent); background: rgba(37,99,235,0.06); }
+
+/* Active-looking on current page */
+nav a.active { color: var(--accent); font-weight: 700; }
+
+/* Theme toggle sits at the right end */
+.theme-toggle-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 20px;
+  flex-shrink: 0;
+}
+.theme-icon {
+  font-size: 14px; line-height: 1; user-select: none;
+}
 
 /* =========================
    HAMBURGER
@@ -382,6 +440,14 @@ a.btn, a.btn:visited, a.btn:hover{ color:#fff !important; }
 .services-page .section-content h3{ font-size:12px; letter-spacing:.14em; text-transform:uppercase; color: var(--muted2); margin:0 0 10px 0; }
 .services-page .section-content h2{ font-size:42px; line-height:1.1; margin:0 0 18px 0; font-weight:800; color: var(--text); }
 .services-page .section-content p{ color: var(--muted); line-height:1.7; margin:0 0 16px 0; }
+
+[data-theme="dark"] header {
+  background: rgba(8,13,24,0.80);
+  border-color: var(--border);
+}
+[data-theme="dark"] header.scrolled {
+  background: var(--header-scrolled);
+}
 
 /* =========================
    DARK MODE OVERRIDES
