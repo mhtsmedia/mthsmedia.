@@ -225,21 +225,29 @@
   }
   .stat__label { font-size: 0.85rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; display: block; }
 
-  /* ── MARQUEE STRIP ────────────────────────────────────── */
-  .marquee-wrap {
-    overflow: hidden; background: #2563eb; padding: 14px 0;
-    position: relative; z-index: 1;
-  }
-  .marquee-track {
-    display: flex; gap: 3rem; width: max-content;
-    animation: marquee 18s linear infinite;
-  }
-  .marquee-track span {
-    font-size: 0.8rem; font-weight: 700; color: rgba(255,255,255,0.75);
-    text-transform: uppercase; letter-spacing: 0.15em; white-space: nowrap;
-  }
-  .marquee-track span.dot { color: rgba(255,255,255,0.3); }
-  @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  /* ── NAV OVER HERO (transparent, white text) ─────────── */
+  header:not(.scrolled) .logo,
+  header:not(.scrolled) nav a,
+  header:not(.scrolled) .theme-icon { color: rgba(255,255,255,0.92) !important; }
+  header:not(.scrolled) nav a:hover { color: #fff !important; }
+  header:not(.scrolled) .hamburger span { background: #fff; }
+  header:not(.scrolled) .hamburger { border-color: rgba(255,255,255,0.3); }
+  header:not(.scrolled) .theme-toggle { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.3); }
+  header:not(.scrolled) .theme-toggle::before { background: rgba(255,255,255,0.9); }
+
+  /* ── STATS DARK ───────────────────────────────────────── */
+  [data-theme="dark"] .stats-strip { background: var(--bg2); border-color: var(--border); }
+  [data-theme="dark"] .stat__label { color: var(--muted2); }
+  [data-theme="dark"] .stat__num { color: var(--accent-light); }
+
+  /* ── FAQ DARK ─────────────────────────────────────────── */
+  [data-theme="dark"] .faq__title { color: var(--text); }
+  [data-theme="dark"] .faq__item { border-color: var(--border); }
+  [data-theme="dark"] .faq__question { color: var(--text); }
+  [data-theme="dark"] .faq__question:hover { color: var(--accent-light); }
+  [data-theme="dark"] .faq__icon { border-color: var(--border); color: var(--accent); background: rgba(37,99,235,0.06); }
+  [data-theme="dark"] .faq__answer p { color: var(--muted); }
+  [data-theme="dark"] .faq__kicker { color: var(--muted2); }
 
   </style>
 </head>
@@ -296,28 +304,6 @@
     Scroll
   </div>
 </section>
-
-<!-- Marquee -->
-<div class="marquee-wrap">
-  <div class="marquee-track" id="marqueeTrack">
-    <span>Foto</span><span class="dot">·</span>
-    <span>Video</span><span class="dot">·</span>
-    <span>Drone</span><span class="dot">·</span>
-    <span>FPV</span><span class="dot">·</span>
-    <span>Content Creation</span><span class="dot">·</span>
-    <span>Sosiale Medier</span><span class="dot">·</span>
-    <span>Reklamefilm</span><span class="dot">·</span>
-    <span>Branding</span><span class="dot">·</span>
-    <span>Foto</span><span class="dot">·</span>
-    <span>Video</span><span class="dot">·</span>
-    <span>Drone</span><span class="dot">·</span>
-    <span>FPV</span><span class="dot">·</span>
-    <span>Content Creation</span><span class="dot">·</span>
-    <span>Sosiale Medier</span><span class="dot">·</span>
-    <span>Reklamefilm</span><span class="dot">·</span>
-    <span>Branding</span><span class="dot">·</span>
-  </div>
-</div>
 
 <!-- Stats strip -->
 <div class="stats-strip">
