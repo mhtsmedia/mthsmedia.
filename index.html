@@ -225,16 +225,6 @@
   }
   .stat__label { font-size: 0.85rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; display: block; }
 
-  /* ── NAV OVER HERO (transparent, white text) ─────────── */
-  header:not(.scrolled) .logo,
-  header:not(.scrolled) nav a,
-  header:not(.scrolled) .theme-icon { color: rgba(255,255,255,0.92) !important; }
-  header:not(.scrolled) nav a:hover { color: #fff !important; }
-  header:not(.scrolled) .hamburger span { background: #fff; }
-  header:not(.scrolled) .hamburger { border-color: rgba(255,255,255,0.3); }
-  header:not(.scrolled) .theme-toggle { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.3); }
-  header:not(.scrolled) .theme-toggle::before { background: rgba(255,255,255,0.9); }
-
   /* ── STATS DARK ───────────────────────────────────────── */
   [data-theme="dark"] .stats-strip { background: var(--bg2); border-color: var(--border); }
   [data-theme="dark"] .stat__label { color: var(--muted2); }
@@ -273,7 +263,7 @@
     <div class="logo">MTHS Media</div>
   </a>
   <nav>
-    <a href="index.html">Hjem</a>
+    <a href="index.html" class="active">Hjem</a>
     <a href="services.html">Tjenester</a>
     <a href="contact.html">Kontakt</a>
     <div class="theme-toggle-wrap">
