@@ -125,17 +125,21 @@ a, a:visited{ text-decoration:none; color: inherit; }
 ========================= */
 header{
   display:flex; justify-content:space-between; align-items:center;
-  padding: 20px 8%;
-  background: var(--header-bg);
+  padding: 22px 8%;
+  background: transparent;
   position: sticky; top: 0; z-index: 1000;
-  border-bottom: 1px solid var(--border);
-  transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.4s ease;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid transparent;
+  transition: background 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease, padding 0.4s ease;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
 }
 header.scrolled {
   background: var(--header-scrolled);
-  box-shadow: 0 4px 24px rgba(37,99,235,0.08);
+  box-shadow: 0 2px 40px rgba(37,99,235,0.10);
+  border-color: var(--border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 14px 8%;
 }
 .logo-wrap{ display:flex; align-items:center; gap:14px; z-index: 1001; }
 .logo-wrap img{ width:46px; height:46px; object-fit:contain; display:block; }
@@ -378,6 +382,68 @@ a.btn, a.btn:visited, a.btn:hover{ color:#fff !important; }
 .services-page .section-content h3{ font-size:12px; letter-spacing:.14em; text-transform:uppercase; color: var(--muted2); margin:0 0 10px 0; }
 .services-page .section-content h2{ font-size:42px; line-height:1.1; margin:0 0 18px 0; font-weight:800; color: var(--text); }
 .services-page .section-content p{ color: var(--muted); line-height:1.7; margin:0 0 16px 0; }
+
+/* =========================
+   DARK MODE OVERRIDES
+========================= */
+[data-theme="dark"] body { background: var(--bg); }
+
+/* Stats strip */
+[data-theme="dark"] .stats-strip {
+  background: var(--bg2);
+  border-color: var(--border);
+}
+[data-theme="dark"] .stat__label { color: var(--muted2); }
+
+/* FAQ */
+[data-theme="dark"] .faq { background: var(--bg); }
+[data-theme="dark"] .faq__title { color: var(--text); }
+[data-theme="dark"] .faq__item { border-color: var(--border); }
+[data-theme="dark"] .faq__question { color: var(--text); }
+[data-theme="dark"] .faq__question:hover { color: var(--accent-light); }
+[data-theme="dark"] .faq__icon { border-color: var(--border); color: var(--accent); }
+[data-theme="dark"] .faq__answer p { color: var(--muted); }
+[data-theme="dark"] .faq__kicker { color: var(--muted2); }
+
+/* Marquee (if kept elsewhere) */
+[data-theme="dark"] .marquee-wrap { background: var(--accent); }
+
+/* Hero */
+[data-theme="dark"] .hero h1 { color: var(--text); }
+
+/* Method */
+[data-theme="dark"] .method__kicker { color: var(--muted2); }
+
+/* BTS kicker/lead */
+[data-theme="dark"] .bts__kicker { color: var(--muted2); }
+
+/* Testimonials kicker */
+[data-theme="dark"] .testimonials__kicker { color: var(--muted2); }
+[data-theme="dark"] .testimonial__quote { color: var(--border); }
+
+/* Trust */
+[data-theme="dark"] .trust__kicker { color: var(--muted2); }
+
+/* CTA section bg only — inner stays blue */
+[data-theme="dark"] .cta { background: var(--bg2); }
+
+/* Footer */
+[data-theme="dark"] .footer { background: var(--bg2); border-color: var(--border); }
+
+/* Nav links in dark */
+[data-theme="dark"] nav a { color: var(--muted); }
+[data-theme="dark"] nav a:hover { color: var(--accent-light); }
+[data-theme="dark"] .mobile-nav a { color: var(--text); }
+[data-theme="dark"] .logo { color: var(--text); }
+
+/* Theme toggle pill in dark */
+[data-theme="dark"] .theme-toggle {
+  background: rgba(59,130,246,0.2);
+  border-color: rgba(59,130,246,0.3);
+}
+
+/* Scrollbar dark */
+[data-theme="dark"] .bts__row::-webkit-scrollbar-thumb { background: rgba(59,130,246,0.3); }
 
 /* =========================
    RESPONSIVE — TABLET
