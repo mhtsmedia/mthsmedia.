@@ -193,9 +193,6 @@
   [data-theme="dark"] .form-label { color: var(--text); }
   [data-theme="dark"] .how__kicker { color: var(--muted2); }
   [data-theme="dark"] .how__steps::before { background: linear-gradient(90deg, var(--border), transparent); }
-
-  /* Nav starts visible (no video hero here) */
-  header { background: var(--header-bg); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-color: var(--border); }
   </style>
 </head>
 
@@ -218,7 +215,7 @@
   <nav>
     <a href="index.html">Hjem</a>
     <a href="services.html">Tjenester</a>
-    <a href="contact.html">Kontakt</a>
+    <a href="contact.html" class="active">Kontakt</a>
     <div class="theme-toggle-wrap">
       <span class="theme-icon" id="themeIcon">🌙</span>
       <button class="theme-toggle" id="themeToggle" aria-label="Bytt tema"></button>
