@@ -153,11 +153,10 @@ header.scrolled {
 .logo-wrap img{ width:40px; height:40px; object-fit:contain; display:block; }
 .logo{ font-size:19px; font-weight:700; color: var(--text); transition: color 0.4s ease; }
 
-/* Nav lenker — starter venstre, glir til midten ved scroll */
+/* Nav lenker — sentrert pill ved scroll */
 nav {
   display: flex;
   align-items: center;
-  /* position absolut slik at vi kan sentrere */
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -172,7 +171,7 @@ nav {
     gap 0.4s ease;
 }
 
-/* Scrolled nav: pill-form med bakgrunn */
+/* Scrolled nav: pill-form */
 header.scrolled nav {
   background: var(--bg2);
   box-shadow: 0 2px 16px rgba(37,99,235,0.10);
@@ -191,11 +190,9 @@ nav a {
   white-space: nowrap;
 }
 nav a:hover { color: var(--accent); background: rgba(37,99,235,0.06); }
-
-/* Active-looking on current page */
 nav a.active { color: var(--accent); font-weight: 700; }
 
-/* Theme toggle sits at the right end */
+/* Theme toggle */
 .theme-toggle-wrap {
   display: flex;
   align-items: center;
@@ -203,8 +200,15 @@ nav a.active { color: var(--accent); font-weight: 700; }
   margin-left: 20px;
   flex-shrink: 0;
 }
-.theme-icon {
-  font-size: 14px; line-height: 1; user-select: none;
+.theme-icon { font-size: 14px; line-height: 1; user-select: none; }
+
+/* Header right side: toggle + hamburger */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  z-index: 1001;
 }
 
 /* =========================
@@ -214,7 +218,7 @@ nav a.active { color: var(--accent); font-weight: 700; }
   display: none; flex-direction: column; justify-content: center; align-items: center;
   gap: 5px; width: 40px; height: 40px; background: none;
   border: 1px solid var(--border); border-radius: 8px;
-  cursor: pointer; z-index: 1001;
+  cursor: pointer;
   transition: border-color .2s ease, background .2s ease; padding: 0;
 }
 .hamburger:hover { border-color: var(--borderHover); background: var(--panel); }
@@ -533,9 +537,13 @@ a.btn, a.btn:visited, a.btn:hover{ color:#fff !important; }
    RESPONSIVE — MOBIL
 ========================= */
 @media (max-width: 700px){
-  .hamburger { display: flex; }
+  /* Skjul desktop nav, vis hamburger */
   nav { display: none; }
-  header { padding: 16px 6%; }
+  .hamburger { display: flex; }
+
+  header { padding: 14px 6%; }
+  header.scrolled { padding: 10px 6%; }
+
   .hero { padding: 100px 6% 80px; min-height: 70vh; }
   .hero h1 { font-size: 30px; line-height: 1.2; max-width: 100%; }
   .rotating-text { display: block; padding-left: 0; min-width: unset; margin-top: 4px; }
