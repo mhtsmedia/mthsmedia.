@@ -212,18 +212,18 @@
   /* ── COUNTER NUMBERS ──────────────────────────────────── */
   .stats-strip {
     display: flex; justify-content: center; gap: 4rem;
-    padding: 3rem 8%; background: #fff;
-    border-top: 1px solid rgba(37,99,235,0.08);
-    border-bottom: 1px solid rgba(37,99,235,0.08);
+    padding: 3rem 8%; background: var(--bg2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
     position: relative; z-index: 1;
+    flex-wrap: wrap;
   }
-  .stat { text-align: center; }
+  .stat { text-align: center; min-width: 0; }
   .stat__num {
-    font-size: 3rem; font-weight: 800; color: #2563eb;
-    line-height: 1;
-    display: block;
+    font-size: 3rem; font-weight: 800; color: var(--accent);
+    line-height: 1; display: block;
   }
-  .stat__label { font-size: 0.85rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; display: block; }
+  .stat__label { font-size: 0.8rem; color: var(--muted2); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; display: block; white-space: nowrap; }
 
   /* ── STATS DARK ───────────────────────────────────────── */
   [data-theme="dark"] .stats-strip { background: var(--bg2); border-color: var(--border); }
