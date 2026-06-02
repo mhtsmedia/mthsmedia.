@@ -20,245 +20,22 @@
   <title>MTHS Media</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 
   <style>
-
-  /* ── CUSTOM CURSOR ────────────────────────────────────── */
-  * { cursor: none !important; }
-  #cur-dot {
-    position: fixed; pointer-events: none; z-index: 9999;
-    width: 8px; height: 8px; border-radius: 50%;
-    background: #2563eb;
-    transform: translate(-50%,-50%);
-    transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
-  }
-  #cur-ring {
-    position: fixed; pointer-events: none; z-index: 9998;
-    width: 36px; height: 36px; border-radius: 50%;
-    border: 1.5px solid rgba(37,99,235,0.5);
-    transform: translate(-50%,-50%);
-    transition: left 0.12s ease, top 0.12s ease, width 0.25s ease, height 0.25s ease, border-color 0.2s ease;
-  }
-  body.cursor-hover #cur-dot { width: 12px; height: 12px; background: #3b82f6; }
-  body.cursor-hover #cur-ring { width: 52px; height: 52px; border-color: rgba(37,99,235,0.8); }
-
-  /* ── PARTICLES CANVAS ─────────────────────────────────── */
-  #particle-canvas {
-    position: fixed; inset: 0; pointer-events: none; z-index: 0;
-  }
-
-  /* ── FLOATING ORBS ────────────────────────────────────── */
-  #orb-layer {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    overflow: visible;
-    will-change: transform;
-  }
-  .orb {
-    position: absolute; border-radius: 50%;
-    filter: blur(60px); pointer-events: none;
-    animation: orbFloat 14s ease-in-out infinite alternate;
-  }
-  .orb-1 { width: 700px; height: 700px; background: #93c5fd; opacity: 0.55; top: -100px; right: -150px; animation-duration: 16s; }
-  .orb-2 { width: 500px; height: 500px; background: #3b82f6; opacity: 0.25; top: 40vh; left: -120px; animation-duration: 20s; animation-delay: -7s; }
-  .orb-3 { width: 400px; height: 400px; background: #bfdbfe; opacity: 0.60; top: 80vh; right: 8%; animation-duration: 11s; animation-delay: -3s; }
-  @keyframes orbFloat {
-    0%   { transform: translate(0,0) scale(1); }
-    50%  { transform: translate(30px,-40px) scale(1.05); }
-    100% { transform: translate(-20px,20px) scale(0.96); }
-  }
-
-  /* ── FAQ ──────────────────────────────────────────────── */
-  .faq { padding: 110px 8%; }
-  .faq__inner { max-width: 820px; margin: 0 auto; }
-  .faq__kicker { font-size: 12px; letter-spacing: .14em; color: #94a3b8; text-transform: uppercase; margin-bottom: 12px; text-align: center; }
-  .faq__title { font-size: 52px; font-weight: 800; line-height: 1.05; text-align: center; margin: 0 0 52px 0; color: #0d1a2e; }
-  .faq__item { border-bottom: 1px solid rgba(37,99,235,0.12); }
-  .faq__item:first-of-type { border-top: 1px solid rgba(37,99,235,0.12); }
-  .faq__question {
-    width: 100%; background: none; border: none; color: #0d1a2e;
-    font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 700;
-    text-align: left; padding: 24px 0; cursor: none;
-    display: flex; justify-content: space-between; align-items: center; gap: 16px;
-    transition: color .2s ease;
-  }
-  .faq__question:hover { color: #2563eb; }
-  .faq__icon {
-    flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
-    border: 1px solid rgba(37,99,235,0.2); background: rgba(37,99,235,0.04);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 18px; font-weight: 300; line-height: 1; color: #2563eb;
-    transition: transform .3s ease, background .2s ease, border-color .2s ease;
-  }
-  .faq__item.open .faq__icon { transform: rotate(45deg); background: rgba(37,99,235,0.1); border-color: rgba(37,99,235,0.4); }
-  .faq__answer { max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .3s ease; }
-  .faq__item.open .faq__answer { max-height: 400px; padding-bottom: 24px; }
-  .faq__answer p { margin: 0; color: #475569; font-size: 15px; line-height: 1.75; }
-  @media (max-width: 700px) {
-    .faq { padding: 60px 6%; }
-    .faq__title { font-size: 30px; }
-    .faq__question { font-size: 15px; }
-  }
-
-  /* ── BTS SOUND BUTTON ─────────────────────────────────── */
-  .bts__card { position: relative; }
-  .bts__sound {
-    position: absolute; bottom: 12px; right: 12px;
-    background: rgba(255,255,255,0.85); backdrop-filter: blur(8px);
-    border: 1px solid rgba(37,99,235,0.2);
-    border-radius: 50%; width: 36px; height: 36px;
-    font-size: 16px; cursor: none;
-    display: flex; align-items: center; justify-content: center;
-    transition: background .2s ease, transform .2s ease; z-index: 10;
-  }
-  .bts__sound:hover { background: #fff; transform: scale(1.1); }
-
-  /* ── SPRING REVEAL ────────────────────────────────────── */
-  .reveal {
-    opacity: 0;
-    transform: translateY(40px) scale(0.97);
-    transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1),
-                transform 0.7s cubic-bezier(0.22,1,0.36,1);
-  }
-  .reveal.visible { opacity: 1; transform: translateY(0) scale(1); }
-
-  /* ── CARD ─────────────────────────────────────────────── */
-  .card {
-    transition: transform 0.4s cubic-bezier(0.22,1,0.36,1),
-                box-shadow 0.4s cubic-bezier(0.22,1,0.36,1),
-                border-color 0.3s ease !important;
-    position: relative; overflow: hidden;
-    will-change: transform;
-  }
-  .card::before {
-    content: ''; position: absolute; inset: 0;
-    background: radial-gradient(circle at 60% 0%, rgba(37,99,235,0.07), transparent 65%);
-    opacity: 0; transition: opacity 0.4s ease; pointer-events: none;
-  }
-  .card:hover { transform: translateY(-10px) scale(1.01) !important; box-shadow: 0 28px 70px rgba(37,99,235,0.14) !important; border-color: rgba(37,99,235,0.35) !important; }
-  .card:hover::before { opacity: 1; }
-
-  /* ── TILT ─────────────────────────────────────────────── */
-  .tilt { will-change: transform; transition: transform 0.15s ease; }
-
-  /* ── IMAGE ZOOM ───────────────────────────────────────── */
-  .method__media, .trust__media { overflow: hidden; border-radius: 16px; }
-  .method__media img, .trust__media img {
-    transition: transform 0.9s cubic-bezier(0.22,1,0.36,1); display: block; width: 100%;
-  }
-  .method__media:hover img, .trust__media:hover img { transform: scale(1.05); }
-
-  /* ── BTS CARD ─────────────────────────────────────────── */
-  .bts__card {
-    transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s ease;
-    border-radius: 18px; overflow: hidden;
-  }
-  .bts__card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 30px 80px rgba(37,99,235,0.2); }
-
-  /* ── TESTIMONIAL ──────────────────────────────────────── */
-  .testimonial__card { transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), border-color 0.3s ease, box-shadow 0.4s ease !important; }
-  .testimonial__card:hover { transform: translateY(-8px) !important; border-color: rgba(37,99,235,0.3) !important; box-shadow: 0 24px 60px rgba(37,99,235,0.12) !important; }
-
-  /* ── STEP ─────────────────────────────────────────────── */
-  .step { transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
-  .step:hover { transform: translateX(8px) !important; }
-
-  /* ── HERO SCROLL HINT ─────────────────────────────────── */
-  .hero-scroll-hint {
-    position: absolute; bottom: 2rem; left: 8%;
-    display: flex; align-items: center; gap: 0.6rem;
-    font-size: 0.7rem; color: rgba(255,255,255,0.5);
-    letter-spacing: 0.15em; text-transform: uppercase;
-    opacity: 0; animation: fadeUpHint 1s 1.8s forwards;
-    z-index: 2;
-  }
-  .scroll-line { width: 36px; height: 1px; background: rgba(255,255,255,0.3); position: relative; overflow: hidden; }
-  .scroll-line::after {
-    content: ''; position: absolute; top: 0; left: -100%;
-    width: 100%; height: 100%; background: #60a5fa;
-    animation: scrollSlide 2s 2s ease-in-out infinite;
-  }
-  @keyframes scrollSlide { 0% { left: -100%; } 100% { left: 100%; } }
-  @keyframes fadeUpHint { to { opacity: 1; } }
-
-  /* ── MAGNETIC BUTTONS ─────────────────────────────────── */
-  .btn, .method__cta, .trust__btn, .cta__btn {
-    transition: transform 0.2s ease, box-shadow 0.3s ease, background 0.2s ease !important;
-    display: inline-block;
-  }
-
-  /* ── NAV ──────────────────────────────────────────────── */
-  nav a { transition: color 0.2s ease !important; }
-  nav a:hover { color: #2563eb !important; }
-
-  /* ── FOOTER ───────────────────────────────────────────── */
-  .footer__icons a { transition: color 0.2s ease, transform 0.2s ease; display: inline-flex; }
-  .footer__icons a:hover { color: #2563eb; transform: translateY(-4px); }
-
-  /* ── TYPEWRITER CURSOR ────────────────────────────────── */
   .rotating-text::after {
-    content: '|';
-    opacity: 1;
+    content: '|'; opacity: 1;
     animation: blink 0.7s step-end infinite;
-    margin-left: 2px;
-    color: #60a5fa;
+    margin-left: 1px; color: #93c5fd;
   }
   @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-
-  /* ── COUNTER NUMBERS ──────────────────────────────────── */
-  .stats-strip {
-    display: flex; justify-content: center; gap: 4rem;
-    padding: 3rem 8%; background: var(--bg2);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    position: relative; z-index: 1;
-    flex-wrap: wrap;
-  }
-  .stat { text-align: center; min-width: 0; }
-  .stat__num {
-    font-size: 3rem; font-weight: 800; color: var(--accent);
-    line-height: 1; display: block;
-  }
-  .stat__label { font-size: 0.8rem; color: var(--muted2); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; display: block; white-space: nowrap; }
-
-  /* ── STATS DARK ───────────────────────────────────────── */
-  [data-theme="dark"] .stats-strip { background: var(--bg2); border-color: var(--border); }
-  [data-theme="dark"] .stat__label { color: var(--muted2); }
-  [data-theme="dark"] .stat__num { color: var(--accent-light); }
-
-  /* ── FAQ DARK ─────────────────────────────────────────── */
-  [data-theme="dark"] .faq__title { color: var(--text); }
-  [data-theme="dark"] .faq__item { border-color: var(--border); }
-  [data-theme="dark"] .faq__question { color: var(--text); }
-  [data-theme="dark"] .faq__question:hover { color: var(--accent-light); }
-  [data-theme="dark"] .faq__icon { border-color: var(--border); color: var(--accent); background: rgba(37,99,235,0.06); }
-  [data-theme="dark"] .faq__answer p { color: var(--muted); }
-  [data-theme="dark"] .faq__kicker { color: var(--muted2); }
-
   </style>
 </head>
 <body>
 
-<!-- Custom cursor -->
-<div id="cur-dot"></div>
-<div id="cur-ring"></div>
-
-<!-- Particles -->
-<canvas id="particle-canvas"></canvas>
-
-<!-- Orbs in parallax layer -->
-<div id="orb-layer">
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
-</div>
-
 <header>
-  <a href="index.html" class="logo-wrap" style="text-decoration:none;color:inherit;">
+  <a href="index.html" class="logo-wrap">
     <img src="logo.png" alt="MTHS Media logo">
     <div class="logo">MTHS Media</div>
   </a>
@@ -282,60 +59,43 @@
   <a href="index.html" onclick="toggleMenu()">Hjem</a>
   <a href="services.html" onclick="toggleMenu()">Tjenester</a>
   <a href="contact.html" onclick="toggleMenu()">Kontakt</a>
-  <div class="theme-toggle-wrap" style="margin-top:16px; margin-left:0;">
+  <div class="theme-toggle-wrap" style="margin-top:16px;">
     <span id="themeIconMobile">🌙</span>
     <button class="theme-toggle" onclick="document.getElementById('themeToggle').click(); document.getElementById('themeIconMobile').textContent = document.getElementById('themeIcon').textContent;" aria-label="Bytt tema"></button>
   </div>
 </div>
 
-<section class="hero" style="position:relative;">
+<section class="hero">
   <video class="hero-video" muted playsinline></video>
   <h1>
     Markedsføringsstudio for
-    <span class="rotating-text">droneinnhold.</span>
+    <span class="rotating-text"></span>
   </h1>
-  <a href="contact.html" class="btn magnetic">Start et samarbeid →</a>
-  <div class="hero-scroll-hint">
-    <div class="scroll-line"></div>
-    Scroll
-  </div>
+  <a href="contact.html" class="hero-btn">Start et samarbeid →</a>
 </section>
 
-<!-- Stats strip -->
-<div class="stats-strip">
-  <div class="stat reveal">
-    <span class="stat__num" data-target="48">0</span>
-    <span class="stat__label">timers responstid</span>
-  </div>
-  <div class="stat reveal reveal-delay-1">
-    <span class="stat__num" data-target="100" data-suffix="%">0</span>
-    <span class="stat__label">redigert innhold</span>
-  </div>
-  <div class="stat reveal reveal-delay-2">
-    <span class="stat__num" data-target="5" data-suffix="–14 dager">0</span>
-    <span class="stat__label">leveringstid</span>
-  </div>
-</div>
-
 <section class="services">
-  <a class="card tilt reveal reveal-delay-1" href="services.html#foto">
-    <h2>Foto</h2>
-    <p>Profesjonelle bilder for merkevarer og sosiale medier.</p>
+  <a class="card reveal" href="services.html#foto">
+    <h2>Foto & Film</h2>
+    <p>Profesjonelle bilder og videoer for merkevarer og kampanjer.</p>
+    <span class="card-arrow">Se mer →</span>
   </a>
-  <a class="card tilt reveal reveal-delay-2" href="services.html#drone">
+  <a class="card reveal reveal-delay-1" href="services.html#drone">
     <h2>Drone</h2>
     <p>Luftfoto og video som gir et unikt perspektiv.</p>
+    <span class="card-arrow">Se mer →</span>
   </a>
-  <a class="card tilt reveal reveal-delay-3" href="services.html#content">
+  <a class="card reveal reveal-delay-2" href="services.html#content">
     <h2>Content Creation</h2>
     <p>Innhold optimalisert for Instagram, TikTok og Snapchat.</p>
+    <span class="card-arrow">Se mer →</span>
   </a>
 </section>
 
 <section class="method">
   <div class="method__grid">
     <div class="method__media reveal">
-      <img src="eks3.jpg" alt="Produksjon" class="parallax-img">
+      <img src="eks3.jpg" alt="Produksjon">
     </div>
     <div class="method__content reveal reveal-delay-2">
       <div class="method__kicker">VÅR PROSESS</div>
@@ -344,22 +104,34 @@
       <div class="method__steps">
         <div class="step reveal reveal-delay-1">
           <div class="step__no">01</div>
-          <div><div class="step__title">Oppdagelse</div><div class="step__text">Vi forstår mål og retning.</div></div>
+          <div>
+            <div class="step__title">Oppdagelse</div>
+            <p class="step__text">Vi forstår mål og retning.</p>
+          </div>
         </div>
         <div class="step reveal reveal-delay-2">
           <div class="step__no">02</div>
-          <div><div class="step__title">Konsept</div><div class="step__text">Vi utvikler idé og uttrykk.</div></div>
+          <div>
+            <div class="step__title">Konsept</div>
+            <p class="step__text">Vi utvikler idé og uttrykk.</p>
+          </div>
         </div>
         <div class="step reveal reveal-delay-3">
           <div class="step__no">03</div>
-          <div><div class="step__title">Produksjon</div><div class="step__text">Vi produserer innhold.</div></div>
+          <div>
+            <div class="step__title">Produksjon</div>
+            <p class="step__text">Vi produserer innhold.</p>
+          </div>
         </div>
         <div class="step reveal reveal-delay-4">
           <div class="step__no">04</div>
-          <div><div class="step__title">Leveranse</div><div class="step__text">Optimalisert ferdig produkt.</div></div>
+          <div>
+            <div class="step__title">Leveranse</div>
+            <p class="step__text">Optimalisert ferdig produkt.</p>
+          </div>
         </div>
       </div>
-      <a class="method__cta magnetic" href="contact.html">Start et prosjekt</a>
+      <a class="method__cta" href="contact.html">Start et prosjekt</a>
     </div>
   </div>
 </section>
@@ -368,9 +140,9 @@
   <div class="bts__head reveal">
     <div class="bts__kicker">VÅRT ARBEID</div>
     <h2 class="bts__title">Våre favoritter.</h2>
-    <p class="bts__lead">Små øyeblikk – fra idé til ferdig klipp.</p>
+    <p class="bts__lead">Fra idé til ferdig klipp.</p>
   </div>
-  <div class="bts__row reveal" id="btsRow">
+  <div class="bts__row reveal reveal-delay-1" id="btsRow">
     <div class="bts__card">
       <video src="Low Quality.mov" muted autoplay loop playsinline preload="metadata"></video>
       <button class="bts__sound" onclick="toggleSound(this)" aria-label="Lyd av/på">🔇</button>
@@ -392,14 +164,14 @@
       <div class="trust__kicker">OM OSS</div>
       <h2 class="trust__title">Et lite studio med høye standarder.</h2>
       <p class="trust__lead">MTHS Media er et kreativt studio drevet av engasjerte skapere med lidenskap for foto, video og visuell historiefortelling. Vi produserer moderne og visuelt sterkt innhold for bedrifter, merkevarer og prosjekter som ønsker å skille seg ut digitalt.</p>
-      <p class="trust__lead" style="margin-top:12px;">Gjennom foto, film og droneproduksjon hjelper vi virksomheter med innhold til markedsføring, nettsider og sosiale medier. Vi kombinerer kreativitet, strategi og teknisk presisjon for å levere innhold som både ser profesjonelt ut og gir verdi over tid.</p>
+      <p class="trust__lead">Gjennom foto, film og droneproduksjon hjelper vi virksomheter med innhold til markedsføring, nettsider og sosiale medier.</p>
       <div class="trust__cta">
-        <a class="trust__btn magnetic" href="contact.html">Kontakt oss</a>
+        <a class="trust__btn" href="contact.html">Kontakt oss</a>
         <a class="trust__link" href="services.html">Se tjenester →</a>
       </div>
     </div>
     <div class="trust__media reveal reveal-delay-2">
-      <img src="eks69.jpg" alt="MTHS Media bak kamera" class="parallax-img">
+      <img src="eks69.jpg" alt="MTHS Media bak kamera">
     </div>
   </div>
 </section>
@@ -411,18 +183,16 @@
     <div class="testimonials__grid">
       <div class="testimonial__card reveal reveal-delay-1">
         <div class="testimonial__stars">★★★★★</div>
-        <div class="testimonial__quote">"</div>
         <p class="testimonial__text">Vi på Ink Drop Studio er veldig fornøyde med samarbeidet! MTHS Media fremstår som svært dyktige, profesjonelle og de kom godt forberedt. Kommunikasjonen var enkel og smidig, og de jobbet effektivt. Resultatet var av høy kvalitet og vi er imponert over arbeidet deres. Anbefales!</p>
-        <div class="testimonial__author">
+        <div>
           <div class="testimonial__name">Jeanett Pedersen</div>
           <div class="testimonial__role">Ink Drop Studio</div>
         </div>
       </div>
       <div class="testimonial__card reveal reveal-delay-2">
         <div class="testimonial__stars">★★★★★</div>
-        <div class="testimonial__quote">"</div>
-        <p class="testimonial__text">Vi på Sandvika Folkebad er superfornøyde med innholdet som MTHS Media filmet, produserte og redigerte for oss. De kom på et lite planleggingsmøte først for å forstå våre behov og ønsker, før de kom for selve gjennomføringen på et tidspunkt som passet oss best mulig. Kan anbefale denne gjengen på det varmeste! De har giv, gode ideer og gjennomførte oppdraget til punkt og prikke!</p>
-        <div class="testimonial__author">
+        <p class="testimonial__text">Vi på Sandvika Folkebad er superfornøyde med innholdet som MTHS Media filmet, produserte og redigerte for oss. De kom på et lite planleggingsmøte først for å forstå våre behov og ønsker. Kan anbefale denne gjengen på det varmeste! De har giv, gode ideer og gjennomførte oppdraget til punkt og prikke!</p>
+        <div>
           <div class="testimonial__name">Ole Lauvsnes</div>
           <div class="testimonial__role">Sandvika Folkebad</div>
         </div>
@@ -441,7 +211,7 @@
         <span class="faq__icon">+</span>
       </button>
       <div class="faq__answer">
-        <p>Det kommer an på størrelsen. Et enkelt fotoshoot tar gjerne 1–3 timer, mens et større oppdrag med drone og video kan ta en hel dag. Vi avklarer alltid tidsplan med deg på forhånd, og leverer redigert innhold innen 3–7 virkedager etter opptak.</p>
+        <p>Det kommer an på størrelsen. Et enkelt fotoshoot tar gjerne 1–3 timer, mens et større oppdrag med drone og video kan ta en hel dag. Vi leverer redigert innhold innen 3–7 virkedager etter opptak.</p>
       </div>
     </div>
     <div class="faq__item reveal reveal-delay-1">
@@ -450,7 +220,7 @@
         <span class="faq__icon">+</span>
       </button>
       <div class="faq__answer">
-        <p>Ja, alltid. Vi leverer ferdig redigerte bilder og videoer optimalisert for den plattformen du skal bruke dem på – enten det er Instagram, TikTok, nettside eller annonser. Du trenger ikke gjøre noe selv.</p>
+        <p>Ja, alltid. Vi leverer ferdig redigerte bilder og videoer optimalisert for den plattformen du skal bruke dem på – enten det er Instagram, TikTok, nettside eller annonser.</p>
       </div>
     </div>
     <div class="faq__item reveal reveal-delay-2">
@@ -459,7 +229,7 @@
         <span class="faq__icon">+</span>
       </button>
       <div class="faq__answer">
-        <p>Ikke så mye! Det hjelper å ha en idé om hva slags stemning du er ute etter, men det er ikke nødvendig. Vi tar en prat i forkant der vi avklarer mål, lokasjon og praktiske detaljer. Vi tar oss av resten.</p>
+        <p>Ikke så mye! Det hjelper å ha en idé om stemning, men det er ikke nødvendig. Vi tar en prat i forkant der vi avklarer mål, lokasjon og detaljer. Vi tar oss av resten.</p>
       </div>
     </div>
   </div>
@@ -468,10 +238,10 @@
 <section class="cta reveal" id="cta">
   <div class="cta__inner">
     <div class="cta__kicker">KLAR NÅR DU ER</div>
-    <h2 class="cta__title">Klar for å løfte merkevaren visuelt?</h2>
+    <h2 class="cta__title">Klar for å løfte merkevaren din?</h2>
     <p class="cta__text">Fortell oss hva du trenger – vi svarer med konkret forslag og pris innen 48 timer.</p>
     <div class="cta__actions">
-      <a class="cta__btn magnetic" href="contact.html">Start et samarbeid →</a>
+      <a class="cta__btn" href="contact.html">Start et samarbeid →</a>
       <a class="cta__link" href="services.html">Se tjenester →</a>
     </div>
   </div>
@@ -498,166 +268,20 @@
 </footer>
 
 <script>
-/* ═══════════════════════════════════════
-   THEME TOGGLE
-═══════════════════════════════════════ */
+/* ── THEME ───────────────────────────────── */
 (function(){
-  const saved = localStorage.getItem('theme') || 'light';
-  document.documentElement.setAttribute('data-theme', saved);
+  const t = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', t);
+  document.getElementById('themeIcon').textContent = t === 'dark' ? '☀️' : '🌙';
 })();
 document.getElementById('themeToggle').addEventListener('click', () => {
-  const curr = document.documentElement.getAttribute('data-theme');
-  const next = curr === 'dark' ? 'light' : 'dark';
+  const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
   document.documentElement.setAttribute('data-theme', next);
   localStorage.setItem('theme', next);
   document.getElementById('themeIcon').textContent = next === 'dark' ? '☀️' : '🌙';
 });
-(function(){
-  const t = localStorage.getItem('theme') || 'light';
-  document.getElementById('themeIcon').textContent = t === 'dark' ? '☀️' : '🌙';
-})();
 
-/* ═══════════════════════════════════════
-   CUSTOM CURSOR
-═══════════════════════════════════════ */
-const dot  = document.getElementById('cur-dot');
-const ring = document.getElementById('cur-ring');
-let mx = 0, my = 0;
-
-document.addEventListener('mousemove', e => {
-  mx = e.clientX; my = e.clientY;
-  dot.style.left  = mx + 'px';
-  dot.style.top   = my + 'px';
-  ring.style.left = mx + 'px';
-  ring.style.top  = my + 'px';
-});
-
-document.querySelectorAll('a, button, .card, .step, .bts__card').forEach(el => {
-  el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-  el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
-});
-
-/* ═══════════════════════════════════════
-   PARTICLES
-═══════════════════════════════════════ */
-const canvas = document.getElementById('particle-canvas');
-const ctx    = canvas.getContext('2d');
-let particles = [];
-
-function resizeCanvas() {
-  canvas.width  = window.innerWidth;
-  canvas.height = window.innerHeight;
-}
-resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
-
-function createParticle() {
-  return {
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    r: Math.random() * 2.5 + 0.5,
-    dx: (Math.random() - 0.5) * 0.4,
-    dy: (Math.random() - 0.5) * 0.4,
-    opacity: Math.random() * 0.4 + 0.1,
-  };
-}
-for (let i = 0; i < 60; i++) particles.push(createParticle());
-
-function drawParticles() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  particles.forEach(p => {
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(37,99,235,${p.opacity})`;
-    ctx.fill();
-    p.x += p.dx; p.y += p.dy;
-    if (p.x < 0 || p.x > canvas.width)  p.dx *= -1;
-    if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-
-    // Connect nearby particles
-    particles.forEach(p2 => {
-      const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
-      if (dist < 120) {
-        ctx.beginPath();
-        ctx.moveTo(p.x, p.y);
-        ctx.lineTo(p2.x, p2.y);
-        ctx.strokeStyle = `rgba(37,99,235,${0.06 * (1 - dist/120)})`;
-        ctx.lineWidth = 0.5;
-        ctx.stroke();
-      }
-    });
-  });
-  requestAnimationFrame(drawParticles);
-}
-drawParticles();
-
-/* ═══════════════════════════════════════
-   MAGNETIC BUTTONS
-═══════════════════════════════════════ */
-document.querySelectorAll('.magnetic').forEach(btn => {
-  btn.addEventListener('mousemove', e => {
-    const r   = btn.getBoundingClientRect();
-    const cx  = r.left + r.width  / 2;
-    const cy  = r.top  + r.height / 2;
-    const dx  = (e.clientX - cx) * 0.35;
-    const dy  = (e.clientY - cy) * 0.35;
-    btn.style.transform = `translate(${dx}px, ${dy}px) scale(1.04)`;
-    btn.style.boxShadow = `0 12px 36px rgba(37,99,235,0.35)`;
-  });
-  btn.addEventListener('mouseleave', () => {
-    btn.style.transform = '';
-    btn.style.boxShadow = '';
-  });
-});
-
-/* ═══════════════════════════════════════
-   TILT CARDS
-═══════════════════════════════════════ */
-document.querySelectorAll('.tilt').forEach(card => {
-  card.addEventListener('mousemove', e => {
-    const r  = card.getBoundingClientRect();
-    const x  = (e.clientX - r.left) / r.width  - 0.5;
-    const y  = (e.clientY - r.top)  / r.height - 0.5;
-    card.style.transform = `translateY(-10px) rotateX(${-y * 8}deg) rotateY(${x * 8}deg) scale(1.01)`;
-  });
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = '';
-  });
-});
-
-/* ═══════════════════════════════════════
-   COUNTER ANIMATION
-═══════════════════════════════════════ */
-function animateCounter(el) {
-  const target = parseInt(el.dataset.target);
-  const suffix = el.dataset.suffix || '';
-  const duration = 1400;
-  const start = performance.now();
-  function step(now) {
-    const progress = Math.min((now - start) / duration, 1);
-    const ease = 1 - Math.pow(1 - progress, 3);
-    el.textContent = Math.floor(ease * target) + (progress === 1 ? suffix : '');
-    if (progress < 1) requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
-}
-
-/* ═══════════════════════════════════════
-   PARALLAX
-═══════════════════════════════════════ */
-function updateParallax() {
-  const scrollY = window.scrollY;
-  document.querySelectorAll('.parallax-img').forEach(img => {
-    const rect  = img.closest('div').getBoundingClientRect();
-    const centerY = rect.top + rect.height / 2 - window.innerHeight / 2;
-    img.style.transform = `scale(1.08) translateY(${centerY * 0.04}px)`;
-  });
-}
-window.addEventListener('scroll', updateParallax, { passive: true });
-
-/* ═══════════════════════════════════════
-   HAMBURGER
-═══════════════════════════════════════ */
+/* ── HAMBURGER ───────────────────────────── */
 function toggleMenu() {
   const btn = document.querySelector('.hamburger');
   const nav = document.getElementById('mobileNav');
@@ -666,13 +290,66 @@ function toggleMenu() {
   document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
 }
 
-/* ═══════════════════════════════════════
-   BTS
-═══════════════════════════════════════ */
+/* ── SCROLL REVEAL ───────────────────────── */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+/* ── HEADER SCROLL ───────────────────────── */
+const header = document.querySelector('header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+/* ── TYPEWRITER ──────────────────────────── */
+const words = ['droneinnhold.','visuelt innhold.','content creation.','sosiale medier.','branding.'];
+let wordIndex = 0;
+const textEl = document.querySelector('.rotating-text');
+
+function typeWord(word, cb) {
+  textEl.textContent = '';
+  let i = 0;
+  const iv = setInterval(() => {
+    textEl.textContent += word[i++];
+    if (i >= word.length) { clearInterval(iv); setTimeout(cb, 1400); }
+  }, 65);
+}
+function eraseWord(cb) {
+  let txt = textEl.textContent;
+  const iv = setInterval(() => {
+    txt = txt.slice(0, -1);
+    textEl.textContent = txt;
+    if (!txt.length) { clearInterval(iv); cb(); }
+  }, 38);
+}
+function cycle() {
+  typeWord(words[wordIndex], () => eraseWord(() => { wordIndex = (wordIndex + 1) % words.length; cycle(); }));
+}
+textEl.style.opacity = 1;
+cycle();
+
+/* ── HERO VIDEO ──────────────────────────── */
+document.addEventListener('DOMContentLoaded', () => {
+  const vids = ['folkebadethero.mov','inkdrophero.mov','hero2.mp4','hero3.mp4','hero4.mp4','hero1.mp4'];
+  let vi = 0;
+  const hv = document.querySelector('.hero-video');
+  hv.muted = true; hv.playsInline = true;
+  hv.setAttribute('playsinline',''); hv.setAttribute('muted','');
+
+  function playNext() {
+    hv.pause(); hv.src = vids[vi]; hv.load();
+    hv.oncanplay = () => hv.play().catch(() => {});
+    hv.onended   = () => { vi = (vi + 1) % vids.length; playNext(); };
+  }
+  playNext();
+});
+
+/* ── BTS ─────────────────────────────────── */
 function scrollBts(dir) {
-  const row = document.getElementById("btsRow");
-  if (!row) return;
-  row.scrollBy({ left: dir * 420, behavior: "smooth" });
+  document.getElementById('btsRow').scrollBy({ left: dir * 320, behavior: 'smooth' });
 }
 function toggleSound(btn) {
   const video = btn.previousElementSibling;
@@ -683,115 +360,12 @@ function toggleSound(btn) {
   else { video.muted = true; btn.textContent = '🔇'; }
 }
 
-/* ═══════════════════════════════════════
-   FAQ
-═══════════════════════════════════════ */
+/* ── FAQ ─────────────────────────────────── */
 function toggleFaq(btn) {
   const item = btn.closest('.faq__item');
   const isOpen = item.classList.contains('open');
   document.querySelectorAll('.faq__item.open').forEach(el => el.classList.remove('open'));
   if (!isOpen) item.classList.add('open');
-}
-
-/* ═══════════════════════════════════════
-   DOM READY
-═══════════════════════════════════════ */
-document.addEventListener("DOMContentLoaded", () => {
-
-  /* Typewriter rotating text */
-  const words = ["droneinnhold.","visuelt innhold.","content creation.","sosiale medier.","branding."];
-  let t = 0;
-  const textEl = document.querySelector(".rotating-text");
-
-  function typeWord(word, callback) {
-    textEl.textContent = '';
-    let i = 0;
-    const interval = setInterval(() => {
-      textEl.textContent += word[i];
-      i++;
-      if (i >= word.length) { clearInterval(interval); setTimeout(callback, 1200); }
-    }, 60);
-  }
-  function eraseWord(callback) {
-    let txt = textEl.textContent;
-    const interval = setInterval(() => {
-      txt = txt.slice(0, -1);
-      textEl.textContent = txt;
-      if (txt.length === 0) { clearInterval(interval); callback(); }
-    }, 35);
-  }
-  function cycle() {
-    typeWord(words[t], () => {
-      eraseWord(() => { t = (t + 1) % words.length; cycle(); });
-    });
-  }
-  textEl.style.opacity = 1;
-  cycle();
-
-  /* Hero video */
-  const videos = ["folkebadethero.mov","inkdrophero.mov","hero2.mp4","hero3.mp4","hero4.mp4","hero1.mp4"];
-  let v = 0;
-  const heroVideo = document.querySelector(".hero-video");
-  function safePlay() {
-    const p = heroVideo.play();
-    if (p && typeof p.catch === "function") {
-      p.catch(() => {
-        const resume = () => { heroVideo.play().catch(()=>{}); document.removeEventListener("click", resume); document.removeEventListener("touchstart", resume); };
-        document.addEventListener("click", resume);
-        document.addEventListener("touchstart", resume);
-      });
-    }
-  }
-  function playNextVideo() {
-    heroVideo.pause(); heroVideo.src = videos[v]; heroVideo.load();
-    heroVideo.oncanplay = () => safePlay();
-    heroVideo.onended   = () => { v = (v + 1) % videos.length; playNextVideo(); };
-  }
-  heroVideo.muted = true; heroVideo.playsInline = true;
-  heroVideo.setAttribute("playsinline",""); heroVideo.setAttribute("muted","");
-  playNextVideo();
-});
-
-/* ═══════════════════════════════════════
-   ORB PARALLAX (scroll slower than content)
-═══════════════════════════════════════ */
-const orbLayer = document.getElementById('orb-layer');
-const orb1 = document.querySelector('.orb-1');
-const orb2 = document.querySelector('.orb-2');
-const orb3 = document.querySelector('.orb-3');
-
-window.addEventListener('scroll', () => {
-  const y = window.scrollY;
-  // Each orb moves at different speed — creates real layered depth
-  orb1.style.transform = `translateY(${y * -0.15}px)`;  // slowest — feels furthest back
-  orb2.style.transform = `translateY(${y * -0.25}px)`;  // mid
-  orb3.style.transform = `translateY(${y * -0.10}px)`;  // barely moves
-}, { passive: true });
-const header = document.querySelector('header');
-window.addEventListener('scroll', () => {
-  header.classList.toggle('scrolled', window.scrollY > 40);
-}, { passive: true });
-
-/* ═══════════════════════════════════════
-   SCROLL REVEAL + COUNTERS
-═══════════════════════════════════════ */
-const revealEls = document.querySelectorAll('.reveal');
-if (revealEls.length) {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        // Trigger counters inside revealed elements
-        entry.target.querySelectorAll('.stat__num[data-target]').forEach(animateCounter);
-        if (entry.target.classList.contains('stat')) {
-          const num = entry.target.querySelector('.stat__num[data-target]');
-          if (num) animateCounter(num);
-        }
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
-  revealEls.forEach(el => observer.observe(el));
 }
 </script>
 
