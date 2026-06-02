@@ -22,7 +22,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-
   <style>
   .rotating-text::after {
     content: '|'; opacity: 1;
@@ -268,7 +267,6 @@
 </footer>
 
 <script>
-/* ── THEME ───────────────────────────────── */
 (function(){
   const t = localStorage.getItem('theme') || 'light';
   document.documentElement.setAttribute('data-theme', t);
@@ -281,7 +279,6 @@ document.getElementById('themeToggle').addEventListener('click', () => {
   document.getElementById('themeIcon').textContent = next === 'dark' ? '☀️' : '🌙';
 });
 
-/* ── HAMBURGER ───────────────────────────── */
 function toggleMenu() {
   const btn = document.querySelector('.hamburger');
   const nav = document.getElementById('mobileNav');
@@ -290,7 +287,6 @@ function toggleMenu() {
   document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
 }
 
-/* ── SCROLL REVEAL ───────────────────────── */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
@@ -298,13 +294,11 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-/* ── HEADER SCROLL ───────────────────────── */
 const header = document.querySelector('header');
 window.addEventListener('scroll', () => {
   header.classList.toggle('scrolled', window.scrollY > 40);
 }, { passive: true });
 
-/* ── TYPEWRITER ──────────────────────────── */
 const words = ['droneinnhold.','visuelt innhold.','content creation.','sosiale medier.','branding.'];
 let wordIndex = 0;
 const textEl = document.querySelector('.rotating-text');
@@ -331,14 +325,12 @@ function cycle() {
 textEl.style.opacity = 1;
 cycle();
 
-/* ── HERO VIDEO ──────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   const vids = ['folkebadethero.mov','inkdrophero.mov','hero2.mp4','hero3.mp4','hero4.mp4','hero1.mp4'];
   let vi = 0;
   const hv = document.querySelector('.hero-video');
   hv.muted = true; hv.playsInline = true;
   hv.setAttribute('playsinline',''); hv.setAttribute('muted','');
-
   function playNext() {
     hv.pause(); hv.src = vids[vi]; hv.load();
     hv.oncanplay = () => hv.play().catch(() => {});
@@ -347,7 +339,6 @@ document.addEventListener('DOMContentLoaded', () => {
   playNext();
 });
 
-/* ── BTS ─────────────────────────────────── */
 function scrollBts(dir) {
   document.getElementById('btsRow').scrollBy({ left: dir * 320, behavior: 'smooth' });
 }
@@ -360,7 +351,6 @@ function toggleSound(btn) {
   else { video.muted = true; btn.textContent = '🔇'; }
 }
 
-/* ── FAQ ─────────────────────────────────── */
 function toggleFaq(btn) {
   const item = btn.closest('.faq__item');
   const isOpen = item.classList.contains('open');
@@ -368,6 +358,5 @@ function toggleFaq(btn) {
   if (!isOpen) item.classList.add('open');
 }
 </script>
-
 </body>
 </html>
