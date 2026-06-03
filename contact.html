@@ -7,11 +7,10 @@
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 <header>
   <a href="index.html" class="logo-wrap">
     <img src="logo.png" alt="MTHS Media logo">
@@ -32,33 +31,32 @@
     </button>
   </div>
 </header>
-
 <div class="mobile-nav" id="mobileNav">
   <a href="index.html" onclick="toggleMenu()">Hjem</a>
   <a href="services.html" onclick="toggleMenu()">Tjenester</a>
   <a href="contact.html" onclick="toggleMenu()">Kontakt</a>
-  <div class="theme-toggle-wrap" style="margin-top:16px;">
+  <div class="theme-toggle-wrap" style="margin-top:20px;">
     <span id="themeIconMobile">🌙</span>
     <button class="theme-toggle" onclick="document.getElementById('themeToggle').click(); document.getElementById('themeIconMobile').textContent = document.getElementById('themeIcon').textContent;" aria-label="Bytt tema"></button>
   </div>
 </div>
 
 <section class="how">
-  <div class="how__kicker reveal">SLIK FUNGERER DET</div>
+  <div class="how__kicker reveal">Slik fungerer det</div>
   <h2 class="how__title reveal">Tre enkle steg.</h2>
   <div class="how__steps">
     <div class="how__step reveal reveal-delay-1">
-      <div class="how__step-num">1</div>
+      <div class="how__step-num">01</div>
       <div class="how__step-title">Send en melding</div>
       <p class="how__step-text">Fortell oss kort hva du trenger – type innhold, dato og eventuell lokasjon.</p>
     </div>
     <div class="how__step reveal reveal-delay-2">
-      <div class="how__step-num">2</div>
+      <div class="how__step-num">02</div>
       <div class="how__step-title">Vi tar kontakt</div>
       <p class="how__step-text">Vi svarer innen 48 timer med et konkret forslag og pris. Ingen forpliktelse.</p>
     </div>
     <div class="how__step reveal reveal-delay-3">
-      <div class="how__step-num">3</div>
+      <div class="how__step-num">03</div>
       <div class="how__step-title">Vi produserer</div>
       <p class="how__step-text">Vi møtes, tar opptakene og leverer ferdig redigert innhold klart til bruk.</p>
     </div>
@@ -93,7 +91,6 @@
       </div>
     </div>
   </div>
-
   <div class="contact-form reveal reveal-delay-2">
     <form action="https://formspree.io/f/xgoooqee" method="POST">
       <input type="hidden" name="_subject" value="Ny melding fra nettsiden">
@@ -146,22 +143,17 @@ document.getElementById('themeToggle').addEventListener('click', () => {
   localStorage.setItem('theme', next);
   document.getElementById('themeIcon').textContent = next === 'dark' ? '☀️' : '🌙';
 });
-
 function toggleMenu() {
   const btn = document.querySelector('.hamburger');
   const nav = document.getElementById('mobileNav');
   btn.classList.toggle('open'); nav.classList.toggle('open');
   document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
 }
-
 const header = document.querySelector('header');
-window.addEventListener('scroll', () => {
-  header.classList.toggle('scrolled', window.scrollY > 40);
-}, { passive: true });
-
+window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-}, { threshold: 0.12 });
+}, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 </body>

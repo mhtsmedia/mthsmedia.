@@ -7,11 +7,10 @@
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 <header>
   <a href="index.html" class="logo-wrap">
     <img src="logo.png" alt="MTHS Media logo">
@@ -32,12 +31,11 @@
     </button>
   </div>
 </header>
-
 <div class="mobile-nav" id="mobileNav">
   <a href="index.html" onclick="toggleMenu()">Hjem</a>
   <a href="services.html" onclick="toggleMenu()">Tjenester</a>
   <a href="contact.html" onclick="toggleMenu()">Kontakt</a>
-  <div class="theme-toggle-wrap" style="margin-top:16px;">
+  <div class="theme-toggle-wrap" style="margin-top:20px;">
     <span id="themeIconMobile">🌙</span>
     <button class="theme-toggle" onclick="document.getElementById('themeToggle').click(); document.getElementById('themeIconMobile').textContent = document.getElementById('themeIcon').textContent;" aria-label="Bytt tema"></button>
   </div>
@@ -49,57 +47,57 @@
   <p>Fra dronefilm til sosiale medier — vi produserer innhold som faktisk skiller seg ut.</p>
 </div>
 
-<section class="services-section reveal" id="foto">
-  <div class="services-section__img">
+<section class="ssection reveal" id="foto">
+  <div class="ssection__img">
     <img src="eks11.JPG" alt="Film og foto">
   </div>
-  <div class="services-section__content reveal reveal-delay-2">
-    <div class="services-section__kicker">Film & Foto</div>
-    <h2 class="services-section__title">Fra konsept til ferdig produkt</h2>
-    <div class="feature-tags">
+  <div class="reveal reveal-delay-2">
+    <div class="ssection__kicker">Film &amp; Foto</div>
+    <h2 class="ssection__title">Fra konsept til ferdig produkt</h2>
+    <div class="ssection__tags">
       <span class="tag">Reklamefilm</span>
       <span class="tag">Bedriftsfoto</span>
       <span class="tag">Produktfoto</span>
       <span class="tag">Portrett</span>
     </div>
-    <p class="services-section__text">Vi produserer reklamefilmer, bedriftsvideoer, foto og digitalt innhold som engasjerer – fra idé til ferdig levering, optimalisert for kampanjer, nettsider og sosiale medier.</p>
-    <a href="contact.html" class="services-section__btn">Start et prosjekt</a>
+    <p class="ssection__text">Vi produserer reklamefilmer, bedriftsvideoer, foto og digitalt innhold som engasjerer – fra idé til ferdig levering, optimalisert for kampanjer, nettsider og sosiale medier.</p>
+    <a href="contact.html" class="ssection__btn">Start et prosjekt</a>
   </div>
 </section>
 
-<section class="services-section reveal" id="drone">
-  <div class="services-section__img">
+<section class="ssection reveal" id="drone">
+  <div class="ssection__img">
     <img src="eks12.JPG" alt="Drone">
   </div>
-  <div class="services-section__content reveal reveal-delay-2">
-    <div class="services-section__kicker">Drone</div>
-    <h2 class="services-section__title">Foto og video fra nye perspektiver</h2>
-    <div class="feature-tags">
+  <div class="reveal reveal-delay-2">
+    <div class="ssection__kicker">Drone</div>
+    <h2 class="ssection__title">Foto og video fra nye perspektiver</h2>
+    <div class="ssection__tags">
       <span class="tag">Luftfoto</span>
       <span class="tag">FPV drone</span>
       <span class="tag">Eiendom</span>
       <span class="tag">Event</span>
     </div>
-    <p class="services-section__text">Vi leverer dronefoto og video i høy kvalitet som gir prosjektene dine et unikt visuelt uttrykk. Perfekt for reklame, eiendom, nettsider og markedsføring.</p>
-    <a href="contact.html" class="services-section__btn">Start et prosjekt</a>
+    <p class="ssection__text">Vi leverer dronefoto og video i høy kvalitet som gir prosjektene dine et unikt visuelt uttrykk. Perfekt for reklame, eiendom, nettsider og markedsføring.</p>
+    <a href="contact.html" class="ssection__btn">Start et prosjekt</a>
   </div>
 </section>
 
-<section class="services-section reveal" id="content">
-  <div class="services-section__img">
+<section class="ssection reveal" id="content">
+  <div class="ssection__img">
     <img src="eks13 (1).jpg" alt="Content Creation">
   </div>
-  <div class="services-section__content reveal reveal-delay-2">
-    <div class="services-section__kicker">Content Creation</div>
-    <h2 class="services-section__title">Innhold laget for sosiale medier</h2>
-    <div class="feature-tags">
+  <div class="reveal reveal-delay-2">
+    <div class="ssection__kicker">Content Creation</div>
+    <h2 class="ssection__title">Innhold laget for sosiale medier</h2>
+    <div class="ssection__tags">
       <span class="tag">Instagram</span>
       <span class="tag">TikTok</span>
       <span class="tag">Snapchat</span>
       <span class="tag">Reels</span>
     </div>
-    <p class="services-section__text">Vi lager visuelt innhold til Instagram, TikTok og Snapchat med fokus på kvalitet, tempo og uttrykk som fanger oppmerksomhet og bygger merkevare.</p>
-    <a href="contact.html" class="services-section__btn">Start et prosjekt</a>
+    <p class="ssection__text">Vi lager visuelt innhold til Instagram, TikTok og Snapchat med fokus på kvalitet, tempo og uttrykk som fanger oppmerksomhet og bygger merkevare.</p>
+    <a href="contact.html" class="ssection__btn">Start et prosjekt</a>
   </div>
 </section>
 
@@ -135,22 +133,17 @@ document.getElementById('themeToggle').addEventListener('click', () => {
   localStorage.setItem('theme', next);
   document.getElementById('themeIcon').textContent = next === 'dark' ? '☀️' : '🌙';
 });
-
 function toggleMenu() {
   const btn = document.querySelector('.hamburger');
   const nav = document.getElementById('mobileNav');
   btn.classList.toggle('open'); nav.classList.toggle('open');
   document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
 }
-
 const header = document.querySelector('header');
-window.addEventListener('scroll', () => {
-  header.classList.toggle('scrolled', window.scrollY > 40);
-}, { passive: true });
-
+window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-}, { threshold: 0.12 });
+}, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 </body>

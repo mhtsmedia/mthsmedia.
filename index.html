@@ -4,14 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="MTHS Media er et kreativt studio som tilbyr profesjonell foto, video og droneproduksjon." />
-  <meta property="og:title" content="MTHS Media – Foto, Video & Drone" />
-  <meta property="og:description" content="MTHS Media tilbyr profesjonell foto, video og droneproduksjon for bedrifter, markedsføring og sosiale medier." />
+  <meta property="og:title" content="MTHS Media – Foto, Video &amp; Drone" />
   <meta property="og:image" content="https://mthsmedia.no/og.png" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://mthsmedia.no" />
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="MTHS Media – Foto, Video & Drone">
-  <meta name="twitter:description" content="Profesjonell foto, video og droneproduksjon for moderne merkevarer og sosiale medier.">
   <meta name="twitter:image" content="https://mthsmedia.no/og.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
@@ -20,16 +17,8 @@
   <title>MTHS Media</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-  <style>
-  .rotating-text::after {
-    content: '|'; opacity: 1;
-    animation: blink 0.7s step-end infinite;
-    margin-left: 1px; color: #93c5fd;
-  }
-  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-  </style>
 </head>
 <body>
 
@@ -58,7 +47,7 @@
   <a href="index.html" onclick="toggleMenu()">Hjem</a>
   <a href="services.html" onclick="toggleMenu()">Tjenester</a>
   <a href="contact.html" onclick="toggleMenu()">Kontakt</a>
-  <div class="theme-toggle-wrap" style="margin-top:16px;">
+  <div class="theme-toggle-wrap" style="margin-top:20px;">
     <span id="themeIconMobile">🌙</span>
     <button class="theme-toggle" onclick="document.getElementById('themeToggle').click(); document.getElementById('themeIconMobile').textContent = document.getElementById('themeIcon').textContent;" aria-label="Bytt tema"></button>
   </div>
@@ -66,68 +55,98 @@
 
 <section class="hero">
   <video class="hero-video" muted playsinline></video>
-  <h1>
-    Markedsføringsstudio for
-    <span class="rotating-text"></span>
-  </h1>
-  <a href="contact.html" class="hero-btn">Start et samarbeid →</a>
+  <div class="hero__inner">
+    <h1>
+      <span class="line1">Spesialister på</span>
+      <span class="line2">visuelt innhold.</span>
+    </h1>
+    <p class="hero__sub">Vi produserer foto, video og droneinnhold som skiller seg ut – fra idé til ferdig produkt.</p>
+    <div class="hero__btns">
+      <a href="contact.html" class="hero__btn-primary">Kontakt oss</a>
+      <a href="#bts" class="hero__btn-secondary">
+        <span class="play-icon">&#9654;</span>
+        Se vårt arbeid
+      </a>
+    </div>
+  </div>
 </section>
 
+<div class="clients reveal">
+  <span class="clients__label">Samarbeidspartnere</span>
+  <div class="clients__names">
+    <span class="clients__name">Ink Drop Studio</span>
+    <span class="clients__name">Sandvika Folkebad</span>
+    <span class="clients__name">&amp; flere</span>
+  </div>
+</div>
+
 <section class="services">
-  <a class="card reveal" href="services.html#foto">
-    <h2>Foto & Film</h2>
-    <p>Profesjonelle bilder og videoer for merkevarer og kampanjer.</p>
-    <span class="card-arrow">Se mer →</span>
-  </a>
-  <a class="card reveal reveal-delay-1" href="services.html#drone">
-    <h2>Drone</h2>
-    <p>Luftfoto og video som gir et unikt perspektiv.</p>
-    <span class="card-arrow">Se mer →</span>
-  </a>
-  <a class="card reveal reveal-delay-2" href="services.html#content">
-    <h2>Content Creation</h2>
-    <p>Innhold optimalisert for Instagram, TikTok og Snapchat.</p>
-    <span class="card-arrow">Se mer →</span>
-  </a>
+  <div class="services__head reveal">
+    <div class="services__kicker">Hva vi tilbyr</div>
+    <h2 class="services__title">Tjenester som<br>løfter merkevaren.</h2>
+  </div>
+  <div class="services__grid">
+    <a class="scard reveal" href="services.html#foto">
+      <div class="scard__num">01</div>
+      <div class="scard__title">Foto &amp; Film</div>
+      <p class="scard__text">Profesjonelle bilder og videoer for merkevarer, kampanjer og nettsider – fra konsept til ferdig levering.</p>
+      <div class="scard__tags">
+        <span class="tag">Reklamefilm</span>
+        <span class="tag">Bedriftsfoto</span>
+        <span class="tag">Portrett</span>
+      </div>
+      <span class="scard__arrow">Se mer →</span>
+    </a>
+    <a class="scard reveal reveal-delay-1" href="services.html#drone">
+      <div class="scard__num">02</div>
+      <div class="scard__title">Drone</div>
+      <p class="scard__text">Luftfoto og video som gir prosjektene dine et unikt visuelt perspektiv. Perfekt for eiendom og event.</p>
+      <div class="scard__tags">
+        <span class="tag">Luftfoto</span>
+        <span class="tag">FPV drone</span>
+        <span class="tag">Eiendom</span>
+      </div>
+      <span class="scard__arrow">Se mer →</span>
+    </a>
+    <a class="scard reveal reveal-delay-2" href="services.html#content">
+      <div class="scard__num">03</div>
+      <div class="scard__title">Content Creation</div>
+      <p class="scard__text">Innhold optimalisert for Instagram, TikTok og Snapchat – med fokus på kvalitet og uttrykk som konverterer.</p>
+      <div class="scard__tags">
+        <span class="tag">Instagram</span>
+        <span class="tag">TikTok</span>
+        <span class="tag">Reels</span>
+      </div>
+      <span class="scard__arrow">Se mer →</span>
+    </a>
+  </div>
 </section>
 
 <section class="method">
-  <div class="method__grid">
-    <div class="method__media reveal">
+  <div class="method__inner">
+    <div class="method__img reveal">
       <img src="eks3.jpg" alt="Produksjon">
     </div>
-    <div class="method__content reveal reveal-delay-2">
-      <div class="method__kicker">VÅR PROSESS</div>
-      <h2 class="method__title">Ideer drevet av strategi</h2>
-      <p class="method__lead">Vi følger en strukturert prosess for å sikre kvalitet i alle ledd.</p>
+    <div class="reveal reveal-delay-2">
+      <div class="method__kicker">Vår metode</div>
+      <h2 class="method__title">Der strategi møter kreativitet – og ideer blir til resultater.</h2>
+      <p class="method__lead">Gjennom en tydelig prosess hjelper vi bedrifter med innhold som engasjerer og konverterer.</p>
       <div class="method__steps">
-        <div class="step reveal reveal-delay-1">
-          <div class="step__no">01</div>
-          <div>
-            <div class="step__title">Oppdagelse</div>
-            <p class="step__text">Vi forstår mål og retning.</p>
-          </div>
+        <div class="mstep">
+          <div class="mstep__no">01</div>
+          <div><div class="mstep__title">Oppdagelse</div><p class="mstep__text">Vi forstår dine mål, din visjon og ditt publikum.</p></div>
         </div>
-        <div class="step reveal reveal-delay-2">
-          <div class="step__no">02</div>
-          <div>
-            <div class="step__title">Konsept</div>
-            <p class="step__text">Vi utvikler idé og uttrykk.</p>
-          </div>
+        <div class="mstep">
+          <div class="mstep__no">02</div>
+          <div><div class="mstep__title">Kreativitet</div><p class="mstep__text">Vi utvikler idé, konsept og visuelt uttrykk.</p></div>
         </div>
-        <div class="step reveal reveal-delay-3">
-          <div class="step__no">03</div>
-          <div>
-            <div class="step__title">Produksjon</div>
-            <p class="step__text">Vi produserer innhold.</p>
-          </div>
+        <div class="mstep">
+          <div class="mstep__no">03</div>
+          <div><div class="mstep__title">Produksjon</div><p class="mstep__text">Vi møtes, tar opptakene og jobber effektivt.</p></div>
         </div>
-        <div class="step reveal reveal-delay-4">
-          <div class="step__no">04</div>
-          <div>
-            <div class="step__title">Leveranse</div>
-            <p class="step__text">Optimalisert ferdig produkt.</p>
-          </div>
+        <div class="mstep">
+          <div class="mstep__no">04</div>
+          <div><div class="mstep__title">Leveranse</div><p class="mstep__text">Ferdig redigert innhold optimalisert for din plattform.</p></div>
         </div>
       </div>
       <a class="method__cta" href="contact.html">Start et prosjekt</a>
@@ -137,9 +156,9 @@
 
 <section class="bts" id="bts">
   <div class="bts__head reveal">
-    <div class="bts__kicker">VÅRT ARBEID</div>
-    <h2 class="bts__title">Våre favoritter.</h2>
-    <p class="bts__lead">Fra idé til ferdig klipp.</p>
+    <div class="bts__kicker">Vårt arbeid</div>
+    <h2 class="bts__title">Bli med oss på shoot.</h2>
+    <p class="bts__lead">Fra idé til ferdig klipp – her er noen av våre favoritter.</p>
   </div>
   <div class="bts__row reveal reveal-delay-1" id="btsRow">
     <div class="bts__card">
@@ -151,25 +170,25 @@
       <button class="bts__sound" onclick="toggleSound(this)" aria-label="Lyd av/på">🔇</button>
     </div>
   </div>
-  <div class="bts__arrows">
-    <button class="bts__btn" type="button" onclick="scrollBts(-1)">‹</button>
-    <button class="bts__btn" type="button" onclick="scrollBts(1)">›</button>
+  <div class="bts__nav">
+    <button class="bts__btn" onclick="scrollBts(-1)">&#8249;</button>
+    <button class="bts__btn" onclick="scrollBts(1)">&#8250;</button>
   </div>
 </section>
 
 <section class="trust" id="om">
-  <div class="trust__grid">
-    <div class="trust__content reveal">
-      <div class="trust__kicker">OM OSS</div>
+  <div class="trust__inner">
+    <div class="reveal">
+      <div class="trust__kicker">Om oss</div>
       <h2 class="trust__title">Et lite studio med høye standarder.</h2>
-      <p class="trust__lead">MTHS Media er et kreativt studio drevet av engasjerte skapere med lidenskap for foto, video og visuell historiefortelling. Vi produserer moderne og visuelt sterkt innhold for bedrifter, merkevarer og prosjekter som ønsker å skille seg ut digitalt.</p>
-      <p class="trust__lead">Gjennom foto, film og droneproduksjon hjelper vi virksomheter med innhold til markedsføring, nettsider og sosiale medier.</p>
-      <div class="trust__cta">
+      <p class="trust__lead">MTHS Media er et kreativt studio drevet av engasjerte skapere med lidenskap for foto, video og visuell historiefortelling.</p>
+      <p class="trust__lead">Vi produserer moderne og visuelt sterkt innhold for bedrifter og merkevarer som ønsker å skille seg ut digitalt.</p>
+      <div class="trust__btns">
         <a class="trust__btn" href="contact.html">Kontakt oss</a>
         <a class="trust__link" href="services.html">Se tjenester →</a>
       </div>
     </div>
-    <div class="trust__media reveal reveal-delay-2">
+    <div class="trust__img reveal reveal-delay-2">
       <img src="eks69.jpg" alt="MTHS Media bak kamera">
     </div>
   </div>
@@ -177,24 +196,18 @@
 
 <section class="testimonials">
   <div class="testimonials__inner">
-    <div class="testimonials__kicker reveal">HVA KUNDENE SIER</div>
-    <h2 class="testimonials__title reveal">Resultater som snakker for seg.</h2>
+    <div class="testimonials__kicker reveal">Hva kundene sier</div>
+    <h2 class="testimonials__title reveal">Resultater som<br>snakker for seg.</h2>
     <div class="testimonials__grid">
-      <div class="testimonial__card reveal reveal-delay-1">
-        <div class="testimonial__stars">★★★★★</div>
-        <p class="testimonial__text">Vi på Ink Drop Studio er veldig fornøyde med samarbeidet! MTHS Media fremstår som svært dyktige, profesjonelle og de kom godt forberedt. Kommunikasjonen var enkel og smidig, og de jobbet effektivt. Resultatet var av høy kvalitet og vi er imponert over arbeidet deres. Anbefales!</p>
-        <div>
-          <div class="testimonial__name">Jeanett Pedersen</div>
-          <div class="testimonial__role">Ink Drop Studio</div>
-        </div>
+      <div class="tcard reveal reveal-delay-1">
+        <div class="tcard__stars">★★★★★</div>
+        <p class="tcard__text">Vi på Ink Drop Studio er veldig fornøyde med samarbeidet! MTHS Media fremstår som svært dyktige, profesjonelle og de kom godt forberedt. Kommunikasjonen var enkel og smidig. Resultatet var av høy kvalitet og vi er imponert. Anbefales!</p>
+        <div><div class="tcard__name">Jeanett Pedersen</div><div class="tcard__role">Ink Drop Studio</div></div>
       </div>
-      <div class="testimonial__card reveal reveal-delay-2">
-        <div class="testimonial__stars">★★★★★</div>
-        <p class="testimonial__text">Vi på Sandvika Folkebad er superfornøyde med innholdet som MTHS Media filmet, produserte og redigerte for oss. De kom på et lite planleggingsmøte først for å forstå våre behov og ønsker. Kan anbefale denne gjengen på det varmeste! De har giv, gode ideer og gjennomførte oppdraget til punkt og prikke!</p>
-        <div>
-          <div class="testimonial__name">Ole Lauvsnes</div>
-          <div class="testimonial__role">Sandvika Folkebad</div>
-        </div>
+      <div class="tcard reveal reveal-delay-2">
+        <div class="tcard__stars">★★★★★</div>
+        <p class="tcard__text">Vi på Sandvika Folkebad er superfornøyde med innholdet som MTHS Media filmet og redigerte for oss. Kan anbefale denne gjengen på det varmeste! De gjennomførte oppdraget til punkt og prikke!</p>
+        <div><div class="tcard__name">Ole Lauvsnes</div><div class="tcard__role">Sandvika Folkebad</div></div>
       </div>
     </div>
   </div>
@@ -202,46 +215,31 @@
 
 <section class="faq">
   <div class="faq__inner">
-    <div class="faq__kicker reveal">VANLIGE SPØRSMÅL</div>
+    <div class="faq__kicker reveal">Vanlige spørsmål</div>
     <h2 class="faq__title reveal">Lurer du på noe?</h2>
     <div class="faq__item reveal">
-      <button class="faq__question" onclick="toggleFaq(this)">
-        Hvor lang tid tar et oppdrag?
-        <span class="faq__icon">+</span>
-      </button>
-      <div class="faq__answer">
-        <p>Det kommer an på størrelsen. Et enkelt fotoshoot tar gjerne 1–3 timer, mens et større oppdrag med drone og video kan ta en hel dag. Vi leverer redigert innhold innen 3–7 virkedager etter opptak.</p>
-      </div>
+      <button class="faq__question" onclick="toggleFaq(this)">Hvor lang tid tar et oppdrag?<span class="faq__icon">+</span></button>
+      <div class="faq__answer"><p>Det kommer an på størrelsen. Et enkelt fotoshoot tar gjerne 1–3 timer, mens et større oppdrag med drone og video kan ta en hel dag. Vi leverer redigert innhold innen 3–7 virkedager etter opptak.</p></div>
     </div>
     <div class="faq__item reveal reveal-delay-1">
-      <button class="faq__question" onclick="toggleFaq(this)">
-        Leverer dere redigert innhold?
-        <span class="faq__icon">+</span>
-      </button>
-      <div class="faq__answer">
-        <p>Ja, alltid. Vi leverer ferdig redigerte bilder og videoer optimalisert for den plattformen du skal bruke dem på – enten det er Instagram, TikTok, nettside eller annonser.</p>
-      </div>
+      <button class="faq__question" onclick="toggleFaq(this)">Leverer dere redigert innhold?<span class="faq__icon">+</span></button>
+      <div class="faq__answer"><p>Ja, alltid. Vi leverer ferdig redigerte bilder og videoer optimalisert for den plattformen du skal bruke dem på – enten det er Instagram, TikTok, nettside eller annonser.</p></div>
     </div>
     <div class="faq__item reveal reveal-delay-2">
-      <button class="faq__question" onclick="toggleFaq(this)">
-        Hva trenger jeg å forberede?
-        <span class="faq__icon">+</span>
-      </button>
-      <div class="faq__answer">
-        <p>Ikke så mye! Det hjelper å ha en idé om stemning, men det er ikke nødvendig. Vi tar en prat i forkant der vi avklarer mål, lokasjon og detaljer. Vi tar oss av resten.</p>
-      </div>
+      <button class="faq__question" onclick="toggleFaq(this)">Hva trenger jeg å forberede?<span class="faq__icon">+</span></button>
+      <div class="faq__answer"><p>Ikke så mye! Det hjelper å ha en idé om stemning, men det er ikke nødvendig. Vi tar en prat i forkant der vi avklarer mål, lokasjon og detaljer. Vi tar oss av resten.</p></div>
     </div>
   </div>
 </section>
 
-<section class="cta reveal" id="cta">
+<section class="cta reveal">
   <div class="cta__inner">
-    <div class="cta__kicker">KLAR NÅR DU ER</div>
+    <div class="cta__kicker">Klar når du er</div>
     <h2 class="cta__title">Klar for å løfte merkevaren din?</h2>
     <p class="cta__text">Fortell oss hva du trenger – vi svarer med konkret forslag og pris innen 48 timer.</p>
     <div class="cta__actions">
       <a class="cta__btn" href="contact.html">Start et samarbeid →</a>
-      <a class="cta__link" href="services.html">Se tjenester →</a>
+      <a class="cta__link" href="services.html">Se tjenester</a>
     </div>
   </div>
 </section>
@@ -278,7 +276,6 @@ document.getElementById('themeToggle').addEventListener('click', () => {
   localStorage.setItem('theme', next);
   document.getElementById('themeIcon').textContent = next === 'dark' ? '☀️' : '🌙';
 });
-
 function toggleMenu() {
   const btn = document.querySelector('.hamburger');
   const nav = document.getElementById('mobileNav');
@@ -286,45 +283,12 @@ function toggleMenu() {
   nav.classList.toggle('open');
   document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
 }
-
 const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
-  });
-}, { threshold: 0.12 });
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
 const header = document.querySelector('header');
-window.addEventListener('scroll', () => {
-  header.classList.toggle('scrolled', window.scrollY > 40);
-}, { passive: true });
-
-const words = ['droneinnhold.','visuelt innhold.','content creation.','sosiale medier.','branding.'];
-let wordIndex = 0;
-const textEl = document.querySelector('.rotating-text');
-
-function typeWord(word, cb) {
-  textEl.textContent = '';
-  let i = 0;
-  const iv = setInterval(() => {
-    textEl.textContent += word[i++];
-    if (i >= word.length) { clearInterval(iv); setTimeout(cb, 1400); }
-  }, 65);
-}
-function eraseWord(cb) {
-  let txt = textEl.textContent;
-  const iv = setInterval(() => {
-    txt = txt.slice(0, -1);
-    textEl.textContent = txt;
-    if (!txt.length) { clearInterval(iv); cb(); }
-  }, 38);
-}
-function cycle() {
-  typeWord(words[wordIndex], () => eraseWord(() => { wordIndex = (wordIndex + 1) % words.length; cycle(); }));
-}
-textEl.style.opacity = 1;
-cycle();
-
+window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
 document.addEventListener('DOMContentLoaded', () => {
   const vids = ['folkebadethero.mov','inkdrophero.mov','hero2.mp4','hero3.mp4','hero4.mp4','hero1.mp4'];
   let vi = 0;
@@ -334,23 +298,17 @@ document.addEventListener('DOMContentLoaded', () => {
   function playNext() {
     hv.pause(); hv.src = vids[vi]; hv.load();
     hv.oncanplay = () => hv.play().catch(() => {});
-    hv.onended   = () => { vi = (vi + 1) % vids.length; playNext(); };
+    hv.onended = () => { vi = (vi + 1) % vids.length; playNext(); };
   }
   playNext();
 });
-
-function scrollBts(dir) {
-  document.getElementById('btsRow').scrollBy({ left: dir * 320, behavior: 'smooth' });
-}
+function scrollBts(dir) { document.getElementById('btsRow').scrollBy({ left: dir * 320, behavior: 'smooth' }); }
 function toggleSound(btn) {
   const video = btn.previousElementSibling;
-  document.querySelectorAll('.bts__card video').forEach(v => {
-    if (v !== video) { v.muted = true; v.nextElementSibling.textContent = '🔇'; }
-  });
+  document.querySelectorAll('.bts__card video').forEach(v => { if (v !== video) { v.muted = true; v.nextElementSibling.textContent = '🔇'; } });
   if (video.muted) { video.muted = false; video.currentTime = 0; video.play(); btn.textContent = '🔊'; }
   else { video.muted = true; btn.textContent = '🔇'; }
 }
-
 function toggleFaq(btn) {
   const item = btn.closest('.faq__item');
   const isOpen = item.classList.contains('open');
