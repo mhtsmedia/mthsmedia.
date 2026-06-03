@@ -334,7 +334,12 @@ document.querySelectorAll('.mag-btn').forEach(btn => {
   btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
 });
 const header = document.querySelector('header');
-window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 40);
+  // update global scroll progress for gradient glow movement
+  const gy = window.scrollY / Math.max(1, document.body.scrollHeight - window.innerHeight);
+  document.documentElement.style.setProperty('--gy', gy);
+}, { passive: true });
 document.addEventListener('DOMContentLoaded', () => {
   const vids = ['folkebadethero.mov','inkdrophero.mov','hero2.mp4','hero3.mp4','hero4.mp4','hero1.mp4'];
   let vi = 0;
