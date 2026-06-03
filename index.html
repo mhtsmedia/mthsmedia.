@@ -58,10 +58,15 @@
   <div class="hero__inner">
     <div class="hero__badge"><span class="hero__badge-dot"></span>Tilgjengelig for nye prosjekter</div>
     <h1>
-      <span class="line1">Spesialister på</span>
-      <span class="line2">visuelt innhold.</span>
+      <span class="line1">Vi lager</span>
+      <span class="line2 hero__cycling">
+        <span class="hero__word active">Foto.</span>
+        <span class="hero__word">Video.</span>
+        <span class="hero__word">Drone.</span>
+        <span class="hero__word">Innhold.</span>
+      </span>
     </h1>
-    <p class="hero__sub">Vi produserer foto, video og droneinnhold som skiller seg ut – fra idé til ferdig produkt.</p>
+    <p class="hero__sub">Profesjonelt visuelt innhold som skiller seg ut – fra idé til ferdig produkt.</p>
     <div class="hero__btns">
       <a href="contact.html" class="hero__btn-primary">Kontakt oss</a>
       <a href="#bts" class="hero__btn-secondary">
@@ -73,27 +78,22 @@
   <div class="hero__scroll"><div class="hero__scroll-line"></div></div>
 </section>
 
-<div class="stats">
-  <div class="stat reveal">
-    <div class="stat__num">50+</div>
-    <div class="stat__label">Prosjekter levert</div>
-  </div>
-  <div class="stat reveal reveal-delay-1">
-    <div class="stat__num">5★</div>
-    <div class="stat__label">Gjennomsnittlig vurdering</div>
-  </div>
-  <div class="stat reveal reveal-delay-2">
-    <div class="stat__num">3år</div>
-    <div class="stat__label">Erfaring i bransjen</div>
-  </div>
-</div>
-
-<div class="clients reveal">
-  <span class="clients__label">Samarbeidspartnere</span>
-  <div class="clients__names">
-    <span class="clients__name">Ink Drop Studio</span>
-    <span class="clients__name">Sandvika Folkebad</span>
-    <span class="clients__name">&amp; flere</span>
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span>Foto</span><span class="ticker-dot">·</span>
+    <span>Video</span><span class="ticker-dot">·</span>
+    <span>Drone</span><span class="ticker-dot">·</span>
+    <span>Content Creation</span><span class="ticker-dot">·</span>
+    <span>Ink Drop Studio</span><span class="ticker-dot">·</span>
+    <span>Sandvika Folkebad</span><span class="ticker-dot">·</span>
+    <span>Reklamefilm</span><span class="ticker-dot">·</span>
+    <span>Foto</span><span class="ticker-dot">·</span>
+    <span>Video</span><span class="ticker-dot">·</span>
+    <span>Drone</span><span class="ticker-dot">·</span>
+    <span>Content Creation</span><span class="ticker-dot">·</span>
+    <span>Ink Drop Studio</span><span class="ticker-dot">·</span>
+    <span>Sandvika Folkebad</span><span class="ticker-dot">·</span>
+    <span>Reklamefilm</span><span class="ticker-dot">·</span>
   </div>
 </div>
 
@@ -328,6 +328,17 @@ function toggleSound(btn) {
   if (video.muted) { video.muted = false; video.currentTime = 0; video.play(); btn.textContent = '🔊'; }
   else { video.muted = true; btn.textContent = '🔇'; }
 }
+// Hero word cycling
+(function(){
+  const words = document.querySelectorAll('.hero__word');
+  let idx = 0;
+  if (!words.length) return;
+  setInterval(() => {
+    words[idx].classList.remove('active');
+    idx = (idx + 1) % words.length;
+    words[idx].classList.add('active');
+  }, 2200);
+})();
 function toggleFaq(btn) {
   const item = btn.closest('.faq__item');
   const isOpen = item.classList.contains('open');

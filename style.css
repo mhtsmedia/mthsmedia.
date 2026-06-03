@@ -272,6 +272,52 @@ nav a.active { color: var(--text); font-weight: 600; }
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* ── HERO WORD CYCLING ─────────────────────── */
+.hero__cycling {
+  display: block;
+  position: relative;
+  height: 1.05em;
+  overflow: hidden;
+}
+.hero__word {
+  display: block;
+  position: absolute; left: 0; right: 0;
+  color: rgba(255,255,255,0.38);
+  opacity: 0;
+  transform: translateY(60%);
+  transition: opacity 0.55s cubic-bezier(0.22,1,0.36,1), transform 0.55s cubic-bezier(0.22,1,0.36,1);
+  pointer-events: none;
+}
+.hero__word.active {
+  opacity: 1;
+  transform: translateY(0);
+  color: rgba(255,255,255,0.38);
+}
+
+/* ── MARQUEE TICKER ────────────────────────── */
+.ticker-wrap {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+  padding: 14px 0;
+  background: var(--bg);
+}
+.ticker {
+  display: flex; align-items: center; gap: 28px;
+  white-space: nowrap;
+  animation: ticker 22s linear infinite;
+  width: max-content;
+}
+.ticker span {
+  font-size: 13px; font-weight: 600; color: var(--muted2);
+  letter-spacing: 0.02em;
+}
+.ticker-dot { color: var(--border) !important; font-weight: 300 !important; }
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
 /* ── LOGO STRIP ────────────────────────────── */
 .clients {
   padding: 28px 6%;
@@ -293,25 +339,6 @@ nav a.active { color: var(--text); font-weight: 600; }
   transition: color 0.2s, border-color 0.2s;
 }
 .clients__name:hover { color: var(--text); border-color: var(--muted); }
-
-/* ── STATS ─────────────────────────────────── */
-.stats {
-  display: grid; grid-template-columns: repeat(3,1fr);
-  border-bottom: 1px solid var(--border);
-}
-.stat {
-  padding: 48px 6%; text-align: center;
-  border-right: 1px solid var(--border);
-}
-.stat:last-child { border-right: none; }
-.stat__num {
-  font-size: clamp(36px, 5vw, 56px);
-  font-weight: 800; letter-spacing: -2px; line-height: 1;
-  color: var(--text); margin-bottom: 6px;
-}
-.stat__label {
-  font-size: 13px; color: var(--muted); font-weight: 500;
-}
 
 /* ── SERVICES CARDS ────────────────────────── */
 .services {
@@ -816,7 +843,6 @@ nav a.active { color: var(--text); font-weight: 600; }
 
 /* ── RESPONSIVE ────────────────────────────── */
 @media (max-width: 980px) {
-  .stats { grid-template-columns: repeat(3,1fr); }
   .services__grid { grid-template-columns: 1fr; }
   .method__inner { grid-template-columns: 1fr; gap: 40px; }
   .method__img { height: 380px; }
@@ -839,10 +865,6 @@ nav a.active { color: var(--text); font-weight: 600; }
   .hero__scroll { display: none; }
 
   .clients { padding: 22px 5%; }
-  .stats { grid-template-columns: 1fr; }
-  .stat { border-right: none; border-bottom: 1px solid var(--border); }
-  .stat:last-child { border-bottom: none; }
-
   .services { padding: 60px 5%; }
   .services__grid { grid-template-columns: 1fr; gap: 10px; }
   .method, .bts, .trust, .testimonials, .faq { padding: 60px 5%; }
