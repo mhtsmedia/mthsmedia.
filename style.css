@@ -297,13 +297,14 @@ nav a.active { color: var(--text); font-weight: 600; background: var(--bg2); }
 }
 .services__grid {
   display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
-  max-width: 1200px; margin: 0 auto;
+  max-width: 1200px; margin: 0 auto; align-items: start;
 }
+.services__stack { display: flex; flex-direction: column; gap: 14px; }
 .services__stack {
   display: flex; flex-direction: column; gap: 14px;
 }
 .scard--featured {
-  padding: 48px 40px; min-height: 360px; justify-content: space-between;
+  padding: 48px 40px;
 }
 .scard--featured .scard__icon { width: 68px; height: 68px; border-radius: 18px; }
 .scard--featured .scard__title { font-size: 26px; }
@@ -356,15 +357,24 @@ nav a.active { color: var(--text); font-weight: 600; background: var(--bg2); }
 .method__steps { display: grid; grid-template-columns: repeat(4, 1fr); }
 .method__foot { margin-top: 52px; }
 
-/* Method steps – horizontal timeline */
+/* Method steps – horizontal cards */
 .mstep {
-  padding: 28px 28px 28px 0;
-  border-right: 1px solid var(--border);
-  padding-right: 28px;
-  transition: opacity 0.35s;
+  padding: 28px;
+  border-radius: var(--radius-sm);
+  background: var(--bg); border: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s, opacity 0.35s, border-color 0.3s;
+  position: relative; overflow: hidden;
 }
-.mstep:last-child { border-right: none; padding-right: 0; }
-.mstep:not(:first-child) { padding-left: 28px; }
+.mstep::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.5) 0%, transparent 60%);
+  pointer-events: none; opacity: 0; transition: opacity 0.3s;
+}
+.mstep:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,0.1); border-color: transparent; }
+.mstep:hover::before { opacity: 1; }
+[data-theme="dark"] .mstep { background: var(--bg2); }
+[data-theme="dark"] .mstep:hover { box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
 .mstep__no { font-size: 13px; font-weight: 700; color: var(--muted2); letter-spacing: 0.06em; margin-bottom: 20px; }
 .mstep__title { font-size: 17px; font-weight: 800; color: var(--text); margin-bottom: 10px; letter-spacing: -0.3px; }
 .mstep__text  { font-size: 13.5px; color: var(--muted); line-height: 1.7; }
