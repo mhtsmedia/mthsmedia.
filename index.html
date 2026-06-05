@@ -56,6 +56,7 @@
 
 <section class="hero">
   <video class="hero-video" muted playsinline></video>
+  <video class="hero-video hero-video--b" muted playsinline></video>
   <div class="hero__inner">
     <div class="hero__badge"><span class="hero__badge-dot"></span>Tilgjengelig for nye prosjekter</div>
     <h1>
@@ -334,16 +335,41 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 document.addEventListener('DOMContentLoaded', () => {
   const vids = ['media/Paradisio_nettside.mp4','media/Landskap3_nettside.mov','media/Landskap_nettside.mov','media/Folkebad_nettside.mov','media/Landskap2_nettside.mp4'];
-  let vi = 0;
-  const hv = document.querySelector('.hero-video');
-  hv.muted = true; hv.playsInline = true;
-  hv.setAttribute('playsinline',''); hv.setAttribute('muted','');
-  function playNext() {
-    hv.pause(); hv.src = vids[vi]; hv.load();
-    hv.oncanplay = () => hv.play().catch(() => {});
-    hv.onended = () => { vi = (vi + 1) % vids.length; playNext(); };
+  const layers = [...document.querySelectorAll('.hero-video')];
+  layers.forEach(v => { v.muted = true; v.playsInline = true; v.setAttribute('playsinline',''); v.setAttribute('muted',''); });
+
+  let active = 0;   // which layer is currently visible
+  let idx = 0;      // index of clip playing on the active layer
+
+  function preload(layer, i) {
+    layers[layer].src = vids[i];
+    layers[layer].load();
   }
-  playNext();
+
+  function advance() {
+    const nextLayer = 1 - active;
+    const nextIdx = (idx + 1) % vids.length;
+    const cur = layers[active];
+    const nxt = layers[nextLayer];
+    nxt.currentTime = 0;
+    nxt.play().catch(() => {});
+    nxt.classList.add('is-active');
+    cur.classList.remove('is-active');
+    // preload the clip after next into the layer we just freed
+    preload(active, (nextIdx + 1) % vids.length);
+    active = nextLayer;
+    idx = nextIdx;
+  }
+
+  layers.forEach(v => v.addEventListener('ended', () => { if (v.classList.contains('is-active')) advance(); }));
+
+  preload(0, 0);
+  preload(1, 1);
+  layers[0].addEventListener('canplay', function once() {
+    layers[0].removeEventListener('canplay', once);
+    layers[0].play().catch(() => {});
+    layers[0].classList.add('is-active');
+  });
 });
 function scrollBts(dir) { document.getElementById('btsRow').scrollBy({ left: dir * 320, behavior: 'smooth' }); }
 function toggleSound(btn) {
