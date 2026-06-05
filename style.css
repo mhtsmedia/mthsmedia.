@@ -409,7 +409,7 @@ nav a.active { color: var(--text); font-weight: 600; background: var(--bg2); }
 .bts__title { font-size: clamp(30px, 4.5vw, 58px); font-weight: 800; letter-spacing: -1.5px; color: var(--text); margin-bottom: 10px; }
 .bts__lead { color: var(--muted); font-size: 15px; }
 .bts__row {
-  display: flex; gap: 14px; overflow-x: auto; padding-bottom: 8px;
+  display: flex; gap: 4px; overflow-x: auto; padding-bottom: 8px;
   scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
 }
 .bts__row::-webkit-scrollbar { height: 0; }
