@@ -14,13 +14,33 @@
   <link rel="icon" type="image/png" sizes="192x192" href="media/favicon-192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="media/favicon-512.png">
   <meta name="google-site-verification" content="AB9ozg8WHEbG80zJwuAefGNkfhzhXXUcdOdNXnv5Fo4" />
-  <title>MTHS Media</title>
+  <link rel="apple-touch-icon" href="media/favicon-192.png">
+  <link rel="canonical" href="https://mthsmedia.no/" />
+  <title>MTHS Media – Foto, Video &amp; Drone</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "MTHS Media",
+    "description": "MTHS Media er et kreativt studio som tilbyr profesjonell foto, video og droneproduksjon.",
+    "url": "https://mthsmedia.no/",
+    "image": "https://mthsmedia.no/media/og.png",
+    "email": "kontakt.mthsmedia@gmail.com",
+    "telephone": "+47 940 35 180",
+    "areaServed": "NO",
+    "sameAs": [
+      "https://www.instagram.com/mths_media/",
+      "https://www.tiktok.com/@mths.media"
+    ]
+  }
+  </script>
 </head>
 <body>
+<a class="skip-link" href="#main">Hopp til innhold</a>
 
 <header>
   <a href="index.html" class="logo-wrap">
@@ -54,9 +74,9 @@
   </div>
 </div>
 
-<section class="hero">
-  <video class="hero-video" muted playsinline></video>
-  <video class="hero-video hero-video--b" muted playsinline></video>
+<section class="hero" id="main">
+  <video class="hero-video" muted playsinline aria-hidden="true"></video>
+  <video class="hero-video hero-video--b" muted playsinline aria-hidden="true"></video>
   <div class="hero__inner">
     <div class="hero__badge"><span class="hero__badge-dot"></span>Tilgjengelig for nye prosjekter</div>
     <h1>
@@ -260,7 +280,7 @@
   <div class="footer__inner">
     <div class="footer__brand">
       <div class="footer__logo">MTHS Media</div>
-      <div class="footer__mail">kontakt.mthsmedia@gmail.com</div>
+      <a class="footer__mail" href="mailto:kontakt.mthsmedia@gmail.com">kontakt.mthsmedia@gmail.com</a>
     </div>
     <div class="footer__social">
       <div class="footer__label">Følg oss på</div>
