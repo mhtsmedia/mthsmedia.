@@ -64,6 +64,17 @@ a, a:visited { text-decoration: none; color: inherit; }
 .reveal-delay-3 { transition-delay: 0.24s; }
 .reveal-delay-4 { transition-delay: 0.34s; }
 
+/* Line-by-line masked title reveal */
+.reveal-lines .rl-line { display: block; overflow: hidden; }
+.reveal-lines .rl-line span {
+  display: block; transform: translateY(112%);
+  transition: transform 0.85s cubic-bezier(0.22,1,0.36,1);
+}
+.reveal-lines .rl-line:nth-child(1) span { transition-delay: 0.03s; }
+.reveal-lines .rl-line:nth-child(2) span { transition-delay: 0.13s; }
+.reveal-lines .rl-line:nth-child(3) span { transition-delay: 0.23s; }
+.reveal-lines.visible .rl-line span { transform: translateY(0); }
+
 /* ── HEADER ────────────────────────────────── */
 header {
   display: flex; justify-content: space-between; align-items: center;
@@ -165,8 +176,16 @@ nav a.active { color: var(--text); font-weight: 600; background: var(--bg2); }
   position: absolute; inset: 0; width: 100%; height: 100%;
   object-fit: cover; z-index: 0; pointer-events: none;
   opacity: 0; transition: opacity 0.8s ease;
+  transform: scale(1);
 }
-.hero-video.is-active { opacity: 1; }
+.hero-video.is-active { opacity: 1; animation: kenburns 9s ease-out both; }
+@keyframes kenburns {
+  from { transform: scale(1); }
+  to   { transform: scale(1.08); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-video.is-active { animation: none; }
+}
 .hero::after {
   content: ''; position: absolute; inset: 0;
   background: linear-gradient(170deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.65) 100%);
@@ -330,7 +349,7 @@ nav a.active { color: var(--text); font-weight: 600; background: var(--bg2); }
   background: linear-gradient(135deg, rgba(255,255,255,0.5) 0%, transparent 55%);
   pointer-events: none; opacity: 0; transition: opacity 0.3s;
 }
-.scard:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0,0,0,0.1); border-color: transparent; }
+.scard:hover { transform: perspective(800px) translateY(-5px) rotateX(var(--ry)) rotateY(var(--rx)); box-shadow: 0 20px 50px rgba(0,0,0,0.1); border-color: transparent; }
 .scard:hover::before { opacity: 1; }
 .scard__body { display: flex; flex-direction: column; gap: 7px; }
 [data-theme="dark"] .scard { background: var(--bg2); }
@@ -381,7 +400,7 @@ nav a.active { color: var(--text); font-weight: 600; background: var(--bg2); }
   background: linear-gradient(135deg, rgba(255,255,255,0.5) 0%, transparent 60%);
   pointer-events: none; opacity: 0; transition: opacity 0.3s;
 }
-.mstep:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,0.1); border-color: transparent; }
+.mstep:hover { transform: perspective(800px) translateY(-5px) rotateX(var(--ry)) rotateY(var(--rx)); box-shadow: 0 16px 40px rgba(0,0,0,0.1); border-color: transparent; }
 .mstep:hover::before { opacity: 1; }
 [data-theme="dark"] .mstep { background: var(--bg2); }
 [data-theme="dark"] .mstep:hover { box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
@@ -412,7 +431,7 @@ nav a.active { color: var(--text); font-weight: 600; background: var(--bg2); }
 .bts__lead { color: var(--muted); font-size: 15px; }
 .bts__row {
   display: flex; gap: 4px; overflow-x: auto; padding-bottom: 8px;
-  scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch;
 }
 .bts__row::-webkit-scrollbar { height: 0; }
 .bts__card {
@@ -502,7 +521,7 @@ nav a.active { color: var(--text); font-weight: 600; background: var(--bg2); }
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 [data-theme="dark"] .tcard { background: var(--bg2); }
-.tcard:hover { transform: scale(1.02) translateY(-5px); box-shadow: 0 20px 50px rgba(0,0,0,0.09); border-color: transparent; }
+.tcard:hover { transform: perspective(800px) scale(1.02) translateY(-5px) rotateX(var(--ry)) rotateY(var(--rx)); box-shadow: 0 20px 50px rgba(0,0,0,0.09); border-color: transparent; }
 [data-theme="dark"] .tcard:hover { box-shadow: 0 20px 50px rgba(0,0,0,0.45); }
 .tcard__stars { font-size: 13px; letter-spacing: 4px; color: #f59e0b; }
 .tcard__text { color: var(--muted); font-size: 15px; line-height: 1.85; flex: 1; font-style: italic; }
@@ -602,6 +621,43 @@ nav a.active { color: var(--text); font-weight: 600; background: var(--bg2); }
 
 /* ── MAGNETIC BUTTON ───────────────────────── */
 .mag-btn { will-change: transform; }
+
+/* ── TILT + CURSOR GLOW CARDS ──────────────── */
+.tilt {
+  --rx: 0deg; --ry: 0deg; --mx: 50%; --my: 50%;
+  will-change: transform;
+}
+.tilt::after {
+  content: ''; position: absolute; inset: 0; border-radius: inherit;
+  opacity: 0; pointer-events: none; transition: opacity 0.35s;
+  background: radial-gradient(240px circle at var(--mx) var(--my), rgba(255,255,255,0.5), transparent 60%);
+}
+[data-theme="dark"] .tilt::after {
+  background: radial-gradient(240px circle at var(--mx) var(--my), rgba(255,255,255,0.14), transparent 60%);
+}
+.tilt:hover::after { opacity: 1; }
+
+/* ── CUSTOM CURSOR ─────────────────────────── */
+body.has-cursor, body.has-cursor a, body.has-cursor button,
+body.has-cursor .tilt, body.has-cursor .hamburger { cursor: none; }
+body.has-cursor input, body.has-cursor textarea { cursor: text; }
+.cursor-dot {
+  position: fixed; top: 0; left: 0; width: 6px; height: 6px; border-radius: 50%;
+  background: #fff; mix-blend-mode: difference;
+  pointer-events: none; z-index: 9999; opacity: 0; transition: opacity 0.2s;
+}
+.cursor-ring {
+  position: fixed; top: 0; left: 0; width: 34px; height: 34px; border-radius: 50%;
+  border: 1px solid #fff; mix-blend-mode: difference;
+  pointer-events: none; z-index: 9998; opacity: 0;
+  transition: width 0.25s cubic-bezier(0.22,1,0.36,1), height 0.25s cubic-bezier(0.22,1,0.36,1),
+              background 0.25s, border-color 0.25s, opacity 0.2s;
+}
+.cursor-ring--active { width: 58px; height: 58px; background: rgba(255,255,255,0.14); }
+.cursor-ring--text { width: 3px; height: 26px; border-radius: 2px; border-color: transparent; background: #fff; }
+@media (max-width: 980px) {
+  .cursor-dot, .cursor-ring { display: none; }
+}
 
 /* ── FOOTER ────────────────────────────────── */
 .footer { border-top: 1px solid var(--border); background: var(--bg); }
