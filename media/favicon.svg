@@ -4,8 +4,8 @@
     @media (prefers-color-scheme: dark) { .mark { fill: #f0f0f0; } }
   </style>
   <g class="mark">
-    <rect x="12" y="15" width="14" height="70" rx="7"/>
-    <rect x="74" y="15" width="14" height="70" rx="7"/>
-    <path d="M 38,16 L 62,16 Q 68,16 65.73,21.55 L 51.89,55.37 Q 50,60 48.11,55.37 L 34.27,21.55 Q 32,16 38,16 Z"/>
+    <rect x="10" y="15" width="17" height="70" rx="8.5"/>
+    <rect x="73" y="15" width="17" height="70" rx="8.5"/>
+    <path d="M 35,16 L 65,16 Q 72,16 68.98,22.32 L 52.59,56.59 Q 50,62 47.41,56.59 L 31.02,22.32 Q 28,16 35,16 Z"/>
   </g>
 </svg>
