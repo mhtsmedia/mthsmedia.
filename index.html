@@ -10,6 +10,7 @@
   <meta property="og:url" content="https://mthsmedia.no" />
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://mthsmedia.no/media/og.png">
+  <link rel="icon" type="image/svg+xml" href="media/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="media/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="media/favicon-192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="media/favicon-512.png">
@@ -19,7 +20,7 @@
   <title>MTHS Media – Foto, Video &amp; Drone</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <script type="application/ld+json">
   {
@@ -44,7 +45,7 @@
 
 <header>
   <a href="index.html" class="logo-wrap">
-    <img src="media/logo.png" alt="MTHS Media logo">
+    <svg class="logo-mark" viewBox="0 0 100 61.05" fill="currentColor" aria-hidden="true"><rect x="0" y="0" width="17.35" height="61.05" rx="8.675"/><rect x="82.65" y="0" width="17.35" height="61.05" rx="8.675"/><path d="M 32.19,0 L 67.81,0 Q 73.81,0 70.26,4.84 L 52.96,28.45 Q 50,32.48 47.04,28.45 L 29.74,4.84 Q 26.19,0 32.19,0 Z"/></svg>
     <div class="logo">MTHS Media</div>
   </a>
   <nav>
@@ -107,10 +108,14 @@
   </div>
   <div class="services__grid">
     <div class="services__visual reveal-left">
-      <img src="media/eks3.jpg" alt="MTHS Media produksjon">
+      <div class="img-stack">
+        <img class="img-stack__item img-stack__item--back" src="media/eks12.JPG" alt="MTHS Media produksjon">
+        <img class="img-stack__item img-stack__item--mid" src="media/eks11.JPG" alt="MTHS Media produksjon">
+        <img class="img-stack__item img-stack__item--front" src="media/eks3.jpg" alt="MTHS Media produksjon">
+      </div>
     </div>
     <div class="services__cards">
-      <a class="scard reveal reveal-delay-1" href="services.html#foto">
+      <a class="scard tilt reveal reveal-delay-1" href="services.html#foto">
         <div class="scard__icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l4.553-2.069A1 1 0 0121 8.882v6.236a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg>
         </div>
@@ -119,7 +124,7 @@
           <p class="scard__text">Fra konsept til ferdig levering – profesjonelle bilder og videoer for merkevarer og kampanjer.</p>
         </div>
       </a>
-      <a class="scard reveal reveal-delay-2" href="services.html#drone">
+      <a class="scard tilt reveal reveal-delay-2" href="services.html#drone">
         <div class="scard__icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M4.93 4.93l3.54 3.54M15.54 8.46l3.53-3.53M4.93 19.07l3.54-3.54M15.54 15.54l3.53 3.53M2 12h3M19 12h3M12 2v3M12 19v3"/></svg>
         </div>
@@ -128,7 +133,7 @@
           <p class="scard__text">Luftfoto og video som gir prosjektene dine et unikt perspektiv fra luften.</p>
         </div>
       </a>
-      <a class="scard reveal reveal-delay-3" href="services.html#content">
+      <a class="scard tilt reveal reveal-delay-3" href="services.html#content">
         <div class="scard__icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
         </div>
@@ -146,28 +151,40 @@
     <div class="method__head">
       <div class="method__head-left">
         <div class="method__kicker kicker-line reveal">Vår metode</div>
-        <h2 class="method__title reveal">Fra idé til ferdig innhold.</h2>
+        <h2 class="method__title reveal-lines"><span class="rl-line"><span>Fra idé til ferdig innhold.</span></span></h2>
       </div>
       <p class="method__lead reveal">En tydelig prosess som leverer resultater, hver gang – fra første møte til ferdig levering.</p>
     </div>
     <div class="method__steps">
-      <div class="mstep reveal reveal-delay-1">
-        <div class="mstep__no">01</div>
+      <div class="mstep mstep--featured tilt reveal reveal-delay-1">
+        <div class="mstep__icon-wrap">
+          <div class="mstep__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></div>
+          <div class="mstep__no">01</div>
+        </div>
         <div class="mstep__title">Oppdagelse</div>
         <p class="mstep__text">Vi forstår dine mål, din visjon og ditt publikum.</p>
       </div>
-      <div class="mstep reveal reveal-delay-2">
-        <div class="mstep__no">02</div>
+      <div class="mstep tilt reveal reveal-delay-2">
+        <div class="mstep__icon-wrap">
+          <div class="mstep__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 00-4 12.75V17a1 1 0 001 1h6a1 1 0 001-1v-2.25A7 7 0 0012 2z"/></svg></div>
+          <div class="mstep__no">02</div>
+        </div>
         <div class="mstep__title">Kreativitet</div>
         <p class="mstep__text">Vi utvikler idé, konsept og visuelt uttrykk.</p>
       </div>
-      <div class="mstep reveal reveal-delay-3">
-        <div class="mstep__no">03</div>
+      <div class="mstep tilt reveal reveal-delay-3">
+        <div class="mstep__icon-wrap">
+          <div class="mstep__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l4.553-2.069A1 1 0 0121 8.882v6.236a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg></div>
+          <div class="mstep__no">03</div>
+        </div>
         <div class="mstep__title">Produksjon</div>
         <p class="mstep__text">Vi møtes, tar opptakene og jobber effektivt på location.</p>
       </div>
-      <div class="mstep reveal reveal-delay-4">
-        <div class="mstep__no">04</div>
+      <div class="mstep tilt reveal reveal-delay-4">
+        <div class="mstep__icon-wrap">
+          <div class="mstep__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></div>
+          <div class="mstep__no">04</div>
+        </div>
         <div class="mstep__title">Leveranse</div>
         <p class="mstep__text">Ferdig redigert innhold optimalisert for din plattform.</p>
       </div>
@@ -181,19 +198,19 @@
 <section class="bts" id="bts">
   <div class="bts__head">
     <div class="bts__kicker kicker-line reveal">Vårt arbeid</div>
-    <h2 class="bts__title reveal">Bli med oss på shoot.</h2>
+    <h2 class="bts__title reveal-lines"><span class="rl-line"><span>Bli med oss på shoot.</span></span></h2>
     <p class="bts__lead reveal reveal-delay-1">Fra idé til ferdig klipp – her er noen av våre favoritter.</p>
   </div>
   <div class="bts__row reveal reveal-delay-1" id="btsRow">
-    <div class="bts__card">
+    <div class="bts__card tilt">
       <video src="media/Nettside_ParadisioMedLyd.mov" muted autoplay loop playsinline preload="metadata"></video>
       <button class="bts__sound" onclick="toggleSound(this)" aria-label="Lyd av/på"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg></button>
     </div>
-    <div class="bts__card">
+    <div class="bts__card tilt">
       <video src="media/InkDrop_bts.mp4" muted autoplay loop playsinline preload="metadata"></video>
       <button class="bts__sound" onclick="toggleSound(this)" aria-label="Lyd av/på"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg></button>
     </div>
-    <div class="bts__card">
+    <div class="bts__card tilt">
       <video src="media/Folkebad_bts.mp4" muted autoplay loop playsinline preload="metadata"></video>
       <button class="bts__sound" onclick="toggleSound(this)" aria-label="Lyd av/på"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg></button>
     </div>
@@ -208,7 +225,7 @@
   <div class="trust__inner">
     <div class="reveal-left">
       <div class="trust__kicker kicker-line reveal">Om oss</div>
-      <h2 class="trust__title reveal">Et lite studio med høye standarder.</h2>
+      <h2 class="trust__title reveal-lines"><span class="rl-line"><span>Et lite studio med høye standarder.</span></span></h2>
       <p class="trust__lead">MTHS Media er et kreativt studio drevet av engasjerte skapere med lidenskap for foto, video og visuell historiefortelling.</p>
       <p class="trust__lead">Vi produserer moderne og visuelt sterkt innhold for bedrifter og merkevarer som ønsker å skille seg ut digitalt.</p>
       <div class="trust__btns">
@@ -217,7 +234,16 @@
       </div>
     </div>
     <div class="trust__img reveal-right">
-      <img src="media/eks69.jpg" alt="MTHS Media bak kamera" class="parallax-img">
+      <div class="img-stack">
+        <img class="img-stack__item img-stack__item--back" src="media/eks13 (1).jpg" alt="MTHS Media produksjon">
+        <img class="img-stack__item img-stack__item--front parallax-img" src="media/eks69.jpg" alt="MTHS Media bak kamera">
+      </div>
+      <div class="floating-quote">
+        <div class="floating-quote__stars">★★★★★</div>
+        <p class="floating-quote__text">"Vi på Sandvika Folkebad er superfornøyde med innholdet som MTHS Media filmet og redigerte for oss. Kan anbefale denne gjengen på det varmeste!"</p>
+        <div class="floating-quote__name">Ole Lauvsnes</div>
+        <div class="floating-quote__role">Sandvika Folkebad</div>
+      </div>
     </div>
   </div>
 </section>
@@ -225,15 +251,15 @@
 <section class="testimonials">
   <div class="testimonials__inner">
     <div class="testimonials__kicker kicker-line reveal">Hva kundene sier</div>
-    <h2 class="testimonials__title reveal">Resultater som<br>snakker for seg.</h2>
+    <h2 class="testimonials__title reveal-lines"><span class="rl-line"><span>Resultater som</span></span><span class="rl-line"><span>snakker for seg.</span></span></h2>
     <div class="testimonials__grid">
-      <div class="tcard reveal-scale reveal-delay-1">
+      <div class="tcard tilt reveal-scale reveal-delay-1">
         <div class="tcard__stars">★★★★★</div>
         <p class="tcard__text">"Vi på Ink Drop Studio er veldig fornøyde med samarbeidet! MTHS Media fremstår som svært dyktige, profesjonelle og de kom godt forberedt. Kommunikasjonen var enkel og smidig. Resultatet var av høy kvalitet og vi er imponert. Anbefales!"</p>
         <div class="tcard__divider"></div>
         <div><div class="tcard__name">Jeanett Pedersen</div><div class="tcard__role">Ink Drop Studio</div></div>
       </div>
-      <div class="tcard reveal-scale reveal-delay-2">
+      <div class="tcard tilt reveal-scale reveal-delay-2">
         <div class="tcard__stars">★★★★★</div>
         <p class="tcard__text">"Vi på Sandvika Folkebad er superfornøyde med innholdet som MTHS Media filmet og redigerte for oss. Kan anbefale denne gjengen på det varmeste! De gjennomførte oppdraget til punkt og prikke!"</p>
         <div class="tcard__divider"></div>
@@ -246,7 +272,7 @@
 <section class="faq">
   <div class="faq__inner">
     <div class="faq__kicker kicker-line reveal">Vanlige spørsmål</div>
-    <h2 class="faq__title reveal">Lurer du på noe?</h2>
+    <h2 class="faq__title reveal-lines"><span class="rl-line"><span>Lurer du på noe?</span></span></h2>
     <div class="faq__list reveal">
       <div class="faq__item">
         <button class="faq__question" onclick="toggleFaq(this)">Hvor lang tid tar et oppdrag?<span class="faq__icon">+</span></button>
@@ -267,7 +293,7 @@
 <section class="cta">
   <div class="cta__inner">
     <div class="cta__kicker kicker-line reveal" style="justify-content:center;">Klar når du er</div>
-    <h2 class="cta__title reveal">Klar for å løfte merkevaren din?</h2>
+    <h2 class="cta__title reveal-lines"><span class="rl-line"><span>Klar for å løfte merkevaren din?</span></span></h2>
     <p class="cta__text reveal reveal-delay-1">Fortell oss hva du trenger – vi svarer med konkret forslag og pris innen 48 timer.</p>
     <div class="cta__actions reveal reveal-delay-2">
       <a class="cta__btn mag-btn" href="contact.html">Start et samarbeid →</a>
@@ -279,7 +305,10 @@
 <footer class="footer">
   <div class="footer__inner">
     <div class="footer__brand">
-      <div class="footer__logo">MTHS Media</div>
+      <div class="footer__brand-row">
+        <svg class="logo-mark" viewBox="0 0 100 61.05" fill="currentColor" aria-hidden="true"><rect x="0" y="0" width="17.35" height="61.05" rx="8.675"/><rect x="82.65" y="0" width="17.35" height="61.05" rx="8.675"/><path d="M 32.19,0 L 67.81,0 Q 73.81,0 70.26,4.84 L 52.96,28.45 Q 50,32.48 47.04,28.45 L 29.74,4.84 Q 26.19,0 32.19,0 Z"/></svg>
+        <div class="footer__logo">MTHS Media</div>
+      </div>
       <a class="footer__mail" href="mailto:kontakt.mthsmedia@gmail.com">kontakt.mthsmedia@gmail.com</a>
     </div>
     <div class="footer__social">
@@ -296,129 +325,6 @@
   </div>
 </footer>
 
-<script>
-(function(){
-  const t = localStorage.getItem('theme') || 'light';
-  document.documentElement.setAttribute('data-theme', t);
-  document.getElementById('themeIcon').innerHTML = t === 'dark' ? `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>` : `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg>`;
-})();
-document.getElementById('themeToggle').addEventListener('click', () => {
-  const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-  document.documentElement.setAttribute('data-theme', next);
-  localStorage.setItem('theme', next);
-  document.getElementById('themeIcon').innerHTML = next === 'dark' ? `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>` : `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg>`;
-});
-function toggleMenu() {
-  const btn = document.querySelector('.hamburger');
-  const nav = document.getElementById('mobileNav');
-  btn.classList.toggle('open');
-  nav.classList.toggle('open');
-  document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
-}
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-}, { threshold: 0.12 });
-document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .kicker-line').forEach(el => observer.observe(el));
-
-// Subtle parallax on images
-(function(){
-  const imgs = document.querySelectorAll('.parallax-img');
-  if (!imgs.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  window.addEventListener('scroll', () => {
-    const sy = window.scrollY;
-    imgs.forEach(img => {
-      const rect = img.closest('[class]').getBoundingClientRect();
-      const center = rect.top + rect.height / 2;
-      const vCenter = window.innerHeight / 2;
-      const offset = (center - vCenter) * 0.08;
-      img.style.transform = `translateY(${offset}px) scale(1.08)`;
-    });
-  }, { passive: true });
-})();
-
-// Magnetic buttons
-document.querySelectorAll('.mag-btn').forEach(btn => {
-  btn.addEventListener('mousemove', e => {
-    const r = btn.getBoundingClientRect();
-    const x = e.clientX - r.left - r.width / 2;
-    const y = e.clientY - r.top - r.height / 2;
-    btn.style.transform = `translate(${x * 0.22}px, ${y * 0.22}px)`;
-  });
-  btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
-});
-const header = document.querySelector('header');
-window.addEventListener('scroll', () => {
-  header.classList.toggle('scrolled', window.scrollY > 40);
-  // update global scroll progress for gradient glow movement
-  const gy = window.scrollY / Math.max(1, document.body.scrollHeight - window.innerHeight);
-  document.documentElement.style.setProperty('--gy', gy);
-}, { passive: true });
-document.addEventListener('DOMContentLoaded', () => {
-  const vids = ['media/Paradisio_nettside.mp4','media/Landskap3_nettside.mov','media/Landskap_nettside.mov','media/Folkebad_nettside.mov','media/Landskap2_nettside.mp4'];
-  const layers = [...document.querySelectorAll('.hero-video')];
-  layers.forEach(v => { v.muted = true; v.playsInline = true; v.setAttribute('playsinline',''); v.setAttribute('muted',''); });
-
-  let active = 0;   // which layer is currently visible
-  let idx = 0;      // index of clip playing on the active layer
-
-  function preload(layer, i) {
-    layers[layer].src = vids[i];
-    layers[layer].load();
-  }
-
-  function advance() {
-    const nextLayer = 1 - active;
-    const nextIdx = (idx + 1) % vids.length;
-    const cur = layers[active];
-    const nxt = layers[nextLayer];
-    nxt.currentTime = 0;
-    nxt.play().catch(() => {});
-    nxt.classList.add('is-active');
-    cur.classList.remove('is-active');
-    // preload the clip after next into the layer we just freed
-    preload(active, (nextIdx + 1) % vids.length);
-    active = nextLayer;
-    idx = nextIdx;
-  }
-
-  layers.forEach(v => v.addEventListener('ended', () => { if (v.classList.contains('is-active')) advance(); }));
-
-  preload(0, 0);
-  preload(1, 1);
-  layers[0].addEventListener('canplay', function once() {
-    layers[0].removeEventListener('canplay', once);
-    layers[0].play().catch(() => {});
-    layers[0].classList.add('is-active');
-  });
-});
-function scrollBts(dir) { document.getElementById('btsRow').scrollBy({ left: dir * 320, behavior: 'smooth' }); }
-function toggleSound(btn) {
-  const video = btn.previousElementSibling;
-  document.querySelectorAll('.bts__card video').forEach(v => { if (v !== video) { v.muted = true; v.nextElementSibling.innerHTML = `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>`; } });
-  if (video.muted) { video.muted = false; video.currentTime = 0; video.play(); btn.innerHTML = `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg>`; }
-  else { video.muted = true; btn.innerHTML = `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>`; }
-}
-// Hero word cycling (slide in/out from the side)
-(function(){
-  const words = document.querySelectorAll('.hero__word');
-  let idx = 0;
-  if (!words.length) return;
-  setInterval(() => {
-    const prev = idx;
-    words[prev].classList.remove('active');
-    words[prev].classList.add('exit');
-    idx = (idx + 1) % words.length;
-    words[idx].classList.remove('exit');
-    words[idx].classList.add('active');
-    setTimeout(() => words[prev].classList.remove('exit'), 650);
-  }, 2200);
-})();
-function toggleFaq(btn) {
-  const item = btn.closest('.faq__item');
-  const isOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq__item.open').forEach(el => el.classList.remove('open'));
-  if (!isOpen) item.classList.add('open');
-}
-</script>
+<script src="js/site.js"></script>
 </body>
 </html>
