@@ -93,8 +93,11 @@ header {
 header.scrolled { border-color: var(--border); padding: 14px 6%; }
 
 .logo-wrap { display: flex; align-items: center; gap: 10px; flex-shrink: 0; z-index: 1001; }
-.logo-wrap img { width: 30px; height: 30px; object-fit: contain; }
+.logo-mark { width: 24px; height: 24px; flex-shrink: 0; color: var(--text); }
 .logo { font-size: 17px; font-weight: 800; color: var(--text); letter-spacing: -0.5px; }
+
+.footer__brand-row { display: flex; align-items: center; gap: 10px; }
+.footer__brand-row .logo-mark { width: 20px; height: 20px; }
 
 nav {
   display: flex; align-items: center; gap: 2px;
