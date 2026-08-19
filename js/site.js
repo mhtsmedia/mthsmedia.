@@ -89,22 +89,6 @@ window.addEventListener('scroll', () => {
   }, { passive: true });
 })();
 
-/* ── Rotating photo stacks ─────────────────── */
-(function () {
-  const stacks = document.querySelectorAll('.img-cycle');
-  if (!stacks.length || reduceMotion) return;
-  stacks.forEach(stack => {
-    const slides = stack.querySelectorAll('.img-cycle__img');
-    if (slides.length < 2) return;
-    let idx = Math.max(0, [...slides].findIndex(s => s.classList.contains('is-active')));
-    setInterval(() => {
-      slides[idx].classList.remove('is-active');
-      idx = (idx + 1) % slides.length;
-      slides[idx].classList.add('is-active');
-    }, 3000);
-  });
-})();
-
 /* ── Magnetic buttons ──────────────────────── */
 if (hoverCapable && !reduceMotion) {
   document.querySelectorAll('.mag-btn').forEach(btn => {
