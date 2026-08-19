@@ -15,13 +15,33 @@
   <link rel="icon" type="image/png" sizes="192x192" href="media/favicon-192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="media/favicon-512.png">
   <meta name="google-site-verification" content="AB9ozg8WHEbG80zJwuAefGNkfhzhXXUcdOdNXnv5Fo4" />
-  <title>MTHS Media</title>
+  <link rel="apple-touch-icon" href="media/favicon-192.png">
+  <link rel="canonical" href="https://mthsmedia.no/" />
+  <title>MTHS Media – Foto, Video &amp; Drone</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "MTHS Media",
+    "description": "MTHS Media er et kreativt studio som tilbyr profesjonell foto, video og droneproduksjon.",
+    "url": "https://mthsmedia.no/",
+    "image": "https://mthsmedia.no/media/og.png",
+    "email": "kontakt.mthsmedia@gmail.com",
+    "telephone": "+47 940 35 180",
+    "areaServed": "NO",
+    "sameAs": [
+      "https://www.instagram.com/mths_media/",
+      "https://www.tiktok.com/@mths.media"
+    ]
+  }
+  </script>
 </head>
 <body>
+<a class="skip-link" href="#main">Hopp til innhold</a>
 
 <header>
   <a href="index.html" class="logo-wrap">
@@ -55,9 +75,9 @@
   </div>
 </div>
 
-<section class="hero">
-  <video class="hero-video" muted playsinline></video>
-  <video class="hero-video hero-video--b" muted playsinline></video>
+<section class="hero" id="main">
+  <video class="hero-video" muted playsinline aria-hidden="true"></video>
+  <video class="hero-video hero-video--b" muted playsinline aria-hidden="true"></video>
   <div class="hero__inner">
     <div class="hero__badge"><span class="hero__badge-dot"></span>Tilgjengelig for nye prosjekter</div>
     <h1>
@@ -91,7 +111,10 @@
       <div class="img-stack">
         <img class="img-stack__item img-stack__item--back" src="media/eks12.JPG" alt="MTHS Media produksjon">
         <img class="img-stack__item img-stack__item--mid" src="media/eks11.JPG" alt="MTHS Media produksjon">
-        <img class="img-stack__item img-stack__item--front" src="media/eks3.jpg" alt="MTHS Media produksjon">
+        <div class="img-stack__item img-stack__item--front img-cycle">
+          <img class="img-cycle__img is-active" src="media/eks3.jpg" alt="MTHS Media produksjon">
+          <img class="img-cycle__img" src="media/drone.JPG" alt="Dronefoto fra MTHS Media">
+        </div>
       </div>
     </div>
     <div class="services__cards">
@@ -216,7 +239,10 @@
     <div class="trust__img reveal-right">
       <div class="img-stack">
         <img class="img-stack__item img-stack__item--back" src="media/eks13 (1).jpg" alt="MTHS Media produksjon">
-        <img class="img-stack__item img-stack__item--front parallax-img" src="media/eks69.jpg" alt="MTHS Media bak kamera">
+        <div class="img-stack__item img-stack__item--front img-cycle parallax-img">
+          <img class="img-cycle__img is-active" src="media/eks69.jpg" alt="MTHS Media bak kamera">
+          <img class="img-cycle__img" src="media/drone15.JPG" alt="Dronefoto fra MTHS Media">
+        </div>
       </div>
       <div class="floating-quote">
         <div class="floating-quote__stars">★★★★★</div>
@@ -244,6 +270,12 @@
         <p class="tcard__text">"Vi på Sandvika Folkebad er superfornøyde med innholdet som MTHS Media filmet og redigerte for oss. Kan anbefale denne gjengen på det varmeste! De gjennomførte oppdraget til punkt og prikke!"</p>
         <div class="tcard__divider"></div>
         <div><div class="tcard__name">Ole Lauvsnes</div><div class="tcard__role">Sandvika Folkebad</div></div>
+      </div>
+      <div class="tcard tilt reveal-scale reveal-delay-3">
+        <div class="tcard__stars">★★★★★</div>
+        <p class="tcard__text">"Ambisiøs og flink gjeng som tar bilder og lager video av topp kvalitet. God kommunikasjon og fleksibel tilnærming til oppdraget. Anbefaler varmt å bruke MTHS Media til reklame- og profileringsoppdrag for din bedrift!"</p>
+        <div class="tcard__divider"></div>
+        <div><div class="tcard__name">Villa Paradiso</div><div class="tcard__role">Google-anmeldelse</div></div>
       </div>
     </div>
   </div>
@@ -289,7 +321,7 @@
         <svg class="logo-mark" viewBox="0 0 100 61.05" fill="currentColor" aria-hidden="true"><rect x="0" y="0" width="17.35" height="61.05" rx="8.675"/><rect x="82.65" y="0" width="17.35" height="61.05" rx="8.675"/><path d="M 32.19,0 L 67.81,0 Q 73.81,0 70.26,4.84 L 52.96,28.45 Q 50,32.48 47.04,28.45 L 29.74,4.84 Q 26.19,0 32.19,0 Z"/></svg>
         <div class="footer__logo">MTHS Media</div>
       </div>
-      <div class="footer__mail">kontakt.mthsmedia@gmail.com</div>
+      <a class="footer__mail" href="mailto:kontakt.mthsmedia@gmail.com">kontakt.mthsmedia@gmail.com</a>
     </div>
     <div class="footer__social">
       <div class="footer__label">Følg oss på</div>

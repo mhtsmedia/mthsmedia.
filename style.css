@@ -44,6 +44,16 @@ body {
 }
 a, a:visited { text-decoration: none; color: inherit; }
 
+/* ── SKIP LINK ─────────────────────────────── */
+.skip-link {
+  position: absolute; top: -60px; left: 12px; z-index: 2000;
+  background: var(--text); color: var(--bg);
+  padding: 10px 18px; border-radius: var(--radius-xs);
+  font-weight: 600; font-size: 14px; text-decoration: none;
+  transition: top 0.2s ease;
+}
+.skip-link:focus { top: 12px; }
+
 /* ── REVEAL ─────────────────────────────────── */
 .reveal {
   opacity: 0; transform: translateY(36px);
@@ -352,6 +362,16 @@ nav a.active { color: var(--accent-text); font-weight: 600; background: var(--ac
 .services__visual:hover .img-stack__item--mid  { transform: rotate(7deg) translate(14px, -10px) scale(0.95); }
 .services__visual:hover .img-stack__item--front { transform: rotate(-1.5deg) scale(1.015); }
 
+/* Rotating photo slot: cycles between several images on the front card */
+.img-stack__item.img-cycle { overflow: hidden; background: var(--bg2); }
+.img-cycle__img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  opacity: 0; transform: scale(1.09) rotate(3deg);
+  transition: opacity 1s cubic-bezier(0.22,1,0.36,1), transform 1.1s cubic-bezier(0.22,1,0.36,1);
+}
+.img-cycle__img.is-active { opacity: 1; transform: scale(1) rotate(0deg); z-index: 1; }
+
 /* ── FLOATING QUOTE CARD ────────────────────── */
 .floating-quote {
   position: absolute; z-index: 4; max-width: 260px;
@@ -557,7 +577,7 @@ nav a.active { color: var(--accent-text); font-weight: 600; background: var(--ac
 .testimonials__inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
 .testimonials__kicker { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted2); margin-bottom: 12px; }
 .testimonials__title { font-size: clamp(30px, 4.5vw, 54px); font-weight: 800; letter-spacing: -1.5px; color: var(--text); margin-bottom: 52px; }
-.testimonials__grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; }
+.testimonials__grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
 
 .tcard {
   padding: 40px; background: var(--bg); border-radius: var(--radius);
@@ -712,7 +732,8 @@ body.has-cursor input, body.has-cursor textarea { cursor: text; }
   display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;
 }
 .footer__logo { font-weight: 800; font-size: 15px; letter-spacing: -0.5px; color: var(--text); }
-.footer__mail { font-size: 12px; color: var(--muted2); margin-top: 4px; }
+.footer__mail { font-size: 12px; color: var(--muted2); margin-top: 4px; display: inline-block; transition: color 0.2s; }
+.footer__mail:hover { color: var(--text); }
 .footer__label { font-size: 11px; color: var(--muted2); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.08em; }
 .footer__icons { display: flex; gap: 16px; }
 .footer__icons a { color: var(--muted2); transition: color 0.2s, transform 0.2s; }
@@ -839,7 +860,8 @@ body.has-cursor input, body.has-cursor textarea { cursor: text; }
 }
 .cinfo:hover .cinfo__icon { background: rgba(255,255,255,0.12); transform: translateY(-2px); }
 .cinfo__icon svg { width: 18px; height: 18px; }
-.cinfo__text { font-size: 14px; color: rgba(255,255,255,0.78); }
+.cinfo__text { display: block; font-size: 14px; color: rgba(255,255,255,0.78); transition: color 0.2s; }
+a.cinfo__text:hover { color: #fff; }
 .cinfo__text strong { display: block; color: #fff; font-weight: 700; font-size: 13px; margin-bottom: 2px; }
 .contact-panel__foot { margin-top: auto; padding-top: 40px; position: relative; z-index: 1; }
 .contact-panel__divider { height: 1px; background: rgba(255,255,255,0.1); margin-bottom: 22px; }
