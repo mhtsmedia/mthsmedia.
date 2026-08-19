@@ -177,7 +177,7 @@ if (hoverCapable && !reduceMotion) {
 document.addEventListener('DOMContentLoaded', () => {
   const layers = [...document.querySelectorAll('.hero-video')];
   if (!layers.length) return;
-  const vids = ['media/Paradisio_nettside.mp4', 'media/Landskap3_nettside.mov', 'media/Landskap_nettside.mov', 'media/Folkebad_nettside.mov', 'media/Landskap2_nettside.mp4'];
+  const vids = ['media/Paradisio_nettside.mp4', 'media/Landskap3_nettside.mp4', 'media/Landskap_nettside.mp4', 'media/Folkebad_nettside.mp4', 'media/Landskap2_nettside.mp4'];
   layers.forEach(v => { v.muted = true; v.playsInline = true; v.setAttribute('playsinline', ''); v.setAttribute('muted', ''); });
 
   let active = 0;
