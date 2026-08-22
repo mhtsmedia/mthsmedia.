@@ -89,22 +89,6 @@ window.addEventListener('scroll', () => {
   }, { passive: true });
 })();
 
-/* ── Rotating photo stacks ─────────────────── */
-(function () {
-  const stacks = document.querySelectorAll('.img-cycle');
-  if (!stacks.length || reduceMotion) return;
-  stacks.forEach(stack => {
-    const slides = stack.querySelectorAll('.img-cycle__img');
-    if (slides.length < 2) return;
-    let idx = Math.max(0, [...slides].findIndex(s => s.classList.contains('is-active')));
-    setInterval(() => {
-      slides[idx].classList.remove('is-active');
-      idx = (idx + 1) % slides.length;
-      slides[idx].classList.add('is-active');
-    }, 3000);
-  });
-})();
-
 /* ── Magnetic buttons ──────────────────────── */
 if (hoverCapable && !reduceMotion) {
   document.querySelectorAll('.mag-btn').forEach(btn => {
@@ -177,7 +161,7 @@ if (hoverCapable && !reduceMotion) {
 document.addEventListener('DOMContentLoaded', () => {
   const layers = [...document.querySelectorAll('.hero-video')];
   if (!layers.length) return;
-  const vids = ['media/Paradisio_nettside.mp4', 'media/Landskap3_nettside.mov', 'media/Landskap_nettside.mov', 'media/Folkebad_nettside.mov', 'media/Landskap2_nettside.mp4'];
+  const vids = ['media/Paradisio_nettside.mp4', 'media/Landskap3_nettside.mp4', 'media/Landskap_nettside.mp4', 'media/Folkebad_nettside.mp4', 'media/Landskap2_nettside.mp4'];
   layers.forEach(v => { v.muted = true; v.playsInline = true; v.setAttribute('playsinline', ''); v.setAttribute('muted', ''); });
 
   let active = 0;
