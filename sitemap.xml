@@ -17,6 +17,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://mthsmedia.no/villa-paradiso.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mthsmedia.no/ink-drop-studio.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mthsmedia.no/sandvika-folkebad.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://mthsmedia.no/personvern.html</loc>
     <priority>0.3</priority>
   </url>
