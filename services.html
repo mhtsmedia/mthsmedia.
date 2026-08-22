@@ -33,6 +33,7 @@
   <nav>
     <a href="index.html">Hjem</a>
     <a href="services.html" class="active">Tjenester</a>
+    <a href="projects.html">Prosjekter</a>
     <a href="contact.html">Kontakt</a>
   </nav>
   <div class="header-right">
@@ -49,6 +50,7 @@
 <div class="mobile-nav" id="mobileNav">
   <a href="index.html" onclick="toggleMenu()">Hjem</a>
   <a href="services.html" onclick="toggleMenu()">Tjenester</a>
+  <a href="projects.html" onclick="toggleMenu()">Prosjekter</a>
   <a href="contact.html" onclick="toggleMenu()">Kontakt</a>
   <div class="theme-toggle-wrap" style="margin-top:20px;">
     <span id="themeIconMobile"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg></span>
@@ -130,6 +132,9 @@
       </div>
       <a class="footer__mail" href="mailto:kontakt.mthsmedia@gmail.com">kontakt.mthsmedia@gmail.com</a>
     </div>
+    <div class="footer__legal">
+      <a href="personvern.html">Personvern &amp; cookies</a>
+    </div>
     <div class="footer__social">
       <div class="footer__label">Følg oss på</div>
       <div class="footer__icons">
@@ -143,6 +148,13 @@
     </div>
   </div>
 </footer>
+
+<div class="cookie-banner" id="cookieBanner" hidden>
+  <p class="cookie-banner__text">Vi bruker informasjonskapsler for å få nettsiden til å fungere som den skal. Les mer i <a href="personvern.html">personvernerklæringen</a> vår.</p>
+  <div class="cookie-banner__actions">
+    <button class="cookie-banner__btn" onclick="acceptCookies()">Greit, jeg forstår</button>
+  </div>
+</div>
 
 <script src="js/site.js"></script>
 </body>
