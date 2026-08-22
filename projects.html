@@ -78,9 +78,12 @@
       </div>
       <a href="contact.html" class="srv-block__btn">Start et lignende prosjekt</a>
     </div>
-    <div class="srv-block__img reveal reveal-delay-2">
-      <video src="media/Paradisio_nettside.mp4" muted autoplay loop playsinline preload="metadata" aria-hidden="true"></video>
-    </div>
+    <button type="button" class="srv-block__img project-media reveal reveal-delay-2" data-video="media/Paradisio_nettside.mp4" aria-label="Spill av video: Villa Paradiso">
+      <img src="media/villa-paradiso-poster.jpg" alt="Villa Paradiso" loading="lazy">
+      <span class="project-media__play" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      </span>
+    </button>
   </div>
 
   <div class="srv-block reveal" id="ink-drop-studio">
@@ -96,9 +99,12 @@
       </div>
       <a href="contact.html" class="srv-block__btn">Start et lignende prosjekt</a>
     </div>
-    <div class="srv-block__img reveal reveal-delay-2">
-      <video src="media/InkDrop_bts.mp4" muted autoplay loop playsinline preload="metadata" aria-hidden="true"></video>
-    </div>
+    <button type="button" class="srv-block__img project-media reveal reveal-delay-2" data-video="media/InkDrop_bts.mp4" aria-label="Spill av video: Ink Drop Studio">
+      <img src="media/ink-drop-poster.jpg" alt="Ink Drop Studio" loading="lazy">
+      <span class="project-media__play" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      </span>
+    </button>
   </div>
 
   <div class="srv-block reveal" id="sandvika-folkebad">
@@ -114,9 +120,12 @@
       </div>
       <a href="contact.html" class="srv-block__btn">Start et lignende prosjekt</a>
     </div>
-    <div class="srv-block__img reveal reveal-delay-2">
-      <video src="media/Folkebad_nettside.mp4" muted autoplay loop playsinline preload="metadata" aria-hidden="true"></video>
-    </div>
+    <button type="button" class="srv-block__img project-media reveal reveal-delay-2" data-video="media/Folkebad_nettside.mp4" aria-label="Spill av video: Sandvika Folkebad">
+      <img src="media/folkebad-poster.jpg" alt="Sandvika Folkebad" loading="lazy">
+      <span class="project-media__play" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      </span>
+    </button>
   </div>
 </div>
 
@@ -150,6 +159,16 @@
   <p class="cookie-banner__text">Vi bruker informasjonskapsler for å få nettsiden til å fungere som den skal. Les mer i <a href="personvern.html">personvernerklæringen</a> vår.</p>
   <div class="cookie-banner__actions">
     <button class="cookie-banner__btn" onclick="acceptCookies()">Greit, jeg forstår</button>
+  </div>
+</div>
+
+<div class="video-modal" id="videoModal" hidden>
+  <div class="video-modal__backdrop" data-close></div>
+  <div class="video-modal__inner">
+    <button type="button" class="video-modal__close" id="videoModalClose" aria-label="Lukk video">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <video id="videoModalPlayer" controls playsinline></video>
   </div>
 </div>
 

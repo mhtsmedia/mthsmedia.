@@ -282,3 +282,38 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 })();
+
+/* ── Project video lightbox ─────────────────── */
+(function () {
+  const modal = document.getElementById('videoModal');
+  if (!modal) return;
+  const player = document.getElementById('videoModalPlayer');
+  const closeBtn = document.getElementById('videoModalClose');
+  const backdrop = modal.querySelector('[data-close]');
+  const triggers = document.querySelectorAll('.project-media');
+
+  function openModal(src, label) {
+    player.src = src;
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    player.play().catch(() => {});
+    closeBtn.focus();
+  }
+
+  function closeModal() {
+    modal.hidden = true;
+    document.body.style.overflow = '';
+    player.pause();
+    player.removeAttribute('src');
+    player.load();
+  }
+
+  triggers.forEach(btn => {
+    btn.addEventListener('click', () => openModal(btn.dataset.video, btn.getAttribute('aria-label')));
+  });
+  closeBtn.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', closeModal);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !modal.hidden) closeModal();
+  });
+})();
