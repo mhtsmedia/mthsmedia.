@@ -66,6 +66,7 @@
 
 <div class="contact-main">
   <div class="contact-panel reveal-left">
+    <div class="contact-panel__badge"><span class="contact-panel__badge-dot"></span>Ledig for nye oppdrag</div>
     <div class="contact-panel__title">Kontaktinfo</div>
     <p class="contact-panel__sub">Ta gjerne direkte kontakt – vi svarer raskt og uforpliktende.</p>
     <div class="contact-panel__list">
@@ -119,15 +120,24 @@
       </div>
       <div class="form-group">
         <label class="form-label" for="nameField">Navn</label>
-        <input type="text" id="nameField" name="name" placeholder="Ola Nordmann" required>
+        <div class="form-input-wrap">
+          <svg class="form-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <input type="text" id="nameField" name="name" placeholder="Ola Nordmann" required>
+        </div>
       </div>
       <div class="form-group">
         <label class="form-label" for="emailField">E-post</label>
-        <input type="email" id="emailField" name="email" placeholder="ola@bedrift.no" required>
+        <div class="form-input-wrap">
+          <svg class="form-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <input type="email" id="emailField" name="email" placeholder="ola@bedrift.no" required>
+        </div>
       </div>
       <div class="form-group">
         <label class="form-label" for="messageField">Melding</label>
-        <textarea id="messageField" name="message" placeholder="Fortell litt om prosjektet ditt..." required></textarea>
+        <div class="form-input-wrap">
+          <svg class="form-input-icon form-input-icon--top" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <textarea id="messageField" name="message" placeholder="Fortell litt om prosjektet ditt..." required></textarea>
+        </div>
       </div>
       <button type="submit" class="form-btn">Send melding →</button>
       <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
