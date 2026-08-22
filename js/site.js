@@ -57,6 +57,12 @@ function toggleSound(btn) {
   }
 }
 
+function acceptCookies() {
+  localStorage.setItem('cookieConsent', 'accepted');
+  const banner = document.getElementById('cookieBanner');
+  if (banner) banner.hidden = true;
+}
+
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const hoverCapable = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
@@ -231,4 +237,48 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     requestAnimationFrame(loop);
   })();
+})();
+
+/* ── Cookie banner ──────────────────────────── */
+(function () {
+  const banner = document.getElementById('cookieBanner');
+  if (!banner) return;
+  if (!localStorage.getItem('cookieConsent')) banner.hidden = false;
+})();
+
+/* ── Contact form: submit via fetch, inline feedback ─ */
+(function () {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+  const status = document.getElementById('formStatus');
+  const btn = form.querySelector('.form-btn');
+  const btnLabel = btn.textContent;
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (form.querySelector('[name="_gotcha"]').value) return; // honeypot tripped
+
+    status.textContent = '';
+    status.className = 'form-status';
+    btn.disabled = true;
+    btn.textContent = 'Sender…';
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }
+      });
+      if (!res.ok) throw new Error('request failed');
+      status.textContent = 'Takk! Meldingen er sendt – vi svarer innen 48 timer.';
+      status.classList.add('is-success');
+      form.reset();
+    } catch {
+      status.textContent = 'Noe gikk galt. Prøv igjen, eller send oss en e-post direkte på kontakt.mthsmedia@gmail.com.';
+      status.classList.add('is-error');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = btnLabel;
+    }
+  });
 })();
