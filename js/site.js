@@ -291,9 +291,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeBtn = document.getElementById('videoModalClose');
   const backdrop = modal.querySelector('[data-close]');
   const triggers = document.querySelectorAll('.project-media');
+  const titleEl = document.getElementById('videoModalTitle');
+  const descEl = document.getElementById('videoModalDesc');
 
-  function openModal(src, label) {
+  function openModal(src, title, desc) {
     player.src = src;
+    if (titleEl) titleEl.textContent = title || '';
+    if (descEl) descEl.textContent = desc || '';
     modal.hidden = false;
     document.body.style.overflow = 'hidden';
     player.play().catch(() => {});
@@ -309,7 +313,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   triggers.forEach(btn => {
-    btn.addEventListener('click', () => openModal(btn.dataset.video, btn.getAttribute('aria-label')));
+    btn.addEventListener('click', () => openModal(btn.dataset.video, btn.dataset.title, btn.dataset.desc));
   });
   closeBtn.addEventListener('click', closeModal);
   backdrop.addEventListener('click', closeModal);
