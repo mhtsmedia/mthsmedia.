@@ -58,50 +58,26 @@
   </div>
 </div>
 
-<div class="contact-hero" id="main">
-  <div class="contact-hero__kicker kicker-line reveal">Kom i kontakt</div>
-  <h1 class="contact-hero__title reveal-lines"><span class="rl-line"><span>La oss skape noe</span></span><span class="rl-line"><span>visuelt sammen.</span></span></h1>
-  <p class="contact-hero__sub reveal reveal-delay-1">Har du et prosjekt eller en idé? Send en melding – vi svarer innen 48 timer.</p>
-</div>
-
-<div class="contact-main">
-  <div class="contact-panel reveal-left">
-    <div class="contact-panel__badge"><span class="contact-panel__badge-dot"></span>Ledig for nye oppdrag</div>
-    <div class="contact-panel__title">Kontaktinfo</div>
-    <p class="contact-panel__sub">Ta gjerne direkte kontakt – vi svarer raskt og uforpliktende.</p>
-    <div class="contact-panel__list">
-      <div class="cinfo">
-        <div class="cinfo__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        </div>
-        <a class="cinfo__text" href="mailto:kontakt.mthsmedia@gmail.com">
-          <strong>E-post</strong>
+<section class="contact2" id="main">
+  <div class="contact2__visual reveal-left">
+    <img src="media/eks11.JPG" alt="MTHS Media">
+    <div class="contact2__visual-overlay">
+      <div class="contact2__badge"><span class="contact2__badge-dot"></span>Ledig for nye oppdrag</div>
+      <div class="contact2__visual-info">
+        <a href="mailto:kontakt.mthsmedia@gmail.com">
+          <span class="contact2__info-label">E-post</span>
           kontakt.mthsmedia@gmail.com
         </a>
-      </div>
-      <div class="cinfo">
-        <div class="cinfo__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.07 3.18 2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-        </div>
-        <a class="cinfo__text" href="tel:+4794035180">
-          <strong>Telefon</strong>
+        <a href="tel:+4794035180">
+          <span class="contact2__info-label">Telefon</span>
           +47 940 35 180
         </a>
-      </div>
-      <div class="cinfo">
-        <div class="cinfo__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
-        <div class="cinfo__text">
-          <strong>Responstid</strong>
+        <div>
+          <span class="contact2__info-label">Responstid</span>
           Vi svarer innen 48 timer
         </div>
       </div>
-    </div>
-    <div class="contact-panel__foot">
-      <div class="contact-panel__divider"></div>
-      <div class="contact-panel__social">
-        <span class="contact-panel__social-label">Følg oss</span>
+      <div class="contact2__social">
         <a href="https://www.tiktok.com/@mths.media" aria-label="TikTok">
           <svg viewBox="0 0 24 24" width="20"><path fill="currentColor" d="M21 8.6a7.7 7.7 0 0 1-4.4-1.4v6.5a5.7 5.7 0 1 1-4.9-5.7v3a2.7 2.7 0 1 0 1.9 2.6V2h3a4.7 4.7 0 0 0 4.4 4.4z"/></svg>
         </a>
@@ -111,8 +87,13 @@
       </div>
     </div>
   </div>
-  <div class="contact-form reveal-right">
-    <form id="contactForm" action="https://formspree.io/f/xgoooqee" method="POST">
+
+  <div class="contact2__body reveal-right">
+    <div class="contact2__kicker kicker-line reveal">Kom i kontakt</div>
+    <h1 class="contact2__title reveal-lines"><span class="rl-line"><span>La oss skape noe</span></span><span class="rl-line"><span>visuelt sammen.</span></span></h1>
+    <p class="contact2__sub reveal reveal-delay-1">Har du et prosjekt eller en idé? Send en melding – vi svarer innen 48 timer.</p>
+
+    <form id="contactForm" class="uform" action="https://formspree.io/f/xgoooqee" method="POST">
       <input type="hidden" name="_subject" value="Ny melding fra nettsiden">
       <div class="form-group__honeypot" aria-hidden="true">
         <label for="companyField">Ikke fyll ut dette feltet</label>
@@ -120,30 +101,21 @@
       </div>
       <div class="form-group">
         <label class="form-label" for="nameField">Navn</label>
-        <div class="form-input-wrap">
-          <svg class="form-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          <input type="text" id="nameField" name="name" placeholder="Ola Nordmann" required>
-        </div>
+        <input type="text" id="nameField" name="name" placeholder="Ola Nordmann" required>
       </div>
       <div class="form-group">
         <label class="form-label" for="emailField">E-post</label>
-        <div class="form-input-wrap">
-          <svg class="form-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          <input type="email" id="emailField" name="email" placeholder="ola@bedrift.no" required>
-        </div>
+        <input type="email" id="emailField" name="email" placeholder="ola@bedrift.no" required>
       </div>
       <div class="form-group">
         <label class="form-label" for="messageField">Melding</label>
-        <div class="form-input-wrap">
-          <svg class="form-input-icon form-input-icon--top" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          <textarea id="messageField" name="message" placeholder="Fortell litt om prosjektet ditt..." required></textarea>
-        </div>
+        <textarea id="messageField" name="message" placeholder="Fortell litt om prosjektet ditt..." required></textarea>
       </div>
       <button type="submit" class="form-btn">Send melding →</button>
       <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
     </form>
   </div>
-</div>
+</section>
 
 <footer class="footer">
   <div class="footer__inner">
