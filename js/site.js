@@ -36,27 +36,6 @@ function toggleFaq(btn) {
   if (!isOpen) item.classList.add('open');
 }
 
-function scrollBts(dir) {
-  document.getElementById('btsRow')?.scrollBy({ left: dir * 320, behavior: 'smooth' });
-}
-
-function toggleSound(btn) {
-  const video = btn.previousElementSibling;
-  document.querySelectorAll('.bts__card video').forEach(v => {
-    if (v !== video) {
-      v.muted = true;
-      v.nextElementSibling.innerHTML = `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>`;
-    }
-  });
-  if (video.muted) {
-    video.muted = false; video.currentTime = 0; video.play();
-    btn.innerHTML = `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg>`;
-  } else {
-    video.muted = true;
-    btn.innerHTML = `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>`;
-  }
-}
-
 function acceptCookies() {
   localStorage.setItem('cookieConsent', 'accepted');
   const banner = document.getElementById('cookieBanner');
@@ -155,7 +134,7 @@ if (hoverCapable && !reduceMotion) {
     requestAnimationFrame(loop);
   })();
 
-  const hoverSel = 'a, button, .tilt, .theme-toggle, .hero__word, video, .bts__sound';
+  const hoverSel = 'a, button, .tilt, .theme-toggle, .hero__word, video';
   document.addEventListener('mouseover', e => { if (e.target.closest(hoverSel)) ring.classList.add('cursor-ring--active'); });
   document.addEventListener('mouseout', e => { if (e.target.closest(hoverSel)) ring.classList.remove('cursor-ring--active'); });
   const textSel = 'input, textarea';
@@ -167,7 +146,7 @@ if (hoverCapable && !reduceMotion) {
 document.addEventListener('DOMContentLoaded', () => {
   const layers = [...document.querySelectorAll('.hero-video')];
   if (!layers.length) return;
-  const vids = ['media/Paradisio_nettside.mp4', 'media/Landskap3_nettside.mp4', 'media/Landskap_nettside.mp4', 'media/Folkebad_nettside.mp4', 'media/Landskap2_nettside.mp4'];
+  const vids = ['media/Landskap3_nettside.mp4', 'media/Landskap_nettside.mp4', 'media/Landskap2_nettside.mp4'];
   layers.forEach(v => { v.muted = true; v.playsInline = true; v.setAttribute('playsinline', ''); v.setAttribute('muted', ''); });
 
   let active = 0;
@@ -214,29 +193,6 @@ document.addEventListener('DOMContentLoaded', () => {
     words[idx].classList.add('active');
     setTimeout(() => words[prev].classList.remove('exit'), 650);
   }, 2200);
-})();
-
-/* ── BTS row: gentle auto-scroll, pauses on interaction ─ */
-(function () {
-  const row = document.getElementById('btsRow');
-  if (!row || !hoverCapable || reduceMotion) return;
-  let dir = 1, paused = false, resumeTimer;
-  const pauseFor = ms => { paused = true; clearTimeout(resumeTimer); resumeTimer = setTimeout(() => paused = false, ms); };
-  row.addEventListener('mouseenter', () => { paused = true; });
-  row.addEventListener('mouseleave', () => { paused = false; });
-  row.addEventListener('wheel', () => pauseFor(2500), { passive: true });
-  row.addEventListener('pointerdown', () => pauseFor(3000));
-  (function loop() {
-    if (!paused) {
-      const max = row.scrollWidth - row.clientWidth;
-      if (max > 1) {
-        row.scrollLeft += dir * 0.45;
-        if (row.scrollLeft >= max - 1) dir = -1;
-        else if (row.scrollLeft <= 1) dir = 1;
-      }
-    }
-    requestAnimationFrame(loop);
-  })();
 })();
 
 /* ── Cookie banner ──────────────────────────── */
