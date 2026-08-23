@@ -58,60 +58,48 @@
   </div>
 </div>
 
-<section class="contact2" id="main">
-  <div class="contact2__visual reveal-left">
-    <img src="media/eks11.JPG" alt="MTHS Media">
-    <div class="contact2__visual-overlay">
-      <div class="contact2__badge"><span class="contact2__badge-dot"></span>Ledig for nye oppdrag</div>
-      <div class="contact2__visual-info">
-        <a href="mailto:kontakt.mthsmedia@gmail.com">
-          <span class="contact2__info-label">E-post</span>
-          kontakt.mthsmedia@gmail.com
-        </a>
-        <a href="tel:+4794035180">
-          <span class="contact2__info-label">Telefon</span>
-          +47 940 35 180
-        </a>
-        <div>
-          <span class="contact2__info-label">Responstid</span>
-          Vi svarer innen 48 timer
-        </div>
-      </div>
-      <div class="contact2__social">
-        <a href="https://www.tiktok.com/@mths.media" aria-label="TikTok">
-          <svg viewBox="0 0 24 24" width="20"><path fill="currentColor" d="M21 8.6a7.7 7.7 0 0 1-4.4-1.4v6.5a5.7 5.7 0 1 1-4.9-5.7v3a2.7 2.7 0 1 0 1.9 2.6V2h3a4.7 4.7 0 0 0 4.4 4.4z"/></svg>
-        </a>
-        <a href="https://www.instagram.com/mths_media/" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" width="20"><path fill="currentColor" d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm5 5.2A4.8 4.8 0 1 1 7.2 12 4.8 4.8 0 0 1 12 7.2zm6.2-.3a1.1 1.1 0 1 1-1.1-1.1 1.1 1.1 0 0 1 1.1 1.1zM12 9.2A2.8 2.8 0 1 0 14.8 12 2.8 2.8 0 0 0 12 9.2z"/></svg>
-        </a>
-      </div>
+<section class="contact3" id="main">
+  <div class="contact3__left reveal-left">
+    <div class="contact3__kicker kicker-line reveal">Kontakt oss</div>
+    <h1 class="contact3__title reveal-lines"><span class="rl-line"><span>Klar for å starte</span></span><span class="rl-line"><span>et prosjekt?</span></span></h1>
+    <p class="contact3__text reveal reveal-delay-1">Har du et prosjekt eller en idé? Vi er klare for en hyggelig prat om hvordan vi kan hjelpe deg med profesjonell foto, video og droneproduksjon som skiller seg ut.</p>
+    <div class="contact3__info">
+      <div><strong>E-post:</strong> <a href="mailto:kontakt.mthsmedia@gmail.com">kontakt.mthsmedia@gmail.com</a></div>
+      <div><strong>Telefon:</strong> <a href="tel:+4794035180">+47 940 35 180</a></div>
+      <div><strong>Responstid:</strong> Vi svarer innen 48 timer</div>
     </div>
   </div>
 
-  <div class="contact2__body reveal-right">
-    <div class="contact2__kicker kicker-line reveal">Kom i kontakt</div>
-    <h1 class="contact2__title reveal-lines"><span class="rl-line"><span>La oss skape noe</span></span><span class="rl-line"><span>visuelt sammen.</span></span></h1>
-    <p class="contact2__sub reveal reveal-delay-1">Har du et prosjekt eller en idé? Send en melding – vi svarer innen 48 timer.</p>
-
-    <form id="contactForm" class="uform" action="https://formspree.io/f/xgoooqee" method="POST">
+  <div class="contact3__card reveal-right">
+    <form id="contactForm" class="uform2" action="https://formspree.io/f/xgoooqee" method="POST">
       <input type="hidden" name="_subject" value="Ny melding fra nettsiden">
       <div class="form-group__honeypot" aria-hidden="true">
         <label for="companyField">Ikke fyll ut dette feltet</label>
         <input type="text" id="companyField" name="_gotcha" tabindex="-1" autocomplete="off">
       </div>
-      <div class="form-group">
-        <label class="form-label" for="nameField">Navn</label>
-        <input type="text" id="nameField" name="name" placeholder="Ola Nordmann" required>
+      <div class="uform2__row">
+        <div class="form-group">
+          <label class="form-label" for="nameField">Navn</label>
+          <input type="text" id="nameField" name="name" placeholder="Ditt navn" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="emailField">E-post</label>
+          <input type="email" id="emailField" name="email" placeholder="din@epost.no" required>
+        </div>
       </div>
       <div class="form-group">
-        <label class="form-label" for="emailField">E-post</label>
-        <input type="email" id="emailField" name="email" placeholder="ola@bedrift.no" required>
+        <label class="form-label" for="phoneField">Telefon (valgfritt)</label>
+        <input type="tel" id="phoneField" name="phone" placeholder="Ditt telefonnummer">
       </div>
       <div class="form-group">
         <label class="form-label" for="messageField">Melding</label>
-        <textarea id="messageField" name="message" placeholder="Fortell litt om prosjektet ditt..." required></textarea>
+        <textarea id="messageField" name="message" placeholder="Fortell oss litt om prosjektet ditt..." required></textarea>
       </div>
-      <button type="submit" class="form-btn">Send melding →</button>
+      <label class="uform2__check">
+        <input type="checkbox" id="humanField" required>
+        Jeg er et menneske
+      </label>
+      <button type="submit" class="form-btn uform2__btn">Send melding →</button>
       <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
     </form>
   </div>
