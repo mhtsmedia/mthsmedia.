@@ -46,10 +46,20 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
 const hoverCapable = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
 /* ── Reveal on scroll ─────────────────────── */
-const revealObserver = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
-}, { threshold: 0.12 });
-document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-lines, .kicker-line').forEach(el => revealObserver.observe(el));
+function startRevealObserver() {
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-lines, .kicker-line').forEach(el => revealObserver.observe(el));
+}
+// Wait for webfonts to finish loading first: the reveal-lines titles animate via a
+// clipped transform, and if Fraunces swaps in mid-transition the glyphs redraw with
+// different metrics while still clipped, producing garbled/overlapping letters.
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(startRevealObserver);
+} else {
+  startRevealObserver();
+}
 
 /* ── Header scroll state ──────────────────── */
 const header = document.querySelector('header');
