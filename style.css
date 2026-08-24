@@ -81,7 +81,7 @@ a, a:visited { text-decoration: none; color: inherit; }
 .reveal-delay-4 { transition-delay: 0.34s; }
 
 /* Line-by-line masked title reveal */
-.reveal-lines .rl-line { display: block; overflow: hidden; }
+.reveal-lines .rl-line { display: block; overflow: hidden; padding-bottom: 0.22em; margin-bottom: -0.22em; }
 .reveal-lines .rl-line span {
   display: block; transform: translateY(112%);
   transition: transform 0.85s cubic-bezier(0.22,1,0.36,1);
