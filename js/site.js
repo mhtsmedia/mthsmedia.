@@ -199,9 +199,13 @@ document.addEventListener('DOMContentLoaded', () => {
     words[prev].classList.remove('active');
     words[prev].classList.add('exit');
     idx = (idx + 1) % words.length;
-    words[idx].classList.remove('exit');
-    words[idx].classList.add('active');
-    setTimeout(() => words[prev].classList.remove('exit'), 650);
+    // Wait for the outgoing word to fully fade out before fading the next one
+    // in — starting both transitions at once made the two words' letterforms
+    // visibly overlap mid-slide.
+    setTimeout(() => {
+      words[prev].classList.remove('exit');
+      words[idx].classList.add('active');
+    }, 300);
   }, 2200);
 })();
 

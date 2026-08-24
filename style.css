@@ -311,7 +311,7 @@ nav a.active { color: var(--accent-text); font-weight: 600; background: var(--ac
   pointer-events: none;
 }
 .hero__word.active { opacity: 1; transform: translateX(0); color: var(--accent); }
-.hero__word.exit { opacity: 0; transform: translateX(-45px); }
+.hero__word.exit { opacity: 0; transform: translateX(-45px); transition-duration: 0.28s; }
 
 /* ── MARQUEE TICKER (unused but kept) ─────── */
 .ticker-wrap {
