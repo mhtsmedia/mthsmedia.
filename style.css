@@ -1134,7 +1134,7 @@ a.cinfo__text:hover { color: #fff; }
   .srv-grid { padding: 0 5% 70px; }
 
   /* trust */
-  .trust__img { display: none; }
+  .trust__img { height: 280px; }
   .trust__btns { flex-direction: column; align-items: flex-start; }
 
   /* testimonials */
