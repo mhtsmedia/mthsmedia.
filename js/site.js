@@ -24,16 +24,23 @@ document.getElementById('themeToggle')?.addEventListener('click', () => {
 function toggleMenu() {
   const btn = document.querySelector('.hamburger');
   const nav = document.getElementById('mobileNav');
-  btn.classList.toggle('open');
+  const open = btn.classList.toggle('open');
   nav.classList.toggle('open');
-  document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+  btn.setAttribute('aria-expanded', open);
+  document.body.style.overflow = open ? 'hidden' : '';
 }
 
 function toggleFaq(btn) {
   const item = btn.closest('.faq__item');
   const isOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq__item.open').forEach(el => el.classList.remove('open'));
-  if (!isOpen) item.classList.add('open');
+  document.querySelectorAll('.faq__item.open').forEach(el => {
+    el.classList.remove('open');
+    el.querySelector('.faq__question')?.setAttribute('aria-expanded', 'false');
+  });
+  if (!isOpen) {
+    item.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+  }
 }
 
 function acceptCookies() {

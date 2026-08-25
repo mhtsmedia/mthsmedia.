@@ -20,7 +20,7 @@
   <link rel="apple-touch-icon" href="media/favicon-192.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&family=Bricolage+Grotesque:ital,opsz,wght@0,12..96,600;0,12..96,700;0,12..96,800;1,12..96,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -38,11 +38,11 @@
   </nav>
   <div class="header-right">
     <div class="theme-toggle-wrap">
-      <span class="theme-icon" id="themeIcon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg></span>
+      <span class="theme-icon" id="themeIcon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg></span>
       <button class="theme-toggle" id="themeToggle" aria-label="Bytt tema"></button>
     </div>
     <a href="contact.html" class="header-cta">Kontakt oss</a>
-    <button class="hamburger" aria-label="Meny" onclick="toggleMenu()">
+    <button class="hamburger" aria-label="Meny" aria-expanded="false" aria-controls="mobileNav" onclick="toggleMenu()">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -53,13 +53,12 @@
   <a href="projects.html" onclick="toggleMenu()">Prosjekter</a>
   <a href="contact.html" onclick="toggleMenu()">Kontakt</a>
   <div class="theme-toggle-wrap" style="margin-top:20px;">
-    <span id="themeIconMobile"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg></span>
+    <span id="themeIconMobile"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg></span>
     <button class="theme-toggle" onclick="document.getElementById('themeToggle').click(); document.getElementById('themeIconMobile').innerHTML = document.getElementById('themeIcon').innerHTML;" aria-label="Bytt tema"></button>
   </div>
 </div>
 
 <div class="contact-hero" id="main">
-  <div class="contact-hero__kicker kicker-line reveal">Personvern</div>
   <h1 class="contact-hero__title reveal-lines"><span class="rl-line"><span>Personvern &amp;</span></span><span class="rl-line"><span>informasjonskapsler.</span></span></h1>
   <p class="contact-hero__sub reveal reveal-delay-1">En kort og ærlig oversikt over hvilke opplysninger vi behandler, og hvorfor.</p>
 </div>

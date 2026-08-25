@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="MTHS Media er et kreativt studio som tilbyr profesjonell foto, video og droneproduksjon." />
   <meta property="og:title" content="MTHS Media – Foto, Video &amp; Drone" />
+  <meta property="og:description" content="MTHS Media er et kreativt studio som tilbyr profesjonell foto, video og droneproduksjon." />
   <meta property="og:image" content="https://mthsmedia.no/media/og.png" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://mthsmedia.no" />
@@ -21,7 +22,7 @@
   <title>MTHS Media – Foto, Video &amp; Drone</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&family=Bricolage+Grotesque:ital,opsz,wght@0,12..96,600;0,12..96,700;0,12..96,800;1,12..96,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <script type="application/ld+json">
   {
@@ -57,11 +58,11 @@
   </nav>
   <div class="header-right">
     <div class="theme-toggle-wrap">
-      <span class="theme-icon" id="themeIcon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg></span>
+      <span class="theme-icon" id="themeIcon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg></span>
       <button class="theme-toggle" id="themeToggle" aria-label="Bytt tema"></button>
     </div>
     <a href="contact.html" class="header-cta">Kontakt oss</a>
-    <button class="hamburger" aria-label="Meny" onclick="toggleMenu()">
+    <button class="hamburger" aria-label="Meny" aria-expanded="false" aria-controls="mobileNav" onclick="toggleMenu()">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -73,7 +74,7 @@
   <a href="projects.html" onclick="toggleMenu()">Prosjekter</a>
   <a href="contact.html" onclick="toggleMenu()">Kontakt</a>
   <div class="theme-toggle-wrap" style="margin-top:20px;">
-    <span id="themeIconMobile"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg></span>
+    <span id="themeIconMobile"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg></span>
     <button class="theme-toggle" onclick="document.getElementById('themeToggle').click(); document.getElementById('themeIconMobile').innerHTML = document.getElementById('themeIcon').innerHTML;" aria-label="Bytt tema"></button>
   </div>
 </div>
@@ -106,7 +107,6 @@
 
 <section class="services">
   <div class="services__head reveal">
-    <div class="services__kicker">Hva vi tilbyr</div>
     <h2 class="services__title">Tjenester som<br>løfter merkevaren.</h2>
   </div>
   <div class="services__grid">
@@ -120,7 +120,7 @@
     <div class="services__cards">
       <a class="scard tilt reveal reveal-delay-1" href="services.html#foto">
         <div class="scard__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l4.553-2.069A1 1 0 0121 8.882v6.236a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l4.553-2.069A1 1 0 0121 8.882v6.236a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg>
         </div>
         <div class="scard__body">
           <div class="scard__title">Foto &amp; Film</div>
@@ -129,7 +129,7 @@
       </a>
       <a class="scard tilt reveal reveal-delay-2" href="services.html#drone">
         <div class="scard__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M4.93 4.93l3.54 3.54M15.54 8.46l3.53-3.53M4.93 19.07l3.54-3.54M15.54 15.54l3.53 3.53M2 12h3M19 12h3M12 2v3M12 19v3"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M4.93 4.93l3.54 3.54M15.54 8.46l3.53-3.53M4.93 19.07l3.54-3.54M15.54 15.54l3.53 3.53M2 12h3M19 12h3M12 2v3M12 19v3"/></svg>
         </div>
         <div class="scard__body">
           <div class="scard__title">Drone</div>
@@ -138,7 +138,7 @@
       </a>
       <a class="scard tilt reveal reveal-delay-3" href="services.html#content">
         <div class="scard__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
         </div>
         <div class="scard__body">
           <div class="scard__title">Content Creation</div>
@@ -153,7 +153,6 @@
   <div class="method__inner">
     <div class="method__head">
       <div class="method__head-left">
-        <div class="method__kicker kicker-line reveal">Vår metode</div>
         <h2 class="method__title reveal-lines"><span class="rl-line"><span>Fra idé til ferdig innhold.</span></span></h2>
       </div>
       <p class="method__lead reveal">En tydelig prosess som leverer resultater, hver gang – fra første møte til ferdig levering.</p>
@@ -161,7 +160,7 @@
     <div class="method__steps">
       <div class="mstep mstep--featured tilt reveal reveal-delay-1">
         <div class="mstep__icon-wrap">
-          <div class="mstep__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></div>
+          <div class="mstep__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></div>
           <div class="mstep__no">01</div>
         </div>
         <div class="mstep__title">Oppdagelse</div>
@@ -169,7 +168,7 @@
       </div>
       <div class="mstep tilt reveal reveal-delay-2">
         <div class="mstep__icon-wrap">
-          <div class="mstep__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 00-4 12.75V17a1 1 0 001 1h6a1 1 0 001-1v-2.25A7 7 0 0012 2z"/></svg></div>
+          <div class="mstep__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 00-4 12.75V17a1 1 0 001 1h6a1 1 0 001-1v-2.25A7 7 0 0012 2z"/></svg></div>
           <div class="mstep__no">02</div>
         </div>
         <div class="mstep__title">Kreativitet</div>
@@ -177,7 +176,7 @@
       </div>
       <div class="mstep tilt reveal reveal-delay-3">
         <div class="mstep__icon-wrap">
-          <div class="mstep__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l4.553-2.069A1 1 0 0121 8.882v6.236a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg></div>
+          <div class="mstep__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l4.553-2.069A1 1 0 0121 8.882v6.236a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg></div>
           <div class="mstep__no">03</div>
         </div>
         <div class="mstep__title">Produksjon</div>
@@ -185,7 +184,7 @@
       </div>
       <div class="mstep tilt reveal reveal-delay-4">
         <div class="mstep__icon-wrap">
-          <div class="mstep__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></div>
+          <div class="mstep__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></div>
           <div class="mstep__no">04</div>
         </div>
         <div class="mstep__title">Leveranse</div>
@@ -201,7 +200,6 @@
 <section class="trust" id="om">
   <div class="trust__inner">
     <div class="reveal-left">
-      <div class="trust__kicker kicker-line reveal">Om oss</div>
       <h2 class="trust__title reveal-lines"><span class="rl-line"><span>Et lite studio med høye standarder.</span></span></h2>
       <p class="trust__lead">MTHS Media er et kreativt studio drevet av engasjerte skapere med lidenskap for foto, video og visuell historiefortelling.</p>
       <p class="trust__lead">Vi produserer moderne og visuelt sterkt innhold for bedrifter og merkevarer som ønsker å skille seg ut digitalt.</p>
@@ -227,7 +225,6 @@
 
 <section class="testimonials">
   <div class="testimonials__inner">
-    <div class="testimonials__kicker kicker-line reveal">Hva kundene sier</div>
     <h2 class="testimonials__title reveal-lines"><span class="rl-line"><span>Resultater som</span></span><span class="rl-line"><span>snakker for seg.</span></span></h2>
     <div class="testimonials__grid">
       <div class="tcard tilt reveal-scale reveal-delay-1">
@@ -254,20 +251,19 @@
 
 <section class="faq">
   <div class="faq__inner">
-    <div class="faq__kicker kicker-line reveal">Vanlige spørsmål</div>
     <h2 class="faq__title reveal-lines"><span class="rl-line"><span>Lurer du på noe?</span></span></h2>
     <div class="faq__list reveal">
       <div class="faq__item">
-        <button class="faq__question" onclick="toggleFaq(this)">Hvor lang tid tar et oppdrag?<span class="faq__icon">+</span></button>
-        <div class="faq__answer"><p>Det kommer an på størrelsen. Et enkelt fotoshoot tar gjerne 1–3 timer, mens et større oppdrag med drone og video kan ta en hel dag. Vi leverer redigert innhold innen 3–7 virkedager etter opptak.</p></div>
+        <button class="faq__question" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faqAnswer1">Hvor lang tid tar et oppdrag?<span class="faq__icon" aria-hidden="true">+</span></button>
+        <div class="faq__answer" id="faqAnswer1"><p>Det kommer an på størrelsen. Et enkelt fotoshoot tar gjerne 1–3 timer, mens et større oppdrag med drone og video kan ta en hel dag. Vi leverer redigert innhold innen 3–7 virkedager etter opptak.</p></div>
       </div>
       <div class="faq__item">
-        <button class="faq__question" onclick="toggleFaq(this)">Leverer dere redigert innhold?<span class="faq__icon">+</span></button>
-        <div class="faq__answer"><p>Ja, alltid. Vi leverer ferdig redigerte bilder og videoer optimalisert for den plattformen du skal bruke dem på – enten det er Instagram, TikTok, nettside eller annonser.</p></div>
+        <button class="faq__question" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faqAnswer2">Leverer dere redigert innhold?<span class="faq__icon" aria-hidden="true">+</span></button>
+        <div class="faq__answer" id="faqAnswer2"><p>Ja, alltid. Vi leverer ferdig redigerte bilder og videoer optimalisert for den plattformen du skal bruke dem på – enten det er Instagram, TikTok, nettside eller annonser.</p></div>
       </div>
       <div class="faq__item">
-        <button class="faq__question" onclick="toggleFaq(this)">Hva trenger jeg å forberede?<span class="faq__icon">+</span></button>
-        <div class="faq__answer"><p>Ikke så mye! Det hjelper å ha en idé om stemning, men det er ikke nødvendig. Vi tar en prat i forkant der vi avklarer mål, lokasjon og detaljer. Vi tar oss av resten.</p></div>
+        <button class="faq__question" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faqAnswer3">Hva trenger jeg å forberede?<span class="faq__icon" aria-hidden="true">+</span></button>
+        <div class="faq__answer" id="faqAnswer3"><p>Ikke så mye! Det hjelper å ha en idé om stemning, men det er ikke nødvendig. Vi tar en prat i forkant der vi avklarer mål, lokasjon og detaljer. Vi tar oss av resten.</p></div>
       </div>
     </div>
   </div>
@@ -275,7 +271,6 @@
 
 <section class="cta">
   <div class="cta__inner">
-    <div class="cta__kicker kicker-line reveal" style="justify-content:center;">Klar når du er</div>
     <h2 class="cta__title reveal-lines"><span class="rl-line"><span>Klar for å løfte merkevaren din?</span></span></h2>
     <p class="cta__text reveal reveal-delay-1">Fortell oss hva du trenger – vi svarer med konkret forslag og pris innen 48 timer.</p>
     <div class="cta__actions reveal reveal-delay-2">
