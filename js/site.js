@@ -46,7 +46,10 @@ function toggleFaq(btn) {
 function acceptCookies() {
   localStorage.setItem('cookieConsent', 'accepted');
   const banner = document.getElementById('cookieBanner');
-  if (banner) banner.hidden = true;
+  if (!banner) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { banner.hidden = true; return; }
+  banner.classList.add('cookie-banner--leaving');
+  banner.addEventListener('transitionend', () => { banner.hidden = true; }, { once: true });
 }
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -91,6 +94,21 @@ window.addEventListener('scroll', () => {
   }, { passive: true });
 })();
 
+/* ── Project card video preview (hover) ────── */
+if (hoverCapable) {
+  document.querySelectorAll('.project-card').forEach(card => {
+    const video = card.querySelector('video[data-src]');
+    if (!video) return;
+    let loaded = false;
+    card.addEventListener('mouseenter', () => {
+      if (!loaded) { video.src = video.dataset.src; loaded = true; }
+      video.currentTime = 0;
+      video.play().catch(() => {});
+    });
+    card.addEventListener('mouseleave', () => { video.pause(); });
+  });
+}
+
 /* ── Magnetic buttons ──────────────────────── */
 if (hoverCapable && !reduceMotion) {
   document.querySelectorAll('.mag-btn').forEach(btn => {
@@ -105,22 +123,44 @@ if (hoverCapable && !reduceMotion) {
 }
 
 /* ── Cursor-glow + 3D tilt on cards ─────────── */
+/* Spring-smoothed: targets update instantly on mousemove, but the values
+   actually written to the CSS vars ease toward them each frame — same
+   lerp technique as the custom cursor ring below — so the tilt has real
+   momentum instead of snapping straight to the cursor. */
 if (hoverCapable && !reduceMotion) {
   document.querySelectorAll('.tilt').forEach(card => {
+    let targetRx = 0, targetRy = 0, targetMx = 50, targetMy = 50;
+    let curRx = 0, curRy = 0, curMx = 50, curMy = 50;
+    let raf = null;
+
+    function step() {
+      curRx += (targetRx - curRx) * 0.18;
+      curRy += (targetRy - curRy) * 0.18;
+      curMx += (targetMx - curMx) * 0.18;
+      curMy += (targetMy - curMy) * 0.18;
+      card.style.setProperty('--rx', curRx.toFixed(2) + 'deg');
+      card.style.setProperty('--ry', curRy.toFixed(2) + 'deg');
+      card.style.setProperty('--mx', curMx.toFixed(1) + '%');
+      card.style.setProperty('--my', curMy.toFixed(1) + '%');
+      const settled = Math.abs(targetRx - curRx) < 0.02 && Math.abs(targetRy - curRy) < 0.02 &&
+        Math.abs(targetMx - curMx) < 0.05 && Math.abs(targetMy - curMy) < 0.05;
+      raf = settled ? null : requestAnimationFrame(step);
+    }
+    function ensureLoop() { if (!raf) raf = requestAnimationFrame(step); }
+
     card.addEventListener('mousemove', e => {
       const r = card.getBoundingClientRect();
       const px = (e.clientX - r.left) / r.width;
       const py = (e.clientY - r.top) / r.height;
-      const rx = (px - 0.5) * 12;
-      const ry = -(py - 0.5) * 12;
-      card.style.setProperty('--rx', rx.toFixed(2) + 'deg');
-      card.style.setProperty('--ry', ry.toFixed(2) + 'deg');
-      card.style.setProperty('--mx', (px * 100).toFixed(1) + '%');
-      card.style.setProperty('--my', (py * 100).toFixed(1) + '%');
+      targetRx = (px - 0.5) * 12;
+      targetRy = -(py - 0.5) * 12;
+      targetMx = px * 100;
+      targetMy = py * 100;
+      ensureLoop();
     });
     card.addEventListener('mouseleave', () => {
-      card.style.setProperty('--rx', '0deg');
-      card.style.setProperty('--ry', '0deg');
+      targetRx = 0; targetRy = 0;
+      ensureLoop();
     });
   });
 }
@@ -248,10 +288,12 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       if (!res.ok) throw new Error('request failed');
       status.textContent = 'Takk! Meldingen er sendt – vi svarer innen 48 timer.';
+      void status.offsetWidth; // force reflow so the fade-in transition has a starting frame
       status.classList.add('is-success');
       form.reset();
     } catch {
       status.textContent = 'Noe gikk galt. Prøv igjen, eller send oss en e-post direkte på kontakt.mthsmedia@gmail.com.';
+      void status.offsetWidth;
       status.classList.add('is-error');
     } finally {
       btn.disabled = false;
