@@ -203,7 +203,7 @@ if (hoverCapable && !reduceMotion) {
 document.addEventListener('DOMContentLoaded', () => {
   const layers = [...document.querySelectorAll('.hero-video')];
   if (!layers.length) return;
-  const vids = ['media/Landskap3_nettside.mp4', 'media/Landskap_nettside.mp4', 'media/Landskap2_nettside.mp4', 'media/Paradisio_nettside.mp4'];
+  const vids = ['media/Paradisio_nettside.mp4', 'media/HolmenFjordhotellNettside.mp4', 'media/Landskap3_nettside.mp4', 'media/Landskap_nettside.mp4', 'media/Landskap2_nettside.mp4'];
   layers.forEach(v => { v.muted = true; v.playsInline = true; v.setAttribute('playsinline', ''); v.setAttribute('muted', ''); });
 
   let active = 0;
