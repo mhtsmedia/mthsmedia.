@@ -214,10 +214,10 @@ nav a.active { color: var(--accent-text); font-weight: 600; background: var(--ac
   opacity: 0; transition: opacity 0.8s ease;
   transform: scale(1);
 }
-.hero-video.is-active { opacity: 1; animation: kenburns 9s ease-out both; }
+.hero-video.is-active { opacity: 1; animation: kenburns 14s ease-out both; }
 @keyframes kenburns {
   from { transform: scale(1); }
-  to   { transform: scale(1.08); }
+  to   { transform: scale(1.035); }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-video.is-active { animation: none; }
