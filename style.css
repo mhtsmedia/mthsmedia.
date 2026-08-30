@@ -1074,3 +1074,100 @@ a.cinfo:hover { transform: translateY(-2px); border-color: transparent; box-shad
   /* pages */
   .contact-hero { padding: 110px 5% 40px; }
 }
+
+/* ── MM LOGO KOMPONENTEN ───────────────────── */
+.mm-logo{
+  --mm-h:160px;
+  --mm-ink:#161616;
+  --mm-s:1;
+  display:inline-flex;align-items:center;justify-content:center;line-height:1;
+}
+.mm-logo[data-theme="lys"]{--mm-ink:#f6f6f3}
+.mm-a,.mm-b{display:flex;align-items:center;justify-content:center}
+.mm-slide{transform:translateX(var(--mm-shift,0px))}
+.mm-lockup{display:flex;align-items:center;gap:calc(var(--mm-h) * .083)}
+.mm-svg{height:var(--mm-h);width:auto;display:block;color:var(--mm-ink);overflow:visible}
+.mm-shape{fill:var(--mm-ink);stroke:var(--mm-ink)}
+.mm-word{
+  perspective:800px;white-space:nowrap;
+  font-family:Archivo,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight:800;font-variation-settings:"wdth" 118;
+  font-size:calc(var(--mm-h) * .23);letter-spacing:-.03em;
+  color:var(--mm-ink);transform:translateY(.045em);
+}
+.mm-logo[data-variant="ikon"] .mm-word{display:none}
+.mm-word span{display:inline-block;opacity:0;transform:translateY(.55em) rotateX(-55deg);filter:blur(7px)}
+.mm-word .mm-sp{width:.3em}
+.mm-enter,.mm-pillar,.mm-ring,.mm-ghost{opacity:0}
+.mm-spin{transform:rotate(-90deg)}
+.mm-move{transform:translate(0px,124px) scale(1.18)}
+.mm-pl{transform:translateX(-470px) scaleX(1.7)}
+.mm-pr{transform:translateX(470px) scaleX(1.7)}
+.mm-enter,.mm-press,.mm-move,.mm-spin,.mm-pillar,.mm-ring,.mm-ghost{transform-box:view-box;transform-origin:362.5px 176px}
+.mm-enter,.mm-press,.mm-ring{transform-origin:362.5px 300px}
+.mm-pl{transform-origin:115px 300px}
+.mm-pr{transform-origin:610px 300px}
+.mm-ghost{filter:blur(3px)}
+.mm-g1{--mm-lag:.05s}
+.mm-g2{--mm-lag:.1s}
+.mm-run .mm-enter{animation:mmEnter calc(.45s * var(--mm-s)) cubic-bezier(.16,1,.3,1) 0s forwards}
+.mm-run .mm-ring-idle{animation:mmRing calc(1.05s * var(--mm-s)) ease-out calc(.1s * var(--mm-s)) forwards}
+.mm-run .mm-ring-1{animation:mmShock calc(.6s * var(--mm-s)) cubic-bezier(.15,.75,.3,1) calc(.55s * var(--mm-s)) forwards}
+.mm-run .mm-ring-2{animation:mmShock calc(.7s * var(--mm-s)) cubic-bezier(.15,.75,.3,1) calc(.64s * var(--mm-s)) forwards}
+.mm-run .mm-press{animation:mmPress calc(.34s * var(--mm-s)) cubic-bezier(.3,.8,.3,1) calc(.52s * var(--mm-s)) both}
+.mm-run .mm-move{animation:mmMove calc(.7s * var(--mm-s)) cubic-bezier(.34,1.04,.28,1) calc((.95s + var(--mm-lag,0s)) * var(--mm-s)) forwards}
+.mm-run .mm-spin{animation:mmSpin calc(.7s * var(--mm-s)) cubic-bezier(.38,1.12,.3,1) calc((.95s + var(--mm-lag,0s)) * var(--mm-s)) forwards}
+.mm-run .mm-ghost{animation:mmGhost calc(.62s * var(--mm-s)) linear calc(.98s * var(--mm-s)) forwards}
+.mm-run .mm-pl{animation:mmSlideL calc(.66s * var(--mm-s)) cubic-bezier(.2,1.05,.28,1) calc(1.5s * var(--mm-s)) forwards}
+.mm-run .mm-pr{animation:mmSlideR calc(.66s * var(--mm-s)) cubic-bezier(.2,1.05,.28,1) calc(1.57s * var(--mm-s)) forwards}
+.mm-run .mm-a{animation:mmKickSoft calc(.32s * var(--mm-s)) ease-out calc(1.58s * var(--mm-s)) both}
+.mm-run .mm-b{animation:mmKickHard calc(.42s * var(--mm-s)) cubic-bezier(.2,.9,.3,1) calc(2.08s * var(--mm-s)) both}
+.mm-run .mm-slide{animation:mmOver calc(.9s * var(--mm-s)) cubic-bezier(.32,.92,.24,1) calc(2.02s * var(--mm-s)) forwards}
+.mm-run .mm-word span{animation:mmLetter calc(.52s * var(--mm-s)) cubic-bezier(.18,.95,.25,1) calc((2.14s + var(--mm-i) * .038s) * var(--mm-s)) forwards}
+.mm-run .mm-lockup{animation:mmSettle calc(.8s * var(--mm-s)) ease-out calc(2.7s * var(--mm-s)) both}
+@keyframes mmEnter{0%{opacity:0;filter:blur(14px)}100%{opacity:1;filter:blur(0)}}
+@keyframes mmRing{0%{opacity:0;transform:scale(.82)}22%{opacity:.16;transform:scale(1)}40%{opacity:.16;transform:scale(1)}46%{opacity:.34;transform:scale(1.03)}62%{opacity:.12;transform:scale(1)}100%{opacity:0;transform:scale(1.22)}}
+@keyframes mmShock{0%{opacity:.4;transform:scale(.62);stroke-width:14}100%{opacity:0;transform:scale(1.7);stroke-width:2}}
+@keyframes mmPress{0%{transform:scale(1)}36%{transform:scale(.85)}70%{transform:scale(1.06)}100%{transform:scale(1)}}
+@keyframes mmMove{from{transform:translate(0px,124px) scale(1.18)}to{transform:translate(0px,0px) scale(1)}}
+@keyframes mmSpin{from{transform:rotate(-90deg)}to{transform:rotate(0deg)}}
+@keyframes mmGhost{0%{opacity:0}18%{opacity:.3}75%{opacity:.12}100%{opacity:0}}
+@keyframes mmSlideL{0%{transform:translateX(-470px) scaleX(1.7);opacity:0}14%{opacity:1}70%{transform:translateX(14px) scaleX(.94)}100%{transform:translateX(0) scaleX(1);opacity:1}}
+@keyframes mmSlideR{0%{transform:translateX(470px) scaleX(1.7);opacity:0}14%{opacity:1}70%{transform:translateX(-14px) scaleX(.94)}100%{transform:translateX(0) scaleX(1);opacity:1}}
+@keyframes mmKickSoft{0%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}65%{transform:translateY(3px)}}
+@keyframes mmKickHard{0%,100%{transform:translate(0,0) scale(1)}18%{transform:translate(0,7px) scale(.985)}48%{transform:translate(0,-4px) scale(1.008)}75%{transform:translate(0,2px) scale(.997)}}
+@keyframes mmLetter{0%{opacity:0;transform:translateY(.55em) rotateX(-55deg);filter:blur(7px)}60%{opacity:1;filter:blur(0)}100%{opacity:1;transform:translateY(0) rotateX(0);filter:blur(0)}}
+@keyframes mmOver{from{transform:translateX(var(--mm-shift,0px))}to{transform:translateX(0)}}
+@keyframes mmSettle{0%{transform:scale(1)}35%{transform:scale(1.014)}100%{transform:scale(1)}}
+.mm-logo[data-fx="rolig"] .mm-ghost,
+.mm-logo[data-fx="rolig"] .mm-ring-2{display:none}
+.mm-logo[data-fx="rolig"] .mm-a,
+.mm-logo[data-fx="rolig"] .mm-b{animation:none !important}
+.mm-logo[data-fx="rolig"] .mm-word span{filter:none}
+.mm-static .mm-enter,.mm-static .mm-pillar,.mm-static .mm-word span{opacity:1}
+.mm-static .mm-spin,.mm-static .mm-move,.mm-static .mm-pl,
+.mm-static .mm-pr,.mm-static .mm-slide{transform:none}
+.mm-static .mm-word span{filter:none}
+.mm-static .mm-ghost,.mm-static .mm-ring{display:none}
+@media (prefers-reduced-motion:reduce){.mm-run *{animation:none !important}}
+
+/* ── MM LOADING SCREEN ────────────────────────── */
+html.mm-lock,html.mm-lock body{overflow:hidden}
+
+.mm-preloader{
+  position:fixed;inset:0;z-index:9999;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--mm-screen,#faf8f5);
+  opacity:1;transition:opacity .55s ease;
+}
+.mm-preloader[hidden]{display:none}
+.mm-preloader.mm-out{opacity:0;pointer-events:none}
+
+/* tynn framdriftsstrek nederst */
+.mm-bar{position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--mm-ink,#161616);opacity:.22}
+.mm-preloader:not([hidden]) .mm-bar{animation:mmBar var(--mm-lead,2400ms) linear forwards}
+@keyframes mmBar{from{width:0}to{width:100%}}
+
+/* moerk modus, prosjektets selektor */
+html[data-theme="dark"] .mm-preloader{--mm-screen:#0b0b0b}
+html[data-theme="dark"] .mm-logo{--mm-ink:#f6f6f3}
