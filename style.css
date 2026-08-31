@@ -1095,6 +1095,8 @@ a.cinfo:hover { transform: translateY(-2px); border-color: transparent; box-shad
   font-size:calc(var(--mm-h) * .23);letter-spacing:-.03em;
   color:var(--mm-ink);transform:translateY(.045em);
 }
+.mm-logo[data-mm-intro] .mm-word{font-size:calc(var(--mm-h) * .3)}
+.mm-logo[data-mm-header] .mm-word{font-size:16px}
 .mm-logo[data-variant="ikon"] .mm-word{display:none}
 .mm-word span{display:inline-block;opacity:0;transform:translateY(.55em) rotateX(-55deg);filter:blur(7px)}
 .mm-word .mm-sp{width:.3em}
