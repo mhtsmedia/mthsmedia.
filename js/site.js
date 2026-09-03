@@ -43,13 +43,22 @@ function toggleFaq(btn) {
   }
 }
 
-function acceptCookies() {
-  localStorage.setItem('cookieConsent', 'accepted');
+function dismissCookieBanner() {
   const banner = document.getElementById('cookieBanner');
   if (!banner) return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { banner.hidden = true; return; }
   banner.classList.add('cookie-banner--leaving');
   banner.addEventListener('transitionend', () => { banner.hidden = true; }, { once: true });
+}
+
+function acceptCookies() {
+  localStorage.setItem('cookieConsent', 'accepted');
+  dismissCookieBanner();
+}
+
+function declineCookies() {
+  localStorage.setItem('cookieConsent', 'declined');
+  dismissCookieBanner();
 }
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

@@ -41,6 +41,38 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Hvor lang tid tar et oppdrag?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Det kommer an på størrelsen. Et enkelt fotoshoot tar gjerne 1–3 timer, mens et større oppdrag med drone og video kan ta en hel dag. Vi leverer redigert innhold innen 3–7 virkedager etter opptak."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Leverer dere redigert innhold?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja, alltid. Vi leverer ferdig redigerte bilder og videoer optimalisert for plattformen du skal bruke dem på, enten det er Instagram, TikTok, nettside eller annonser."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Hva trenger jeg å forberede?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ikke så mye! Det hjelper å ha en idé om stemning, men det er ikke nødvendig. Vi tar en prat i forkant der vi avklarer mål, lokasjon og detaljer. Vi tar oss av resten."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -369,9 +401,10 @@
 </footer>
 
 <div class="cookie-banner" id="cookieBanner" hidden>
-  <p class="cookie-banner__text">Vi bruker informasjonskapsler for å få nettsiden til å fungere som den skal. Les mer i <a href="personvern.html">personvernerklæringen</a> vår.</p>
+  <p class="cookie-banner__text">Vi bruker kun nødvendige informasjonskapsler for å få nettsiden til å fungere som den skal. Les mer i <a href="personvern.html">personvernerklæringen</a> vår.</p>
   <div class="cookie-banner__actions">
-    <button class="cookie-banner__btn" onclick="acceptCookies()">Greit, jeg forstår</button>
+    <button class="cookie-banner__btn cookie-banner__btn--ghost" onclick="declineCookies()">Avslå</button>
+    <button class="cookie-banner__btn" onclick="acceptCookies()">Godta</button>
   </div>
 </div>
 
