@@ -22,6 +22,26 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&family=Bricolage+Grotesque:ital,opsz,wght@0,12..96,600;0,12..96,700;0,12..96,800;1,12..96,600&family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Hjem",
+      "item": "https://mthsmedia.no/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Prosjekter",
+      "item": "https://mthsmedia.no/projects.html"
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 
@@ -162,9 +182,10 @@
 </footer>
 
 <div class="cookie-banner" id="cookieBanner" hidden>
-  <p class="cookie-banner__text">Vi bruker informasjonskapsler for å få nettsiden til å fungere som den skal. Les mer i <a href="personvern.html">personvernerklæringen</a> vår.</p>
+  <p class="cookie-banner__text">Vi bruker kun nødvendige informasjonskapsler for å få nettsiden til å fungere som den skal. Les mer i <a href="personvern.html">personvernerklæringen</a> vår.</p>
   <div class="cookie-banner__actions">
-    <button class="cookie-banner__btn" onclick="acceptCookies()">Greit, jeg forstår</button>
+    <button class="cookie-banner__btn cookie-banner__btn--ghost" onclick="declineCookies()">Avslå</button>
+    <button class="cookie-banner__btn" onclick="acceptCookies()">Godta</button>
   </div>
 </div>
 
