@@ -29,6 +29,14 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://mthsmedia.no/baerum-padel.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mthsmedia.no/holmen-fjord-hotell.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://mthsmedia.no/personvern.html</loc>
     <priority>0.3</priority>
   </url>
