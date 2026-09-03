@@ -868,15 +868,9 @@ body.has-cursor input, body.has-cursor textarea { cursor: text; }
 
 /* ── CONTACT PAGE (main contact.html) ────────── */
 .contact3 {
-  max-width: 1300px; margin: 0 auto; padding: 150px 6% 110px;
+  max-width: 1300px; margin: 0 auto; padding: 20px 6% 110px;
   display: grid; grid-template-columns: 1fr 1.1fr; gap: 70px; align-items: stretch;
-  background: var(--bg2);
-  position: relative; overflow: hidden;
-}
-.contact3::before {
-  content: ''; position: absolute; top: -160px; left: -140px; z-index: 0; pointer-events: none;
-  width: 520px; height: 420px;
-  background: radial-gradient(circle, var(--accent-soft) 0%, transparent 70%);
+  position: relative;
 }
 .contact3__left, .contact3__card { position: relative; z-index: 1; }
 .contact3__left { padding-top: 8px; }
@@ -931,7 +925,7 @@ a.cinfo:hover { transform: translateY(-2px); border-color: transparent; box-shad
 .uform2__btn { width: 100%; border-radius: var(--radius-sm); }
 
 @media (max-width: 900px) {
-  .contact3 { grid-template-columns: 1fr; padding: 130px 6% 70px; gap: 44px; }
+  .contact3 { grid-template-columns: 1fr; padding: 10px 6% 70px; gap: 44px; }
   .contact3__card { padding: 28px; }
   .uform2__row { grid-template-columns: 1fr; }
 }
