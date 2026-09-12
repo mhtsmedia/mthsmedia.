@@ -797,12 +797,33 @@ body.has-cursor input, body.has-cursor textarea { cursor: text; }
 .project-nav a { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--muted); transition: color 0.2s; }
 .project-nav a:hover { color: var(--text); }
 
+.carousel { display: flex; align-items: center; gap: 14px; }
+.carousel__viewport { flex: 1; overflow: hidden; }
+.carousel__track { display: flex; gap: 18px; transition: transform 0.5s cubic-bezier(.65,0,.35,1); }
+.carousel__track img {
+  flex: 0 0 calc((100% - 18px * 2) / 3);
+  width: calc((100% - 18px * 2) / 3);
+  aspect-ratio: 3 / 4; object-fit: cover; border-radius: var(--radius-sm);
+  display: block; background: var(--bg2);
+}
+.carousel__btn {
+  flex: 0 0 auto; width: 44px; height: 44px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg2); border: 1px solid var(--border); color: var(--text);
+  cursor: pointer; padding: 0; transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.15s;
+}
+.carousel__btn:hover { background: var(--accent-soft); color: var(--accent-text); border-color: transparent; }
+.carousel__btn:active { transform: scale(0.92); }
+
 @media (max-width: 860px) {
   .project-detail { grid-template-columns: 1fr; gap: 28px; }
   .project-detail__video { position: static; max-width: 320px; margin: 0 auto; }
+  .carousel__track img { flex-basis: calc((100% - 18px) / 2); width: calc((100% - 18px) / 2); }
 }
 @media (max-width: 600px) {
   .project-gallery__grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .carousel__track img { flex-basis: 100%; width: 100%; }
+  .carousel__btn { width: 38px; height: 38px; }
 }
 
 /* ── CONTACT PAGE (page-hero style) ─────────── */
