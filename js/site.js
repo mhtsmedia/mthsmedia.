@@ -311,48 +311,55 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 })();
 
-/* ── Image carousel: arrows step one image, loops forever ─ */
+/* ── Image carousel: arrows step one image, scrolls on forever ─
+   A full clone of the set is appended before and after the real
+   items. Stepping past the real items slides onto an identical
+   clone, then the track silently snaps back to the matching real
+   position once the slide finishes — so it reads as an endless
+   stream of images instead of a jump-cut back to the start. ── */
 (function () {
   document.querySelectorAll('[data-carousel]').forEach(root => {
     const track = root.querySelector('[data-carousel-track]');
     const prevBtn = root.querySelector('[data-carousel-prev]');
     const nextBtn = root.querySelector('[data-carousel-next]');
-    const items = [...track.children];
-    if (!items.length) return;
+    const originals = [...track.children];
+    const count = originals.length;
+    if (!count) return;
 
-    let index = 0;
-
-    function itemsPerView() {
-      const w = window.innerWidth;
-      if (w <= 600) return 1;
-      if (w <= 860) return 2;
-      return 3;
-    }
-
-    function maxIndex() {
-      return Math.max(0, items.length - itemsPerView());
-    }
-
-    function update() {
-      const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 0;
-      const step = items[0].getBoundingClientRect().width + gap;
-      track.style.transform = `translateX(${-index * step}px)`;
-    }
-
-    function go(dir) {
-      const max = maxIndex();
-      index += dir;
-      if (index < 0) index = max;
-      if (index > max) index = 0;
-      update();
-    }
-
-    nextBtn?.addEventListener('click', () => go(1));
-    prevBtn?.addEventListener('click', () => go(-1));
-    window.addEventListener('resize', () => {
-      index = Math.min(index, maxIndex());
-      update();
+    const cloneSet = () => originals.map(el => {
+      const c = el.cloneNode(true);
+      c.setAttribute('aria-hidden', 'true');
+      return c;
     });
-    update();
+    cloneSet().reverse().forEach(c => track.insertBefore(c, track.firstChild));
+    cloneSet().forEach(c => track.appendChild(c));
+
+    let index = count; // first real item
+
+    function step() {
+      const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 0;
+      return track.children[0].getBoundingClientRect().width + gap;
+    }
+
+    function render(animate) {
+      if (!animate) track.style.transition = 'none';
+      track.style.transform = `translateX(${-index * step()}px)`;
+      if (!animate) {
+        track.getBoundingClientRect(); // force reflow before re-enabling the transition
+        track.style.transition = '';
+      }
+    }
+
+    track.addEventListener('transitionend', e => {
+      if (e.propertyName !== 'transform') return;
+      if (index >= count * 2) { index -= count; render(false); }
+      else if (index < count) { index += count; render(false); }
+    });
+
+    nextBtn?.addEventListener('click', () => { index++; render(true); });
+    prevBtn?.addEventListener('click', () => { index--; render(true); });
+    window.addEventListener('resize', () => render(false));
+
+    render(false);
   });
 })();
