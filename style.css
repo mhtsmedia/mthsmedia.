@@ -511,7 +511,16 @@ nav a.active { color: var(--accent-text); font-weight: 600; background: var(--ac
 .testimonials__inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
 .testimonials__title { font-size: clamp(32px, 5vw, 58px); font-weight: 700; letter-spacing: -1.5px; color: var(--text); margin-bottom: 52px; }
 
-.testimonials__grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; }
+.testimonials__marquee {
+  overflow: hidden; cursor: grab; touch-action: pan-y; user-select: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  padding: 20px 0 40px;
+}
+.testimonials__marquee.is-dragging { cursor: grabbing; }
+.testimonials__track { display: flex; gap: 14px; width: max-content; will-change: transform; }
+.testimonials__track .tcard { width: 340px; flex-shrink: 0; }
+.testimonials__track .tcard:hover { transform: translateY(-5px); }
 
 .tcard {
   padding: 40px; background: var(--bg); border-radius: var(--radius);
@@ -992,7 +1001,6 @@ a.cinfo:hover { transform: translateY(-2px); border-color: transparent; box-shad
 /* ── HOVER INTERACTIONS: touch devices only get scale, no sibling dimming ── */
 @media (hover: hover) and (pointer: fine) {
   .capabilities__row:hover .cap-chip:not(:hover) { opacity: 0.58; transform: scale(0.97); }
-  .testimonials__grid:hover .tcard:not(:hover) { opacity: 0.58; transform: scale(0.97); }
   .faq__list:hover .faq__item:not(:hover) { opacity: 0.6; }
 }
 
@@ -1016,7 +1024,6 @@ a.cinfo:hover { transform: translateY(-2px); border-color: transparent; box-shad
   .trust__inner { grid-template-columns: 1fr; gap: 36px; }
   .trust__img { height: 320px; }
   .process__grid { grid-template-columns: repeat(2, 1fr); }
-  .testimonials__grid { grid-template-columns: 1fr; }
 }
 
 /* ── MOBILE (≤600px) ───────────────────────── */
@@ -1073,7 +1080,8 @@ a.cinfo:hover { transform: translateY(-2px); border-color: transparent; box-shad
   .trust__btns { flex-direction: column; align-items: flex-start; }
 
   /* testimonials */
-  .testimonials__grid { grid-template-columns: 1fr; gap: 10px; }
+  .testimonials__track { gap: 10px; }
+  .testimonials__track .tcard { width: 280px; }
   .tcard { padding: 28px 24px; }
   .testimonials__title { letter-spacing: -1px; }
 

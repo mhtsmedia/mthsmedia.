@@ -131,6 +131,79 @@ if (hoverCapable && !reduceMotion) {
   });
 }
 
+/* ── Testimonials: endless marquee ──────────── */
+/* Clones the cards so the row is always wider than the viewport, then moves
+   it with rAF and wraps the offset by one set's width, so the loop has no
+   seam. Drag and horizontal wheel/trackpad move it by hand; hover pauses it.
+   New reviews only need a new .tcard in the HTML. */
+(function () {
+  const marquee = document.querySelector('.testimonials__marquee');
+  const track = marquee && marquee.querySelector('.testimonials__track');
+  if (!track) return;
+  const originals = Array.from(track.children);
+  if (!originals.length) return;
+
+  const speed = 0.4; // px per frame at 60fps
+  let setWidth = 0, offset = 0, hovering = false, dragging = false, lastX = 0, lastT = 0;
+
+  function measure() {
+    track.querySelectorAll('[data-clone]').forEach(c => c.remove());
+    const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+    setWidth = originals.reduce((w, c) => w + c.offsetWidth + gap, 0);
+    const copies = Math.ceil(marquee.offsetWidth / setWidth) + 1;
+    for (let i = 0; i < copies; i++) {
+      originals.forEach(c => {
+        const clone = c.cloneNode(true);
+        clone.setAttribute('data-clone', '');
+        clone.setAttribute('aria-hidden', 'true');
+        track.appendChild(clone);
+      });
+    }
+  }
+  function render() {
+    offset = ((offset % setWidth) + setWidth) % setWidth;
+    track.style.transform = 'translate3d(' + (-offset) + 'px,0,0)';
+  }
+  function tick(t) {
+    const dt = lastT ? Math.min(t - lastT, 50) : 16.7;
+    lastT = t;
+    if (!hovering && !dragging && !reduceMotion) offset += speed * dt / 16.7;
+    render();
+    requestAnimationFrame(tick);
+  }
+
+  // Mouse only: a tap on touch screens would otherwise leave it paused
+  marquee.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') hovering = true; });
+  marquee.addEventListener('pointerleave', () => { hovering = false; });
+  marquee.addEventListener('pointerdown', e => {
+    dragging = true; lastX = e.clientX;
+    marquee.setPointerCapture(e.pointerId);
+    marquee.classList.add('is-dragging');
+  });
+  marquee.addEventListener('pointermove', e => {
+    if (!dragging) return;
+    offset -= e.clientX - lastX;
+    lastX = e.clientX;
+  });
+  const endDrag = () => { dragging = false; marquee.classList.remove('is-dragging'); };
+  marquee.addEventListener('pointerup', endDrag);
+  marquee.addEventListener('pointercancel', endDrag);
+  marquee.addEventListener('wheel', e => {
+    if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return; // leave vertical page scroll alone
+    e.preventDefault();
+    offset += e.deltaX;
+  }, { passive: false });
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(measure, 150);
+  });
+
+  measure();
+  requestAnimationFrame(tick);
+})();
+
 /* ── Cursor-glow + 3D tilt on cards ─────────── */
 /* Spring-smoothed: targets update instantly on mousemove, but the values
    actually written to the CSS vars ease toward them each frame — same
