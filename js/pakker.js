@@ -9,21 +9,21 @@ const PAKKER = {
     title: 'Foto og drone',
     items: [
       {
-        id: 'foto-liten', name: 'Liten', desc: 'Passer når du trenger mellom 10 og 15 bilder.',
+        id: 'foto-liten', name: 'Liten', desc: 'Bilder som passer til Instagram og sosiale medier.',
         price: 2990, unit: 'inkl. mva.',
-        includes: ['10–15 redigerte bilder', 'Foto inne og ute', 'Levering innen 3–7 virkedager'],
+        includes: ['10–15 redigerte bilder', 'Inntil 1 time fotografering', 'Tilpasset Instagram (4:5 og 9:16)', 'Levering innen 3–7 virkedager'],
         extras: ['drone', 'kveld', 'ekstrabilde']
       },
       {
-        id: 'foto-medium', name: 'Medium', desc: 'Passer når du trenger mellom 20 og 25 bilder.',
+        id: 'foto-medium', name: 'Medium', desc: 'Bilder som passer til nettsiden din.',
         price: 3990, unit: 'inkl. mva.',
-        includes: ['20–25 redigerte bilder', 'Foto inne og ute', 'Levering innen 3–7 virkedager'],
+        includes: ['20–25 redigerte bilder', 'Inntil 2 timer fotografering', 'Liggende og stående format til nettside', 'Levering innen 3–7 virkedager'],
         extras: ['drone', 'kveld', 'ekstrabilde']
       },
       {
-        id: 'foto-stor', name: 'Stor', desc: 'Passer når du trenger mellom 30 og 40 bilder.',
+        id: 'foto-stor', name: 'Stor', desc: 'Bilder til nettside, sosiale medier og markedsføring.',
         price: 4600, unit: 'inkl. mva.',
-        includes: ['30–40 redigerte bilder', 'Foto inne og ute', 'Levering innen 3–7 virkedager'],
+        includes: ['30–40 redigerte bilder', 'Inntil 3 timer fotografering', 'Formater til nettside og sosiale medier', 'Levering innen 3–7 virkedager'],
         extras: ['drone', 'kveld', 'ekstrabilde']
       }
     ]
