@@ -130,6 +130,16 @@
         <label class="form-label" for="phoneField">Telefon (valgfritt)</label>
         <input type="tel" id="phoneField" name="phone" placeholder="+47 000 00 000">
       </div>
+      <div class="pkg-pick" id="pakkeVelger">
+        <div class="form-group">
+          <label class="form-label" for="pakkeField">Pakke</label>
+          <select id="pakkeField" name="pakke"></select>
+        </div>
+        <div class="pkg-pick__extras"></div>
+        <p class="pkg-pick__total" hidden></p>
+        <input type="hidden" name="tillegg">
+        <input type="hidden" name="estimert_pris">
+      </div>
       <div class="form-group">
         <label class="form-label" for="messageField">Melding</label>
         <textarea id="messageField" name="message" placeholder="Fortell oss litt om prosjektet ditt..." required></textarea>
@@ -178,6 +188,7 @@
   </div>
 </div>
 
+<script src="js/pakker.js"></script>
 <script src="js/site.js"></script>
 <script>
 /* ================= MM LOGO KOMPONENTEN ================= */

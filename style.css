@@ -718,6 +718,72 @@ body.has-cursor input, body.has-cursor textarea { cursor: text; }
 .srv-tile__btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(20,16,8,0.22); }
 .srv-tile__btn:active { transform: scale(0.97); }
 
+/* ── PRICING (services page) ───────────────── */
+.pricing { padding: 40px 6% 140px; }
+.pricing__inner { max-width: 1300px; margin: 0 auto; }
+.pricing__title { font-size: clamp(32px, 5vw, 58px); font-weight: 700; letter-spacing: -1.5px; color: var(--text); margin-bottom: 18px; }
+.pricing__lead { color: var(--muted); font-size: 16px; line-height: 1.7; max-width: 620px; margin-bottom: 64px; }
+.pricing__group { margin-bottom: 72px; scroll-margin-top: 110px; }
+.pricing__group:last-child { margin-bottom: 0; }
+.pricing__group-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 22px; }
+.pricing__group-title { font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(22px, 2.4vw, 30px); font-weight: 700; letter-spacing: -0.6px; color: var(--text); }
+.pricing__note { font-size: 13px; color: var(--muted2); }
+.pricing__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; align-items: stretch; }
+.pricing__grid--3 { grid-template-columns: repeat(3, 1fr); }
+
+.pkg {
+  display: flex; flex-direction: column; border-radius: var(--radius);
+  background: var(--bg); border: 1px solid var(--border);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 1px 2px rgba(20,16,8,0.03), 0 16px 40px -24px rgba(20,16,8,0.14);
+}
+[data-theme="dark"] .pkg { background: var(--bg2); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 16px 40px -24px rgba(0,0,0,0.5); }
+.pkg__head { padding: 30px 30px 22px; border-bottom: 1px solid var(--border); }
+.pkg__name { font-family: 'Bricolage Grotesque', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.4px; color: var(--text); margin-bottom: 6px; }
+.pkg__desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
+.pkg__price { padding: 22px 30px; border-bottom: 1px solid var(--border); display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.pkg__amount { font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(34px, 3.4vw, 44px); font-weight: 800; letter-spacing: -1.2px; color: var(--text); line-height: 1; }
+.pkg__unit { font-size: 13px; color: var(--muted2); }
+.pkg__list { list-style: none; padding: 24px 30px 4px; display: grid; gap: 12px; }
+.pkg__list li { position: relative; padding-left: 28px; font-size: 14.5px; color: var(--text); line-height: 1.45; }
+.pkg__list li::before {
+  content: ''; position: absolute; left: 0; top: 2px; width: 18px; height: 18px; border-radius: 50%;
+  background: var(--accent-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c9861f' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 11px no-repeat;
+}
+.pkg__extras-wrap { padding: 0 30px; flex: 1; }
+.pkg__extras-title { font-size: 12px; font-weight: 700; color: var(--text); letter-spacing: 0.04em; text-transform: uppercase; margin: 22px 0 12px; }
+.pkg__extras { list-style: none; display: grid; gap: 10px; }
+.pkg__extra { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--text); }
+.pkg__extra label { cursor: pointer; }
+.pkg__extra input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--accent); cursor: pointer; flex-shrink: 0; margin: 0; }
+.pkg__extra-price { color: var(--muted2); }
+.pkg__stepper { display: inline-flex; align-items: center; gap: 2px; background: var(--bg2); border-radius: 100px; padding: 2px; flex-shrink: 0; }
+[data-theme="dark"] .pkg__stepper { background: var(--bg3); }
+.pkg__step {
+  width: 26px; height: 26px; border-radius: 50%; border: none; cursor: pointer;
+  background: var(--bg); color: var(--text); font-size: 15px; font-weight: 700; line-height: 1;
+  box-shadow: 0 1px 2px rgba(20,16,8,0.08); transition: transform 0.15s;
+}
+[data-theme="dark"] .pkg__step { background: var(--bg2); }
+.pkg__step:active { transform: scale(0.9); }
+.pkg__count { min-width: 22px; text-align: center; font-size: 13.5px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.pkg__foot { padding: 26px 30px 30px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.pkg__total { font-size: 14px; color: var(--muted); }
+.pkg__total strong { color: var(--text); font-size: 17px; margin-left: 4px; font-variant-numeric: tabular-nums; }
+
+/* package picker on the contact form */
+.pkg-pick { margin-bottom: 22px; }
+.pkg-pick .form-group { margin-bottom: 0; }
+.uform2 select {
+  width: 100%; background: var(--bg2); border: none; border-radius: var(--radius-sm);
+  padding: 14px 16px; font-size: 14px; color: var(--text); font-family: 'Hanken Grotesk', sans-serif;
+  cursor: pointer; transition: box-shadow 0.2s;
+}
+.uform2 select:focus { outline: none; box-shadow: 0 0 0 2px var(--accent); }
+.pkg-pick__extras .pkg__extras-title { margin-top: 18px; }
+.pkg-pick__total { margin-top: 16px; padding: 14px 16px; border-radius: var(--radius-sm); background: var(--accent-soft); font-size: 14px; color: var(--text); }
+.pkg-pick__total strong { font-size: 16px; margin: 0 4px; font-variant-numeric: tabular-nums; }
+.pkg-pick__total span { color: var(--muted); }
+
 /* ── SERVICE/PROJECT DETAIL PAGE CTA ────────── */
 .srv-block__btn {
   display: inline-block; padding: 13px 26px; border-radius: 100px;
@@ -1021,6 +1087,7 @@ a.cinfo:hover { transform: translateY(-2px); border-color: transparent; box-shad
   .trust__img { overflow: hidden; border-radius: var(--radius); }
   .trust__img .floating-quote { left: 12px; right: 12px; bottom: 12px; max-width: none; }
   .srv-bento { grid-template-columns: 1fr; }
+  .pricing__grid, .pricing__grid--3 { grid-template-columns: 1fr; }
   .trust__inner { grid-template-columns: 1fr; gap: 36px; }
   .trust__img { height: 320px; }
   .process__grid { grid-template-columns: repeat(2, 1fr); }
@@ -1073,6 +1140,9 @@ a.cinfo:hover { transform: translateY(-2px); border-color: transparent; box-shad
   .contact-hero__title { letter-spacing: -1.5px; }
   /* srv */
   .srv-bento { padding: 10px 5% 70px; gap: 16px; }
+  .pricing { padding: 20px 5% 80px; }
+  .pkg__head, .pkg__price, .pkg__foot { padding-left: 22px; padding-right: 22px; }
+  .pkg__list, .pkg__extras-wrap { padding-left: 22px; padding-right: 22px; }
   .srv-tile__body { padding: 24px; }
 
   /* trust */
