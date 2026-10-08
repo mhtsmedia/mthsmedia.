@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mthsmedia.no/sitemap.xml
+Sitemap: https://www.mthsmedia.no/sitemap.xml
