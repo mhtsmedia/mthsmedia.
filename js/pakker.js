@@ -9,16 +9,22 @@ const PAKKER = {
     title: 'Foto og drone',
     items: [
       {
-        id: 'foto-liten', name: 'Liten fotopakke', desc: 'Passer når du trenger mellom 20 og 25 bilder.',
-        price: 3990, unit: 'inkl. mva.',
-        includes: ['20–25 redigerte bilder', 'Foto inne og ute', 'Levering innen 3–7 virkedager'],
-        extras: ['drone', 'kveld', '360', 'ekstrabilde']
+        id: 'foto-liten', name: 'Liten', desc: 'Passer når du trenger mellom 10 og 15 bilder.',
+        price: 2990, unit: 'inkl. mva.',
+        includes: ['10–15 redigerte bilder', 'Foto inne og ute', 'Levering innen 3–7 virkedager'],
+        extras: ['drone', 'kveld', 'ekstrabilde']
       },
       {
-        id: 'foto-stor', name: 'Stor fotopakke', desc: 'Passer når du trenger mellom 30 og 40 bilder.',
+        id: 'foto-medium', name: 'Medium', desc: 'Passer når du trenger mellom 20 og 25 bilder.',
+        price: 3990, unit: 'inkl. mva.',
+        includes: ['20–25 redigerte bilder', 'Foto inne og ute', 'Levering innen 3–7 virkedager'],
+        extras: ['drone', 'kveld', 'ekstrabilde']
+      },
+      {
+        id: 'foto-stor', name: 'Stor', desc: 'Passer når du trenger mellom 30 og 40 bilder.',
         price: 4600, unit: 'inkl. mva.',
         includes: ['30–40 redigerte bilder', 'Foto inne og ute', 'Levering innen 3–7 virkedager'],
-        extras: ['drone', 'kveld', '360', 'ekstrabilde']
+        extras: ['drone', 'kveld', 'ekstrabilde']
       }
     ]
   },
@@ -26,13 +32,19 @@ const PAKKER = {
     title: 'Reklamefilm',
     items: [
       {
-        id: 'film-kort', name: 'Kort reklamefilm', desc: 'En kort film til sosiale medier eller nettsiden.',
+        id: 'film-liten', name: 'Liten', desc: 'En kort film til sosiale medier.',
         price: 4990, unit: 'inkl. mva.',
         includes: ['Film på opptil 30 sekunder', 'Inntil 2 timer opptak', 'Klipp, fargekorrigering og lisensfri musikk', 'Levert i 16:9 eller 9:16', '1 revisjonsrunde'],
         extras: ['dronefilm', 'teksting', 'kortversjon']
       },
       {
-        id: 'film-full', name: 'Reklamefilm', desc: 'En lengre film som forteller historien om bedriften din.',
+        id: 'film-medium', name: 'Medium', desc: 'En film til nettsiden og sosiale medier.',
+        price: 6990, unit: 'inkl. mva.',
+        includes: ['Film på opptil 60 sekunder', 'Inntil 3 timer opptak', 'Klipp, fargekorrigering og lisensfri musikk', 'Levert i 16:9 og 9:16', '2 revisjonsrunder'],
+        extras: ['dronefilm', 'teksting', 'kortversjon']
+      },
+      {
+        id: 'film-stor', name: 'Stor', desc: 'En lengre film om bedriften din.',
         price: 8990, unit: 'inkl. mva.',
         includes: ['Film på opptil 90 sekunder', 'Inntil 5 timer opptak', 'Klipp, fargekorrigering og lisensfri musikk', 'Levert i 16:9 og 9:16', '2 revisjonsrunder'],
         extras: ['dronefilm', 'teksting', 'kortversjon']
@@ -43,19 +55,19 @@ const PAKKER = {
     title: 'Månedlig innhold',
     items: [
       {
-        id: 'mnd-start', name: 'Start', desc: 'For deg som vil komme i gang.',
+        id: 'mnd-liten', name: 'Liten', desc: 'For deg som vil komme i gang.',
         price: 3000, unit: 'per måned',
         includes: ['5–10 bilder', '3 videoer', 'Tilpasset Instagram og TikTok', 'Planlegging av innhold'],
         extras: []
       },
       {
-        id: 'mnd-vekst', name: 'Vekst', desc: 'For deg som vil poste flere ganger i uka.',
+        id: 'mnd-medium', name: 'Medium', desc: 'For deg som vil poste flere ganger i uka.',
         price: 5000, unit: 'per måned',
         includes: ['10–20 bilder', '6 videoer', 'Tilpasset Instagram og TikTok', 'Planlegging av innhold'],
         extras: []
       },
       {
-        id: 'mnd-pro', name: 'Pro', desc: 'For deg som vil ha innhold nesten hver dag.',
+        id: 'mnd-stor', name: 'Stor', desc: 'For deg som vil ha innhold nesten hver dag.',
         price: 12000, unit: 'per måned',
         includes: ['30–40 bilder', '10 videoer', 'Tilpasset Instagram og TikTok', 'Planlegging av innhold'],
         extras: []
@@ -67,7 +79,6 @@ const PAKKER = {
 const TILLEGG = {
   drone:       { name: 'Dronebilder 5–7 stk.', price: 1900 },
   kveld:       { name: 'Kveldsbilder 6–8 stk.', price: 3300 },
-  '360':       { name: '360-visning', price: 2500 },
   ekstrabilde: { name: 'Ekstra bilder', price: 150, qty: true, per: 'per bilde' },
   dronefilm:   { name: 'Dronefilm', price: 1500 },
   teksting:    { name: 'Undertekster', price: 500 },
