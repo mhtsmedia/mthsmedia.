@@ -9,6 +9,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.mthsmedia.no/dronefoto.html</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.mthsmedia.no/foto-og-video.html</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.mthsmedia.no/sosiale-medier.html</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.mthsmedia.no/contact.html</loc>
     <priority>0.8</priority>
   </url>
