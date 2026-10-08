@@ -662,6 +662,7 @@ body.has-cursor input, body.has-cursor textarea { cursor: text; }
 .legal ul { margin: 0 0 14px; padding-left: 20px; }
 .legal li { color: var(--muted); line-height: 1.8; font-size: 15px; margin-bottom: 6px; }
 .legal a { color: var(--text); text-decoration: underline; text-underline-offset: 2px; }
+.legal--service { padding-bottom: 40px; }
 
 /* ── FOOTER ────────────────────────────────── */
 .footer { border-top: 1px solid var(--border); background: var(--bg); }
@@ -672,6 +673,7 @@ body.has-cursor input, body.has-cursor textarea { cursor: text; }
 .footer__logo { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: -0.5px; color: var(--text); }
 .footer__mail { font-size: 12px; color: var(--muted2); margin-top: 4px; display: inline-block; transition: color 0.2s; }
 .footer__mail:hover { color: var(--text); }
+.footer__legal { display: flex; flex-wrap: wrap; gap: 8px 18px; }
 .footer__legal a { font-size: 12px; color: var(--muted2); transition: color 0.2s; }
 .footer__legal a:hover { color: var(--text); }
 .footer__label { font-size: 11px; color: var(--muted2); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.08em; }
