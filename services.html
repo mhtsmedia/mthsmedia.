@@ -100,7 +100,7 @@
         <span class="tag">Produktfoto</span>
         <span class="tag">Portrett</span>
       </div>
-      <a href="contact.html" class="srv-tile__btn">Start et prosjekt</a>
+      <a href="#priser-film" class="srv-tile__btn">Se priser</a>
     </div>
   </article>
 
@@ -115,7 +115,7 @@
         <span class="tag">Eiendom</span>
         <span class="tag">Event</span>
       </div>
-      <a href="contact.html" class="srv-tile__btn">Start et prosjekt</a>
+      <a href="#priser-foto" class="srv-tile__btn">Se priser</a>
     </div>
   </article>
 
@@ -130,10 +130,32 @@
         <span class="tag">Snapchat</span>
         <span class="tag">Reels</span>
       </div>
-      <a href="contact.html" class="srv-tile__btn">Start et prosjekt</a>
+      <a href="#priser-mnd" class="srv-tile__btn">Se priser</a>
     </div>
   </article>
 </div>
+
+<section class="pricing" id="priser">
+  <div class="pricing__inner">
+    <h2 class="pricing__title reveal-lines"><span class="rl-line"><span>Pakker og priser</span></span></h2>
+    <p class="pricing__lead reveal">Velg en pakke, legg til det du trenger og send oss en forespørsel. Finner du ikke det du ser etter, lager vi et tilbud som passer deg.</p>
+
+    <div class="pricing__group" id="priser-foto">
+      <div class="pricing__group-head"><h3 class="pricing__group-title">Foto og drone</h3><span class="pricing__note">Alle priser inkl. mva.</span></div>
+      <div class="pricing__grid pricing__grid--3" data-pakker="foto"></div>
+    </div>
+
+    <div class="pricing__group" id="priser-film">
+      <div class="pricing__group-head"><h3 class="pricing__group-title">Reklamefilm</h3><span class="pricing__note">Engangsoppdrag. Alle priser inkl. mva.</span></div>
+      <div class="pricing__grid pricing__grid--3" data-pakker="film"></div>
+    </div>
+
+    <div class="pricing__group" id="priser-mnd">
+      <div class="pricing__group-head"><h3 class="pricing__group-title">Månedlig innhold</h3><span class="pricing__note">Nytt innhold til sosiale medier hver måned.</span></div>
+      <div class="pricing__grid pricing__grid--3" data-pakker="mnd"></div>
+    </div>
+  </div>
+</section>
 
 <footer class="footer">
   <div class="footer__inner">
@@ -169,6 +191,7 @@
   </div>
 </div>
 
+<script src="js/pakker.js"></script>
 <script src="js/site.js"></script>
 <script>
 /* ================= MM LOGO KOMPONENTEN ================= */
