@@ -154,11 +154,11 @@ function pakkeLenke(pakke, state) {
     root.innerHTML = group.items.map(p =>
       '<article class="pkg" data-id="' + p.id + '">' +
         '<div class="pkg__head"><h3 class="pkg__name">' + p.name + '</h3><p class="pkg__desc">' + p.desc + '</p></div>' +
-        '<div class="pkg__price"><span class="pkg__amount">' + pakkeFmt(p.price) + '</span><span class="pkg__unit">' + p.unit + '</span></div>' +
+        '<div class="pkg__price"><span class="pkg__approx">ca.</span><span class="pkg__amount">' + pakkeFmt(p.price) + '</span><span class="pkg__unit">' + p.unit + '</span></div>' +
         '<ul class="pkg__list">' + p.includes.map(i => '<li>' + i + '</li>').join('') + '</ul>' +
         '<div class="pkg__extras-wrap">' + tilleggHTML(p, {}, p.id) + '</div>' +
         '<div class="pkg__foot">' +
-          (p.extras.length ? '<div class="pkg__total">Totalt <strong>' + pakkeFmt(p.price) + '</strong></div>' : '') +
+          (p.extras.length ? '<div class="pkg__total">Estimert totalt <strong>' + pakkeFmt(p.price) + '</strong></div>' : '') +
           '<a class="srv-tile__btn pkg__btn" href="' + pakkeLenke(p, {}) + '">Velg pakke</a>' +
         '</div>' +
       '</article>'
@@ -235,4 +235,52 @@ function pakkeLenke(pakke, state) {
 
   const form = root.closest('form');
   if (form) form.addEventListener('reset', () => setTimeout(() => { clearState(); render(); }, 0));
+})();
+
+/* ── services.html: show one price group at a time ──
+   The tabs and the "Se priser" buttons on the service tiles switch group.
+   Clicking anywhere on a tile does the same, except on its "Les mer" link. */
+(function () {
+  const tabs = Array.from(document.querySelectorAll('.pricing__tab'));
+  if (!tabs.length) return;
+
+  function vis(panelId, scroll) {
+    const panel = document.getElementById(panelId);
+    if (!panel) return;
+    tabs.forEach(t => {
+      const on = t.getAttribute('aria-controls') === panelId;
+      t.setAttribute('aria-selected', on);
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+    document.querySelectorAll('.srv-tile[data-vis-pris]').forEach(tile => {
+      tile.classList.toggle('is-active', 'priser-' + tile.dataset.visPris === panelId);
+    });
+    if (scroll) document.getElementById('priser').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => vis(t.getAttribute('aria-controls')));
+    t.addEventListener('keydown', e => {
+      const step = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (!step) return;
+      const next = tabs[(i + step + tabs.length) % tabs.length];
+      next.focus();
+      vis(next.getAttribute('aria-controls'));
+    });
+  });
+
+  document.querySelectorAll('.srv-tile[data-vis-pris]').forEach(tile => {
+    tile.addEventListener('click', e => {
+      if (e.target.closest('a')) return;
+      vis('priser-' + tile.dataset.visPris, true);
+    });
+  });
+
+  function fraHash() {
+    const id = location.hash.slice(1);
+    return id.indexOf('priser-') === 0 && document.getElementById(id) ? id : null;
+  }
+  window.addEventListener('hashchange', () => { if (fraHash()) vis(fraHash(), true); });
+  vis(fraHash() || tabs[0].getAttribute('aria-controls'));
 })();
