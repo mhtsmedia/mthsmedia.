@@ -89,48 +89,57 @@
 </div>
 
 <div class="srv-bento">
-  <article class="srv-tile reveal-scale" id="foto">
-    <div class="srv-tile__img"><img src="media/eks11.JPG" alt="Reklamefilm og bedriftsfoto"></div>
+  <article class="srv-tile reveal-scale" id="film" data-vis-pris="film">
+    <div class="srv-tile__img"><img src="media/eks11.JPG" alt="Opptak av reklamefilm"></div>
     <div class="srv-tile__body">
-      <h2 class="srv-tile__title">Fra konsept til ferdig produkt</h2>
-      <p class="srv-tile__text">Vi produserer reklamefilmer, bedriftsvideoer, foto og digitalt innhold som engasjerer, fra idé til ferdig levering og optimalisert for kampanjer, nettsider og sosiale medier.</p>
+      <h2 class="srv-tile__title">Reklamefilm og video</h2>
+      <p class="srv-tile__text">Reklamefilm, bedriftsvideo og merkevarefilm til annonser, nettside og sosiale medier. Vi planlegger, filmer, klipper og leverer ferdig film i liggende og stående format.</p>
       <div class="srv-tile__tags">
         <span class="tag">Reklamefilm</span>
-        <span class="tag">Bedriftsfoto</span>
-        <span class="tag">Produktfoto</span>
-        <span class="tag">Portrett</span>
+        <span class="tag">Bedriftsvideo</span>
+        <span class="tag">Merkevarefilm</span>
+        <span class="tag">Dronefilm</span>
       </div>
-      <a href="foto-og-video.html" class="srv-tile__btn">Les mer om foto og video</a>
+      <div class="srv-tile__actions">
+        <button type="button" class="srv-tile__btn" aria-controls="priser-film">Se priser</button>
+        <a href="foto-og-video.html" class="srv-tile__more">Les mer</a>
+      </div>
     </div>
   </article>
 
-  <article class="srv-tile reveal-scale reveal-delay-1" id="drone">
+  <article class="srv-tile reveal-scale reveal-delay-1" id="foto" data-vis-pris="foto">
     <div class="srv-tile__img"><img src="media/eks12.JPG" alt="Dronefoto tatt med drone"></div>
     <div class="srv-tile__body">
-      <h2 class="srv-tile__title">Foto og video fra nye perspektiver</h2>
-      <p class="srv-tile__text">Vi leverer dronefoto og video i høy kvalitet som gir prosjektene dine et unikt visuelt uttrykk. Perfekt for reklame, eiendom, nettsider og markedsføring.</p>
+      <h2 class="srv-tile__title">Foto og dronefoto</h2>
+      <p class="srv-tile__text">Bedriftsfoto, produktfoto og dronebilder til nettside, annonser og sosiale medier. Passer for eiendom, hotell, restauranter, butikker og arrangementer.</p>
       <div class="srv-tile__tags">
-        <span class="tag">Luftfoto</span>
-        <span class="tag">FPV drone</span>
+        <span class="tag">Bedriftsfoto</span>
+        <span class="tag">Produktfoto</span>
+        <span class="tag">Dronefoto</span>
         <span class="tag">Eiendom</span>
-        <span class="tag">Event</span>
       </div>
-      <a href="dronefoto.html" class="srv-tile__btn">Les mer om dronefoto</a>
+      <div class="srv-tile__actions">
+        <button type="button" class="srv-tile__btn" aria-controls="priser-foto">Se priser</button>
+        <a href="dronefoto.html" class="srv-tile__more">Les mer</a>
+      </div>
     </div>
   </article>
 
-  <article class="srv-tile reveal-scale reveal-delay-2" id="content">
+  <article class="srv-tile reveal-scale reveal-delay-2" id="content" data-vis-pris="mnd">
     <div class="srv-tile__img"><img src="media/eks13 (1).jpg" alt="Innhold til sosiale medier"></div>
     <div class="srv-tile__body">
-      <h2 class="srv-tile__title">Innhold laget for sosiale medier</h2>
-      <p class="srv-tile__text">Vi lager visuelt innhold til Instagram, TikTok og Snapchat med fokus på kvalitet, tempo og uttrykk som fanger oppmerksomhet og bygger merkevare.</p>
+      <h2 class="srv-tile__title">Innhold til sosiale medier</h2>
+      <p class="srv-tile__text">Bilder og korte videoer til Instagram, TikTok og Snapchat, levert hver måned. Du får en plan for hva som skal postes og ferdig redigert innhold.</p>
       <div class="srv-tile__tags">
         <span class="tag">Instagram</span>
         <span class="tag">TikTok</span>
         <span class="tag">Snapchat</span>
         <span class="tag">Reels</span>
       </div>
-      <a href="sosiale-medier.html" class="srv-tile__btn">Les mer om sosiale medier</a>
+      <div class="srv-tile__actions">
+        <button type="button" class="srv-tile__btn" aria-controls="priser-mnd">Se priser</button>
+        <a href="sosiale-medier.html" class="srv-tile__more">Les mer</a>
+      </div>
     </div>
   </article>
 </div>
@@ -138,20 +147,27 @@
 <section class="pricing" id="priser">
   <div class="pricing__inner">
     <h2 class="pricing__title reveal-lines"><span class="rl-line"><span>Pakker og priser</span></span></h2>
-    <p class="pricing__lead reveal">Velg en pakke, legg til det du trenger og send oss en forespørsel. Finner du ikke det du ser etter, lager vi et tilbud som passer deg.</p>
+    <p class="pricing__lead reveal">Velg en tjeneste for å se pakkene. Legg til det du trenger og send oss en forespørsel. Finner du ikke det du ser etter, lager vi et tilbud som passer deg.</p>
+    <p class="pricing__estimate reveal"><strong>Prisene er estimater.</strong> De gir deg et bilde av hva et oppdrag vanligvis koster. Endelig pris avtaler vi etter en prat om hva du trenger.</p>
 
-    <div class="pricing__group" id="priser-foto">
-      <div class="pricing__group-head"><h3 class="pricing__group-title">Foto og drone</h3><span class="pricing__note">Alle priser inkl. mva.</span></div>
-      <div class="pricing__grid pricing__grid--3" data-pakker="foto"></div>
+    <div class="pricing__tabs" role="tablist" aria-label="Velg tjeneste">
+      <button type="button" class="pricing__tab" role="tab" id="tab-film" aria-controls="priser-film" aria-selected="true">Reklamefilm og video</button>
+      <button type="button" class="pricing__tab" role="tab" id="tab-foto" aria-controls="priser-foto" aria-selected="false">Foto og dronefoto</button>
+      <button type="button" class="pricing__tab" role="tab" id="tab-mnd" aria-controls="priser-mnd" aria-selected="false">Sosiale medier</button>
     </div>
 
-    <div class="pricing__group" id="priser-film">
-      <div class="pricing__group-head"><h3 class="pricing__group-title">Reklamefilm</h3><span class="pricing__note">Engangsoppdrag. Alle priser inkl. mva.</span></div>
+    <div class="pricing__group" id="priser-film" role="tabpanel" aria-labelledby="tab-film">
+      <div class="pricing__group-head"><h3 class="pricing__group-title">Reklamefilm</h3><span class="pricing__note">Estimerte priser for engangsoppdrag, inkl. mva.</span></div>
       <div class="pricing__grid pricing__grid--3" data-pakker="film"></div>
     </div>
 
-    <div class="pricing__group" id="priser-mnd">
-      <div class="pricing__group-head"><h3 class="pricing__group-title">Månedlig innhold</h3><span class="pricing__note">Nytt innhold til sosiale medier hver måned.</span></div>
+    <div class="pricing__group" id="priser-foto" role="tabpanel" aria-labelledby="tab-foto" hidden>
+      <div class="pricing__group-head"><h3 class="pricing__group-title">Foto og drone</h3><span class="pricing__note">Estimerte priser inkl. mva.</span></div>
+      <div class="pricing__grid pricing__grid--3" data-pakker="foto"></div>
+    </div>
+
+    <div class="pricing__group" id="priser-mnd" role="tabpanel" aria-labelledby="tab-mnd" hidden>
+      <div class="pricing__group-head"><h3 class="pricing__group-title">Månedlig innhold</h3><span class="pricing__note">Estimerte priser for nytt innhold hver måned.</span></div>
       <div class="pricing__grid pricing__grid--3" data-pakker="mnd"></div>
     </div>
   </div>
