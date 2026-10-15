@@ -35,19 +35,19 @@ const PAKKER = {
         id: 'film-liten', name: 'Liten', desc: 'En kort film til sosiale medier.',
         price: 4990, unit: 'inkl. mva.',
         includes: ['Film på opptil 30 sekunder', 'Inntil 2 timer opptak', 'Klipp, fargekorrigering og lisensfri musikk', 'Levert i 16:9 eller 9:16', '1 revisjonsrunde'],
-        extras: ['dronefilm', 'teksting', 'kortversjon']
+        extras: ['dronefilm', 'teksting']
       },
       {
         id: 'film-medium', name: 'Medium', desc: 'En film til nettsiden og sosiale medier.',
         price: 6990, unit: 'inkl. mva.',
         includes: ['Film på opptil 60 sekunder', 'Inntil 3 timer opptak', 'Klipp, fargekorrigering og lisensfri musikk', 'Levert i 16:9 og 9:16', '2 revisjonsrunder'],
-        extras: ['dronefilm', 'teksting', 'kortversjon']
+        extras: ['dronefilm', 'teksting']
       },
       {
         id: 'film-stor', name: 'Stor', desc: 'En lengre film om bedriften din.',
         price: 8990, unit: 'inkl. mva.',
         includes: ['Film på opptil 90 sekunder', 'Inntil 5 timer opptak', 'Klipp, fargekorrigering og lisensfri musikk', 'Levert i 16:9 og 9:16', '2 revisjonsrunder'],
-        extras: ['dronefilm', 'teksting', 'kortversjon']
+        extras: ['dronefilm', 'teksting']
       }
     ]
   },
@@ -81,8 +81,7 @@ const TILLEGG = {
   kveld:       { name: 'Kveldsbilder 6–8 stk.', price: 3300 },
   ekstrabilde: { name: 'Ekstra bilder', price: 150, qty: true, per: 'per bilde' },
   dronefilm:   { name: 'Dronefilm', price: 1500 },
-  teksting:    { name: 'Undertekster', price: 500 },
-  kortversjon: { name: 'Ekstra kortversjon til SoMe', price: 600, qty: true, per: 'per stk.' }
+  teksting:    { name: 'Undertekster', price: 500 }
 };
 
 const pakkeFmt = n => n.toLocaleString('nb-NO').replace(/\s/g, ' ') + ',-';
