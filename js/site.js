@@ -118,16 +118,38 @@ if (hoverCapable) {
   });
 }
 
-/* ── Magnetic buttons ──────────────────────── */
+/* ── Buttons: glow + pull toward the mouse ──── */
+/* Covers the large buttons in the page content, not the header. A warm
+   radial gradient sits under the pointer (--bx/--by) and the button drifts
+   a few px toward it, eased each frame so it settles instead of snapping. */
 if (hoverCapable && !reduceMotion) {
-  document.querySelectorAll('.mag-btn').forEach(btn => {
-    btn.addEventListener('mousemove', e => {
+  const BTN_SEL = '.hero__btn-primary, .hero__btn-secondary, .cta__btn, .cta__link, .srv-tile__btn, .srv-block__btn, .form-btn, .uform2__btn';
+  const MAX_PULL = 8;
+  document.querySelectorAll(BTN_SEL).forEach(btn => {
+    if (btn.closest('header')) return;
+    btn.classList.add('glow-btn');
+    let tx = 0, ty = 0, cx = 0, cy = 0, raf = 0;
+    function step() {
+      cx += (tx - cx) * 0.2;
+      cy += (ty - cy) * 0.2;
+      btn.style.translate = `${cx.toFixed(2)}px ${cy.toFixed(2)}px`;
+      if (Math.abs(tx - cx) > 0.05 || Math.abs(ty - cy) > 0.05) raf = requestAnimationFrame(step);
+      else { raf = 0; if (!tx && !ty) btn.style.translate = ''; }
+    }
+    btn.addEventListener('pointermove', e => {
       const r = btn.getBoundingClientRect();
-      const x = e.clientX - r.left - r.width / 2;
-      const y = e.clientY - r.top - r.height / 2;
-      btn.style.transform = `translate(${x * 0.22}px, ${y * 0.22}px)`;
+      const px = e.clientX - r.left, py = e.clientY - r.top;
+      btn.style.setProperty('--bx', px + 'px');
+      btn.style.setProperty('--by', py + 'px');
+      if (btn.disabled) return;
+      tx = Math.max(-MAX_PULL, Math.min(MAX_PULL, (px - r.width / 2) * 0.15));
+      ty = Math.max(-MAX_PULL, Math.min(MAX_PULL, (py - r.height / 2) * 0.3));
+      if (!raf) raf = requestAnimationFrame(step);
     });
-    btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+    btn.addEventListener('pointerleave', () => {
+      tx = 0; ty = 0;
+      if (!raf) raf = requestAnimationFrame(step);
+    });
   });
 }
 
@@ -206,9 +228,8 @@ if (hoverCapable && !reduceMotion) {
 
 /* ── Cursor-glow + 3D tilt on cards ─────────── */
 /* Spring-smoothed: targets update instantly on mousemove, but the values
-   actually written to the CSS vars ease toward them each frame — same
-   lerp technique as the custom cursor ring below — so the tilt has real
-   momentum instead of snapping straight to the cursor. */
+   actually written to the CSS vars ease toward them each frame, so the
+   tilt has real momentum instead of snapping straight to the cursor. */
 if (hoverCapable && !reduceMotion) {
   document.querySelectorAll('.tilt').forEach(card => {
     let targetRx = 0, targetRy = 0, targetMx = 50, targetMy = 50;
@@ -246,40 +267,6 @@ if (hoverCapable && !reduceMotion) {
     });
   });
 }
-
-/* ── Custom cursor ─────────────────────────── */
-(function () {
-  if (!hoverCapable || reduceMotion) return;
-  document.body.classList.add('has-cursor');
-  const dot = document.createElement('div'); dot.className = 'cursor-dot';
-  const ring = document.createElement('div'); ring.className = 'cursor-ring';
-  document.body.append(dot, ring);
-
-  let mx = window.innerWidth / 2, my = window.innerHeight / 2, rx = mx, ry = my;
-  let visible = false;
-
-  window.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    dot.style.transform = `translate(${mx}px, ${my}px) translate(-50%, -50%)`;
-    if (!visible) { visible = true; dot.style.opacity = '1'; ring.style.opacity = '1'; }
-  });
-  document.addEventListener('mouseleave', () => { dot.style.opacity = '0'; ring.style.opacity = '0'; });
-  document.addEventListener('mouseenter', () => { dot.style.opacity = '1'; ring.style.opacity = '1'; });
-
-  (function loop() {
-    rx += (mx - rx) * 0.18;
-    ry += (my - ry) * 0.18;
-    ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%, -50%)`;
-    requestAnimationFrame(loop);
-  })();
-
-  const hoverSel = 'a, button, .tilt, .theme-toggle, .hero__word, video';
-  document.addEventListener('mouseover', e => { if (e.target.closest(hoverSel)) ring.classList.add('cursor-ring--active'); });
-  document.addEventListener('mouseout', e => { if (e.target.closest(hoverSel)) ring.classList.remove('cursor-ring--active'); });
-  const textSel = 'input, textarea';
-  document.addEventListener('mouseover', e => { if (e.target.closest(textSel)) ring.classList.add('cursor-ring--text'); });
-  document.addEventListener('mouseout', e => { if (e.target.closest(textSel)) ring.classList.remove('cursor-ring--text'); });
-})();
 
 /* ── Hero video crossfade (home page only) ─── */
 document.addEventListener('DOMContentLoaded', () => {
