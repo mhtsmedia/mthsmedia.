@@ -123,7 +123,7 @@ if (hoverCapable) {
    radial gradient sits under the pointer (--bx/--by) and the button drifts
    a few px toward it, eased each frame so it settles instead of snapping. */
 if (hoverCapable && !reduceMotion) {
-  const BTN_SEL = '.hero__btn-primary, .hero__btn-secondary, .cta__btn, .cta__link, .srv-tile__btn, .srv-block__btn, .form-btn, .uform2__btn';
+  const BTN_SEL = '.hero__btn-primary, .hero__btn-secondary, .cta__btn, .cta__link, .trust__btn, .trust__link, .capabilities__link, .srv-tile__btn, .srv-block__btn, .form-btn, .uform2__btn';
   const MAX_PULL = 8;
   document.querySelectorAll(BTN_SEL).forEach(btn => {
     if (btn.closest('header')) return;
@@ -149,6 +149,16 @@ if (hoverCapable && !reduceMotion) {
     btn.addEventListener('pointerleave', () => {
       tx = 0; ty = 0;
       if (!raf) raf = requestAnimationFrame(step);
+    });
+  });
+
+  /* Cards get the same warm glow under the pointer, without moving. */
+  document.querySelectorAll('.why-card, .faq__item').forEach(card => {
+    card.classList.add('glow-card');
+    card.addEventListener('pointermove', e => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--gx', (e.clientX - r.left) + 'px');
+      card.style.setProperty('--gy', (e.clientY - r.top) + 'px');
     });
   });
 }
