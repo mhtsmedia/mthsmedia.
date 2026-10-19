@@ -34,19 +34,19 @@ const PAKKER = {
       {
         id: 'film-liten', name: 'Liten', desc: 'En kort film til sosiale medier.',
         price: 4990, unit: 'inkl. mva.',
-        includes: ['Film på opptil 30 sekunder', 'Inntil 2 timer opptak', 'Klipp, fargekorrigering og lisensfri musikk', 'Levert i 16:9 og 9:16', '1 revisjonsrunde'],
+        includes: ['Film på opptil 30 sekunder', 'Inntil 2 timer opptak', 'Klipp, fargekorrigering og lisensfri musikk', 'Levert i 16:9 eller 9:16', '1 revisjonsrunde'],
         extras: ['dronefilm', 'teksting']
       },
       {
         id: 'film-medium', name: 'Medium', desc: 'En film til nettsiden og sosiale medier.',
         price: 6990, unit: 'inkl. mva.',
-        includes: ['Film på opptil 60 sekunder', 'Inntil 3 timer opptak', 'Klipp, fargekorrigering og lisensfri musikk', 'Levert i 16:9 og 9:16', '2 revisjonsrunder'],
+        includes: ['Film på opptil 60 sekunder', 'Inntil 3 timer opptak', 'Klipp, fargekorrigering og lisensfri musikk', 'Levert i 16:9 eller 9:16', '2 revisjonsrunder'],
         extras: ['dronefilm', 'teksting']
       },
       {
         id: 'film-stor', name: 'Stor', desc: 'En lengre film om bedriften din.',
         price: 8990, unit: 'inkl. mva.',
-        includes: ['Film på opptil 90 sekunder', 'Inntil 5 timer opptak', 'Klipp, fargekorrigering og lisensfri musikk', 'Levert i 16:9 og 9:16', '2 revisjonsrunder'],
+        includes: ['Film på opptil 90 sekunder', 'Inntil 5 timer opptak', 'Klipp, fargekorrigering og lisensfri musikk', 'Levert i 16:9 eller 9:16', '2 revisjonsrunder'],
         extras: ['dronefilm', 'teksting']
       }
     ]
